@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=chrome'>
+    <title>Candle Flames</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url( './src/assets/images/bg.svg' );
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+		#content {
+			padding: 20px;
+		}
+        .glow {
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7700, 0 0 40px #ff7700, 0 0 50px #ff7700, 0 0 60px #ff7700, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+  }
+}
+
+        .text-stroked {
+            color: #FFE4B3;
+            text-shadow: 3px 3px 3px black;
+        }
+    </style>
+    <script src='main.js'></script>
+</head>
+<body>
+    <section>
+        <nav class="navbar fixed-top navbar-expand-lg bg-black">          
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./src/assets/images/logo.png" alt="" width="75px" height="75px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                    <h3><a class="nav-link" aria-current="page" href="./index.html">Bemutatkozás</a></h3>
+                            </li>
+                            <li class="nav-item">
+                                    <h3><a class="nav-link active" href="./products.html">Termékeink</a></h3>
+                            </li>
+                            <li class="nav-item">
+                                    <h3><a class="nav-link" href="./contact.html">Rólunk</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+        <br><br><br><br>
+    </section>
+    <section id="content">
+        <div class="container">
+            <div class="page-header d-flex justify-content-around">
+                <span class="h1 align-middle">
+                    <h1>TERMÉKEINK</h1>
+                </span>
+            </div>
+            <br>
+</div>
+<div id="product-details">
+  <p></p>
+  <p id="product-price"></p>
+</div>
+
+
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4" id="image-container">
+      <!-- <img src="`./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg`"> -->
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title text-center" id="product-name">Card title</h2>
+        <p class="card-text" id="product-description"></p>
+        <p class="card-text text-muted text-center">Kérjen árajánlatot!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" class="img-fluid" id="modalImage" alt="Large Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+    <section>
+        <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 bg-warning-subtle text-warning-emphasis bottom">
+            <div class="col-md-4 d-flex align-items-center">
+                  <span class="mb-3 mb-md-0">
+                    <h3>
+                        CANDLEFLAMES
+                    </h3>
+                    <div>
+                        Cégünket és termékeinket nem csak weboldalunkon, hanem az alábbi „social media” felületeken is elérheti!
+Keressen bennünket egyéb elérhetőségeinken is!
+                    </div>
+                  </span>
+            </div>
+            <div class="nav col-md-4 justify-content-end d-flex">
+                <div>
+                    <h4>
+                        <strong>KAPCSOLAT</strong>
+                    </h4>
+                    <p>
+                        Buglyó Imre
+                    </p>
+                    <p>
+                        Egyéni vállalkozó
+                    </p>
+					<hr>
+                    <p>
+                        Nagyhegyes, Tulipán utca 22. Magyarország
+                    </p>
+                    <p>
+                        +36-30/325-89-56
+                    </p>
+                    <p>
+                        bugimi83@gmail.com
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 border-top bottom">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <img width="100" height="100" src="./src/assets/images/logo.png"/>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Fox All Up</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.tiktok.com/" target="_blank"><img class="bi" width="50" height="50" src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/" target="_blank"><img class="bi" width="50" height="50" src="https://www.cdnlogo.com/logos/i/21/instagram-glyph.svg"></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank"><img class="bi" width="50" height="50" src="https://www.cdnlogo.com/logos/f/84/facebook.svg"></a></li>
+              </ul>
+        </footer>
+    </section>
+<!-- Ezek lesznek majd élesben használva. Butás CORS miatt muszáj inline kóddal fejlesztenem
+<script src="./src/js/product.js"></script>
+<script src="./src/js/main.js"></script>
+
+Inline kód: -->
+
+<script>
+const products = [
+    { id: 1, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue', description: 'Nice candle with cube shape and calm blue color.', price: 'Kérjen árajánlatot!' },
+    { id: 2, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
+    { id: 3, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
+
+    // Cylindrical Candles
+    { id: 4, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
+    { id: 5, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
+    {
+      id: 6,
+      name: 'Cylindrical Creamy Peach Candle',
+      shape: 'cylindrical',
+      color: 'creamy_peach'
+    },
+    { id: 7, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
+    { id: 8, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
+    { id: 9, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
+    { id: 10, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
+    { id: 11, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
+    { id: 12, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
+    { id: 13, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
+    {
+      id: 14,
+      name: 'Cylindrical Red Special Candle',
+      shape: 'cylindrical',
+      color: 'red_special'
+    },
+    { id: 15, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
+    { id: 16, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
+    { id: 17, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
+    { id: 18, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' },
+
+    // Pyramid Candles
+    { id: 19, name: 'Pyramid Blue Candle', shape: 'pyramid', color: 'blue' },
+    { id: 20, name: 'Pyramid Burgundy Candle', shape: 'pyramid', color: 'burgundy' },
+    { id: 21, name: 'Pyramid Cognac Candle', shape: 'pyramid', color: 'cognac' },
+    { id: 22, name: 'Pyramid Dark Blue Candle', shape: 'pyramid', color: 'dark_blue' },
+    { id: 23, name: 'Pyramid Green Candle', shape: 'pyramid', color: 'green' },
+    { id: 24, name: 'Pyramid Orange Candle', shape: 'pyramid', color: 'orange' },
+    { id: 25, name: 'Pyramid Peach Candle', shape: 'pyramid', color: 'peach' },
+    { id: 26, name: 'Pyramid Pink Candle', shape: 'pyramid', color: 'pink' },
+    { id: 27, name: 'Pyramid Purple Candle', shape: 'pyramid', color: 'purple' },
+    { id: 28, name: 'Pyramid Red Candle', shape: 'pyramid', color: 'red' },
+    { id: 29, name: 'Pyramid Turquoise Candle', shape: 'pyramid', color: 'turquoise' },
+    { id: 30, name: 'Pyramid White Candle', shape: 'pyramid', color: 'white' },
+    { id: 31, name: 'Pyramid Wine Candle', shape: 'pyramid', color: 'wine' },
+    { id: 32, name: 'Pyramid Yellow Candle', shape: 'pyramid', color: 'yellow' },
+
+    // Special Candles
+    { id: 33, name: 'Special Apple Green Candle', shape: 'special', color: 'apple_green' },
+    { id: 34, name: 'Special Blue Candle', shape: 'special', color: 'blue' },
+    { id: 35, name: 'Special Burgundy Candle', shape: 'special', color: 'burgundy' },
+    { id: 36, name: 'Special Cognac Candle', shape: 'special', color: 'cognac' },
+    { id: 37, name: 'Special Dark Blue Candle', shape: 'special', color: 'dark_blue' },
+    { id: 38, name: 'Special Orange Candle', shape: 'special', color: 'orange' },
+    { id: 39, name: 'Special Peach Candle', shape: 'special', color: 'peach' },
+    { id: 40, name: 'Special Pink Candle', shape: 'special', color: 'pink' },
+    { id: 41, name: 'Special Purple Candle', shape: 'special', color: 'purple' },
+    { id: 42, name: 'Special Red Candle', shape: 'special', color: 'red' },
+    { id: 43, name: 'Special Turquoise Candle', shape: 'special', color: 'turquoise' },
+    { id: 44, name: 'Special White Candle', shape: 'special', color: 'white' },
+
+    // Spherical Candles
+    { id: 45, name: 'Spherical Burgundy Candle', shape: 'spherical', color: 'burgundy' },
+    { id: 46, name: 'Spherical Cognac Candle', shape: 'spherical', color: 'cognac' },
+    { id: 47, name: 'Spherical Dark Blue Candle', shape: 'spherical', color: 'dark_blue' },
+    { id: 48, name: 'Spherical Orange Candle', shape: 'spherical', color: 'orange' },
+    { id: 49, name: 'Spherical Pastel Blue Candle', shape: 'spherical', color: 'pastel_blue' },
+    { id: 50, name: 'Spherical Peach Candle', shape: 'spherical', color: 'peach' },
+    { id: 51, name: 'Spherical Purple Candle', shape: 'spherical', color: 'purple' },
+    { id: 52, name: 'Spherical White Candle', shape: 'spherical', color: 'white' },
+    { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' },
+
+    // Square Prism Candles
+    { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
+    { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
+    { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
+    {
+      id: 57,
+      name: 'Square Prism Dark Blue Candle',
+      shape: 'square_prism',
+      color: 'dark_blue'
+    },
+    { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
+    { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
+    { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
+    { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
+    { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
+    { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
+    {
+      id: 64,
+      name: 'Square Prism Turquoise Candle',
+      shape: 'square_prism',
+      color: 'turquoise'
+    },
+    { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
+    { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' },
+
+    // Triangular Prism Candles
+    { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
+    {
+      id: 68,
+      name: 'Triangular Prism Burgundy Candle',
+      shape: 'triangular_prism',
+      color: 'burgundy'
+    },
+    {
+      id: 69,
+      name: 'Triangular Prism Cognac Candle',
+      shape: 'triangular_prism',
+      color: 'cognac'
+    },
+    {
+      id: 70,
+      name: 'Triangular Prism Green Candle',
+      shape: 'triangular_prism',
+      color: 'green'
+    },
+    {
+      id: 71,
+      name: 'Triangular Prism Orange Candle',
+      shape: 'triangular_prism',
+      color: 'orange'
+    },
+    {
+      id: 72,
+      name: 'Triangular Prism Peach Candle',
+      shape: 'triangular_prism',
+      color: 'peach'
+    },
+    {
+      id: 73,
+      name: 'Triangular Prism Purple Candle',
+      shape: 'triangular_prism',
+      color: 'purple'
+    },
+    { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
+    {
+      id: 75,
+      name: 'Triangular Prism Turquoise Candle',
+      shape: 'triangular_prism',
+      color: 'turquoise'
+    },
+    {
+      id: 76,
+      name: 'Triangular Prism White Candle',
+      shape: 'triangular_prism',
+      color: 'white'
+    },
+    {
+      id: 77,
+      name: 'Triangular Prism Yellow Candle',
+      shape: 'triangular_prism',
+      color: 'yellow'
+    },
+
+    // Square Prism Steps Candles
+    { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
+  ];
+ </script>
+ <script>
+ 
+ //SampleText
+ const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`;
+ 
+ // Extract product ID from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('id');
+
+ 
+ // Find the product by ID
+    const product = products.find(p => p.id == productId);
+ 
+ if (product) {
+      document.querySelector('#product-name').textContent = product.name;
+      <!-- document.querySelector('#product-description').textContent = product.description; -->
+	  document.querySelector('#product-description').textContent = loremIpsum;
+      document.querySelector('#product-price').textContent = product.price;
+	  document.querySelector('#image-container').innerHTML = `<img src=./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg  class="img-fluid rounded-start">`;
+	  <!-- <img src=./src/assets/images/products/candles/cube-peach-medium.jpg> -->
+	  
+    } else {
+      document.querySelector('#product-details').textContent = 'Product not found';
+    }
+	
+// Image render
+const imageContainer = document.getElementById('image-container');
+const imgElement = document.createElement('img')
+      imgElement.src = `./src/assets/images/products/candles/${product.shape}-${product.color}-small.jpg`
+      imgElement.alt = 'Candle image'
+	
+ </script>
