@@ -146,7 +146,7 @@
       <div class="card-body">
         <h2 class="card-title text-center" id="product-name">Card title</h2>
         <p class="card-text" id="product-description"></p>
-        <p class="card-text text-muted text-center">Kérjen árajánlatot!</p>
+        <p class="card-text text-muted text-center align-bottom">Kérjen árajánlatot!</p>
       </div>
     </div>
   </div>
@@ -219,6 +219,7 @@ Inline kód: -->
 
 <script>
 const products = [
+    // Cube Candles
     { id: 1, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue', description: 'Nice candle with cube shape and calm blue color.', price: 'Kérjen árajánlatot!' },
     { id: 2, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
     { id: 3, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
@@ -234,12 +235,7 @@ const products = [
     { id: 11, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
     { id: 12, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
     { id: 13, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
-    {
-      id: 14,
-      name: 'Cylindrical Red Special Candle',
-      shape: 'cylindrical',
-      color: 'red_special'
-    },
+    { id: 14, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
     { id: 15, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
     { id: 16, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
     { id: 17, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
@@ -290,90 +286,35 @@ const products = [
     { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
     { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
     { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
-    {
-      id: 57,
-      name: 'Square Prism Dark Blue Candle',
-      shape: 'square_prism',
-      color: 'dark_blue'
-    },
+    { id: 57, name: 'Square Prism Dark Blue Candle', shape: 'square_prism', color: 'dark_blue' },
     { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
     { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
     { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
     { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
     { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
     { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
-    {
-      id: 64,
-      name: 'Square Prism Turquoise Candle',
-      shape: 'square_prism',
-      color: 'turquoise'
-    },
+    { id: 64, name: 'Square Prism Turquoise Candle', shape: 'square_prism', color: 'turquoise' },
     { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
     { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' },
 
     // Triangular Prism Candles
     { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
-    {
-      id: 68,
-      name: 'Triangular Prism Burgundy Candle',
-      shape: 'triangular_prism',
-      color: 'burgundy'
-    },
-    {
-      id: 69,
-      name: 'Triangular Prism Cognac Candle',
-      shape: 'triangular_prism',
-      color: 'cognac'
-    },
-    {
-      id: 70,
-      name: 'Triangular Prism Green Candle',
-      shape: 'triangular_prism',
-      color: 'green'
-    },
-    {
-      id: 71,
-      name: 'Triangular Prism Orange Candle',
-      shape: 'triangular_prism',
-      color: 'orange'
-    },
-    {
-      id: 72,
-      name: 'Triangular Prism Peach Candle',
-      shape: 'triangular_prism',
-      color: 'peach'
-    },
-    {
-      id: 73,
-      name: 'Triangular Prism Purple Candle',
-      shape: 'triangular_prism',
-      color: 'purple'
-    },
+    { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
+    { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
+    { id: 70, name: 'Triangular Prism Green Candle', shape: 'triangular_prism', color: 'green' },
+    { id: 71, name: 'Triangular Prism Orange Candle', shape: 'triangular_prism', color: 'orange' },
+    { id: 72, name: 'Triangular Prism Peach Candle', shape: 'triangular_prism', color: 'peach' },
+    { id: 73, name: 'Triangular Prism Purple Candle', shape: 'triangular_prism', color: 'purple' },
     { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
-    {
-      id: 75,
-      name: 'Triangular Prism Turquoise Candle',
-      shape: 'triangular_prism',
-      color: 'turquoise'
-    },
-    {
-      id: 76,
-      name: 'Triangular Prism White Candle',
-      shape: 'triangular_prism',
-      color: 'white'
-    },
-    {
-      id: 77,
-      name: 'Triangular Prism Yellow Candle',
-      shape: 'triangular_prism',
-      color: 'yellow'
-    },
+    { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
+    { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
+    { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' },
 
     // Square Prism Steps Candles
     { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
   ];
 
-const physicalProps = [
+  const physicalProps = [
 
     // Cylindrical Candles
     { type: 'C1', baseAreaMm2: 45, heightMm: 65, weightG: 95, burnTimeHours: '-'},
@@ -386,7 +327,7 @@ const physicalProps = [
     { type: 'C20', baseAreaMm2: 65, heightMm: 200, weightG: 600, burnTimeHours: 40},
     { type: 'C25', baseAreaMm2: 65, heightMm: 250, weightG: 750, burnTimeHours: 50},
     { type: 'C30', baseAreaMm2: 65, heightMm: 300, weightG: 900, burnTimeHours: 60},
-    { type: 'C-advent', baseAreaMm2: 40, heightMm: 50-64-77-90, weightG: 410, burnTimeHours: '-'},
+    { type: 'C-advent', baseAreaMm2: 40, heightMm: '50-64-77-90', weightG: 410, burnTimeHours: '-'},
 
     //Triangular Prism Candles
     { type: 'D10', baseAreaMm2: '∆ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20},
@@ -399,7 +340,6 @@ const physicalProps = [
     { type: 'P10', baseAreaMm2: '□ 70x70', heightMm: 100, weightG: 156, burnTimeHours: '-'},
     { type: 'P15', baseAreaMm2: '□ 90x90', heightMm: 150, weightG: 340, burnTimeHours: '-'},
     { type: 'P20', baseAreaMm2: '□ 100x100', heightMm: 200, weightG: 550, burnTimeHours: '-'},
-    { type: 'C5', baseAreaMm2: '□ 70x70', heightMm: 50, weightG: 150, burnTimeHours: '-'},
 
     // Square Prism Candles
     { type: 'V5', baseAreaMm2: '□ 60x60', heightMm: 50, weightG: 140, burnTimeHours: 10},
@@ -433,21 +373,84 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
  // Extract product ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
+let productType = 'Type of product not found.';
 
- 
  // Find the product by ID
-    const product = products.find(p => p.id == productId);
+const product = products.find(p => p.id == productId);
+
+// Sample type
+switch (product.shape) {
+    case 'cube':
+        productType = 'C1';
+        break;
+    case 'cylindrical':
+        productType = 'C30';
+        break;
+    case 'pyramid':
+        productType = 'P15';
+        break;
+    case 'spherical':
+        productType = 'K6';
+        break;
+    case 'square_prism':
+        productType = 'V20';
+        break;
+    case 'triangular_prism':
+        productType = 'D25';
+        break;
+    case 'special':
+        productType = '3B10';
+        break;
+    case 'square_prism_steps':
+        productType = 'Sample';
+        break;
+    default:
+        productType = 'Type of product not found.';
+        break;
+}
+
+// Find props by type
+let prop = '';
+if (productType != 'Sample'){
+    prop = physicalProps.find(p => p.type == productType);
+}
  
  if (product) {
-      document.querySelector('#product-name').textContent = product.name;
+    document.querySelector('#product-name').textContent = product.name;
 //    document.querySelector('#product-description').textContent = product.description;
-	  document.querySelector('#product-description').textContent = loremIpsum;
+    if (productType){	  
+        document.querySelector('#product-description').innerHTML = 
+        `<hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th colspan="5" class="text-center h5">Physical Properties</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Base Area (mm²)</th>
+                    <th scope="col">Height (mm)</th>
+                    <th scope="col">Weight (g)</th>
+                    <th scope="col">Burning Time (hour)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="col">${prop.type}</th>
+                    <td>${prop.baseAreaMm2}</td>
+                    <td>${prop.heightMm}</td>
+                    <td>${prop.weightG}</td>
+                    <td>${prop.burnTimeHours}</td>
+                </tr>    
+            </tbody>
+        </table>`;
+    };
 //      document.querySelector('#product-price').textContent = product.price;
 	  document.querySelector('#image-container').innerHTML = `<img src=./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg  class="img-fluid rounded-start">`;
 //	  <img src=./src/assets/images/products/candles/cube-peach-medium.jpg>
     document.getElementById("full-image").src = `./src/assets/images/products/candles/${product.shape}-${product.color}-large.jpg`;
-    } else {
-      document.querySelector('#product-details').textContent = 'Product not found';
     }
 	
 // Image render
