@@ -94,67 +94,50 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
     ]
   
-// Cache DOM elements
-const colorSelector = document.getElementById('colorSelector');
-const shapeSelector = document.getElementById('shapeSelector');
-const productsContainer = document.getElementById('productsContainer');
-
-// Function to display products based on filters
-function displayProducts(filteredProducts) {
-  productsContainer.innerHTML = '';
-  if (filteredProducts.length === 0) {
-    productsContainer.innerHTML = '<p>No products found.</p>';
-    return;
-  }
-  filteredProducts.forEach(product => {
-    const productElement = document.createElement('div');
-    productElement.classList.add('product');
-    productElement.innerText = product.name;
-    productsContainer.appendChild(productElement);
+    const colorSelector = document.getElementById('colorSelector');
+    const shapeSelector = document.getElementById('shapeSelector');
+    const productsContainer = document.getElementById('productsContainer');
+  
+    // Utility to create product image path
+    function getProductImagePath(product) {
+      return `./src/assets/images/products/candles/${product.shape}-${product.color}-small.jpg`;
+    }
+  
+    // Render products using a template string to reduce DOM manipulation
+    function renderProducts(filteredProducts) {
+      productsContainer.innerHTML = filteredProducts.map(product => `
+        <a href="./product.html?id=${product.id}">
+          <img src="${getProductImagePath(product)}" alt="Candle image" />
+          <h3>${product.name}</h3>
+        </a>
+      `).join(''); // Join the array into a single string for innerHTML
+    }
+  
+    // Filter the products based on selected color and shape
+    function filterProducts() {
+      const selectedColor = colorSelector.value;
+      const selectedShape = shapeSelector.value;
+  
+      const filteredProducts = products.filter(product =>
+        (selectedColor === '' || product.color === selectedColor) &&
+        (selectedShape === '' || product.shape === selectedShape)
+      );
+  
+      renderProducts(filteredProducts);
+    }
+  
+    // Add event listeners with debounce to avoid over-rendering
+    let debounceTimer;
+    function debounceFilterProducts() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(filterProducts, 300); // Debounce filtering by 300ms
+    }
+  
+    // Initial render of all products
+    renderProducts(products);
+  
+    // Add event listeners to the filters
+    colorSelector.addEventListener('change', debounceFilterProducts);
+    shapeSelector.addEventListener('change', debounceFilterProducts);
   });
-}
-
-// Function to filter products based on selected options
-function filterProducts() {
-  const selectedColor = colorSelector.value;
-  const selectedShape = shapeSelector.value;
-
-  let filteredProducts = products;
-
-  // Filter by color
-  if (selectedColor) {
-    filteredProducts = filteredProducts.filter(product => product.color === selectedColor);
-  }
-
-  // Filter by shape
-  if (selectedShape) {
-    filteredProducts = filteredProducts.filter(product => product.shape === selectedShape);
-  }
-
-  displayProducts(filteredProducts);
-  updateAvailableOptions(filteredProducts);
-}
-
-// Function to update available options based on current filter
-function updateAvailableOptions(filteredProducts) {
-  const availableColors = new Set(filteredProducts.map(product => product.color));
-  const availableShapes = new Set(filteredProducts.map(product => product.shape));
-
-  // Enable/disable color options
-  Array.from(colorSelector.options).forEach(option => {
-    option.disabled = !availableColors.has(option.value) && option.value !== '';
-  });
-
-  // Enable/disable shape options
-  Array.from(shapeSelector.options).forEach(option => {
-    option.disabled = !availableShapes.has(option.value) && option.value !== '';
-  });
-}
-
-// Event listeners for filters
-colorSelector.addEventListener('change', filterProducts);
-shapeSelector.addEventListener('change', filterProducts);
-
-// Initial product display
-displayProducts(products);
-});
+  
