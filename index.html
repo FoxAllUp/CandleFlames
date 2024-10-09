@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
     <style>
 /*         body {
             background-image: url( './src/assets/images/bg.svg' );
@@ -55,6 +56,13 @@
   text-shadow: #444 0 1px 1px;
   background:transparent;
 }
+
+.parallax-bg {
+      background-image: url('./src/assets/images/candles2.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
     </style>
     <script src='main.js'></script>
 </head>
@@ -85,6 +93,14 @@
         <br><br><br><br><br>
     </section>
     <section>
+
+        <div class="parallax-bg min-h-screen h-[150vh] flex items-center justify-center">
+              <div class="text-center text-white">
+                <h1 class="text-5xl font-bold">BEMUTATKOZÁS</h1>
+              </div>
+          </div>
+
+
         <div class="container">
             <!-- <div id="jumbotron-bg"></div>
             <div id="jumbotron"> -->
@@ -93,12 +109,18 @@
                     BEMUTATKOZÁS
                 </span>
             </div>
+
+
+
+
+            
             <br>
 
-                <div class="row">
 <!--                     <img id="candleIllustration" class="col-6" src="./src/assets/images/DSC7218.jpg" alt="candleIllustration">
- -->                    <div class="h5 text-stroked">
-                        <p>
+ -->                    
+<!--                        
+ <div class="h5 text-stroked">
+<p>
                             Engedje meg, hogy bemutassam Önnek a CandleFlames világát – ahol a gyertya nem csupán egy fényforrás, hanem egy valódi műalkotás, amely megformálja és varázslatossá teszi az Ön környezetét. Buglyó Imre, a CandleFlames alapítója és vezetője, és örömmel osztom meg Önnel szenvedélyünket a gyertyakészítés művészetében.
                         </p>
                         <p>
@@ -119,10 +141,19 @@
                         <p>
             Ne habozzon kapcsolatba lépni velünk, hiszen mi itt vagyunk, hogy az Ön egyedi elképzeléseit a legmagasabb szinten valósítsuk meg. Várjuk szeretettel a megkeresését, és bízunk benne, hogy a CandleFlames gyertyái hozzájárulnak majd az Ön életének minden fontos pillanatához!
                         </p>
-                    </div>
-                </div>
-         </div>
+                        </div>
+ -->                  
+ <div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 order-2 order-md-2">
+            Buglyó Imre vagyok. Cégem gyertyakészítéssel foglalkozik, amelyek egyaránt alkalmazhatóak dekorációs elemként vagy hagyományos értelmükben. Bármilyen célból is szeretné használni, nálunk a szivárvány minden színében, és különbféle formákban megtalálhatja, amire szüksége van. Egyedi rendelés esetén illatosított formában is elérhetőek. Minden termékünk egyedileg kézzel készül, ami által biztosra veheti, hogy nem talál két teljesen egyforma terméket. Több éves szakmai tapasztalatunkkal arra törekszünk, hogy vásárlóink igényeit maximálisan kielégítsük. Forduljon hozzánk bizalommal.
         </div>
+        <div class="col-12 col-md-6 order-1 order-md-1">
+            <img id="artistPhoto" class="img-fluid" src="./src/assets/images/artist_photo.jpg" alt="Artist photo">
+        </div>
+    </div>
+</div> 
+                </div>
     </section>
     <section>
         <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 my-4 bg-warning-subtle text-warning-emphasis bottom">
