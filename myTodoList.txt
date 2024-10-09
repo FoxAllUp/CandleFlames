@@ -1,0 +1,12 @@
+- Restructure the navbar and the pages so should be separated the Connect page instead of the About.
+- In the Connect section include some map, phone number and optionally an email sending opportunity - or at least an email address.
+- All the products' 'ask for the price' section should be a button which redirect to the Connect page to get some exact information about the prices.
+- On the Products page the filter should have dynamic filter options so it should be impossible to list no products.
+
++ Redesign the whole site to be prettier and more userfriendly:
+- Add some cool jumbotron.
+- Add some effects, animations.
+
+- Make the possibility to change between English and Hungarian.
+
+++ Make the possibility to change between light and dark mode.
