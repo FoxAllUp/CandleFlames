@@ -103,47 +103,60 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
-  /* const colorSelector = document.getElementById('colorSelector') */
-  const shapeSelector = document.getElementById('shapeSelector')
-  const productsContainer = document.getElementById('productsContainer')
+  const productsContainer = document.getElementById('productsContainer');
 
-  function renderProducts(filteredProducts) {
-    productsContainer.innerHTML = ''
-    filteredProducts.forEach((product) => {
-      const productElement = document.createElement('a');
-      productElement.classList.add('bg-black');
-      productElement.href = "./product.html?id="+product.id;
-      const imgElement = document.createElement('img')
-      imgElement.src = `./src/assets/images/products/candles/${product.shape}-${product.color}-small.jpg`
-      imgElement.alt = 'Candle image'
-
-      const nameElement = document.createElement('h3')
-      nameElement.textContent = product.name
-
-      productElement.appendChild(imgElement)
-      productElement.appendChild(nameElement)
-      productsContainer.appendChild(productElement)
-    })
+  // Function to render only categories
+  function renderCategories() {
+    productsContainer.innerHTML = '';
+    
+    Object.keys(products).forEach((category) => {
+      const categoryData = products[category];
+  
+      // Create a link element for each category
+      const categoryElement = document.createElement('a');
+      categoryElement.href = `./product.html?category=${category}`;
+      categoryElement.classList.add('category-card', 'col-12', 'col-sm-6', 'col-md-4', 'col-lg-1');
+      //categoryElement.style.display = 'block';
+      categoryElement.style.margin = '20px';
+      //categoryElement.style.position = 'relative';
+      //categoryElement.style.textAlign = 'center';
+      categoryElement.style.width = '100%';
+      //categoryElement.style.height = '100%';
+  
+      // Category name
+      const categoryName = document.createElement('h3');
+      categoryName.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+      categoryElement.appendChild(categoryName);
+  
+      // Initial random image
+      const imgElement = document.createElement('img');
+      imgElement.src = getRandomProductImage(categoryData);
+      imgElement.alt = `${category} candle image`;
+      imgElement.classList.add('category-image');
+      imgElement.style.width = '100%';
+      //imgElement.style.height = '100%';
+      categoryElement.appendChild(imgElement);
+  
+      // Change image on hover
+      categoryElement.addEventListener('mouseenter', () => {
+        const intervalId = setInterval(() => {
+          imgElement.src = getRandomProductImage(categoryData);
+        }, 750); // Change image every 750ms
+        categoryElement.addEventListener('mouseleave', () => {
+          clearInterval(intervalId);
+        });
+      });
+  
+      productsContainer.appendChild(categoryElement);
+    });
   }
-
-  function filterProducts() {
-    /* const selectedColor = colorSelector.value */
-    const selectedShape = shapeSelector.value
-
-    const filteredProducts = products.filter((product) => {
-      return (
-        /* (selectedColor === '' || product.color === selectedColor) && */
-        (selectedShape === '' || product.shape === selectedShape)
-      )
-    })
-
-    renderProducts(filteredProducts)
-  }
-
-  // Initial render
-  renderProducts(products)
-
-  // Add event listeners to the filters
-  /* colorSelector.addEventListener('change', filterProducts) */
-  shapeSelector.addEventListener('change', filterProducts)
+  
+  // Function to get a random product image from a category
+   function getRandomProductImage(categoryData) {
+    const randomProduct = categoryData[Math.floor(Math.random() * categoryData.length)];
+    return `./src/assets/images/products/candles/${randomProduct.shape}-${randomProduct.color}-medium.jpg`;
+  } 
+  
+  // Call renderCategories to initialize the category list
+  renderCategories();
 });
