@@ -1,3 +1,5 @@
+When approved by the "customer", recreate the whole site from the current "hardcoded-like" plan test state!
+
 - All the products' 'ask for the price' section should be a button which redirect to the Connect page to get some exact information about the prices.
 
 + Redesign the whole site to be prettier and more userfriendly:
