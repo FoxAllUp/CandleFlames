@@ -1,6 +1,7 @@
 Candle Flames Website
 
-Description
+Description:
+
 This website is designed for a handmade candle business, showcasing the extensive range of candles available for order. It provides detailed product information and offers contact details for customers to place their orders.
 
 Technologies Used:
@@ -10,4 +11,5 @@ Technologies Used:
 - Bootstrap
 
 Usage:
+
 Visit the homepage to view the candle collection. Use the contact section to inquire about orders.
