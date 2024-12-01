@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
       { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
       { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' }
-    ],
-
-    square_steps:[
-      { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
     ]
+
+    /* square_steps:[
+      { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
+    ] */
   };
 
   const productsContainer = document.getElementById('productsContainer');
