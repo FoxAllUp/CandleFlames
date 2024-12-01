@@ -405,14 +405,14 @@ const category = urlParams.get('category'); // Get category from the URL
 let productType = 'Category not found.';
 
 // Find products by category
-const filteredProducts = products.filter(p => p.category == category);
+//const filteredProducts = products.filter(p => p.category == category);
 
 // If there are products in the selected category, display the first one (or modify as needed)
-if (filteredProducts.length > 0) {
-    const product = filteredProducts[0]; // Use the first product in the filtered list
+//if (filteredProducts.length > 0) {
+//    const product = filteredProducts[0]; // Use the first product in the filtered list
 
     // Display product details
-    document.querySelector('#product-name').textContent = product.name;
+    document.querySelector('#product-name').textContent = category;
     document.querySelector('#product-description').innerHTML = 
         `<hr>
         <table class="table table-striped">
@@ -435,15 +435,16 @@ if (filteredProducts.length > 0) {
         </table>`;
 
     // Loop through the physical properties based on the product shape
-    if (product.shape != 'cube') {
-        for (let i = 0; i < physicalProps[product.shape].length; i++) {
+    if (category != 'cube') {
+        for (let i = 0; i < physicalProps[category].length; i++) {
+            console.log(physicalProps[category][i]);
             document.querySelector('#tableBody').innerHTML += 
                 `<tr>
-                    <th scope="col">${physicalProps[product.shape][i].type}</th>
-                    <td>${physicalProps[product.shape][i].baseAreaMm2}</td>
-                    <td>${physicalProps[product.shape][i].heightMm}</td>
-                    <td>${physicalProps[product.shape][i].weightG}</td>
-                    <td>${physicalProps[product.shape][i].burnTimeHours}</td>
+                    <th scope="col">${physicalProps[category][i].type}</th>
+                    <td>${physicalProps[category][i].baseAreaMm2}</td>
+                    <td>${physicalProps[category][i].heightMm}</td>
+                    <td>${physicalProps[category][i].weightG}</td>
+                    <td>${physicalProps[category][i].burnTimeHours}</td>
                 </tr>`;
         }
     } else {
@@ -457,10 +458,16 @@ if (filteredProducts.length > 0) {
             </tr>`;
     }
 
+    const randomColor =
+  products[category][
+    Math.floor(Math.random() * products[category].length)
+  ].color; // Access `color` property directly
+
+
     // Render the product image
-    document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg" class="img-fluid rounded-start">`;
-    document.getElementById("full-image").src = `./src/assets/images/products/candles/${product.shape}-${product.color}-large.jpg`;
-}
+    document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}-${randomColor}-medium.jpg" class="img-fluid rounded-start">`;
+    document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}-${randomColor}-large.jpg`;
+//}
 
 // Image render (this part assumes you want to add an image element dynamically)
 const imageContainer = document.getElementById('image-container');
