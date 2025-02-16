@@ -172,7 +172,12 @@ body {
       <!-- <img src="`./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg`"> -->
     </div>
     <div class="row">
-      <h3>Colors:</h3>
+      <h3>Size:</h3>
+        <div id="sizeSelector"></div>
+      <p>Selected Size: <span id="selectedSize">None</span></p>
+    </div>
+    <div class="row">
+      <h3>Color:</h3>
         <div id="colorSelector"></div>
       <p>Selected Color: <span id="selectedColor">None</span></p>
     </div>
@@ -572,9 +577,9 @@ const fileStructure = {
         "red-large.jpg",
         "roze-large.jpg",
         "turquoise-large.jpg",
-        "W.jpg",
+        "white-large.jpg",
         "wine-large.jpg",
-        "WN.jpg"
+        "cognac-large.jpg"
       ],
     "V25":[
         "apricot-large.jpg",
@@ -947,10 +952,10 @@ const knownColors = [
 ];
 
 const manualColorMap = {
-    "apricot": "peachpuff", // Closest CSS color
-    "cognac": "saddlebrown", // Closest CSS color
-    "wine": "darkRed", // More intuitive mapping for "wine"
-    "roze": "deepPink", // Misspelled version of "pink"
+    "apricot": "peachpuff",
+    "cognac": "saddlebrown",
+    "wine": "darkRed",
+    "roze": "deepPink",
     "burgundy": "maroon",
     "cognac": "peru",
     "darkBlue": "darkBlue",
@@ -967,6 +972,8 @@ const manualColorMap = {
     "crimson": "crimson",
     "blue": "dodgerBlue"
 };
+
+let currentSize, currentColor;
 
 function toCamelCase(color) {
     return color.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
@@ -1018,6 +1025,21 @@ function levenshtein(a, b) {
     return matrix[a.length][b.length];
 }
 
+Object.entries(fileStructure).forEach(([category, items]) => {
+    const types = Object.keys(items);
+    const itemsArr = Object.values(items);
+
+    const randomType = types[[Math.floor(Math.random() * types.length)]];
+    const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
+
+/*     console.log(`All the types : ${Object.keys(items)}`);
+    console.log(`Category : ${category}`);
+    console.log(`All the items : ${itemsArr}`);
+    console.log(`Random type : ${randomType}`);
+    console.log(`Random item : ${randomItem}`); */
+    return randomType, randomItem;
+  });
+
 //ColorSelector:
 let defaultOriginalColor;
 
@@ -1025,6 +1047,7 @@ function createColorSelector(colors) {
     const container = document.getElementById("colorSelector");
     container.innerHTML = ""; // Clear previous content
 
+    //Get current size:
     colors.forEach(color => {
         const circle = document.createElement("span");
         circle.className = "color-circle";
@@ -1037,10 +1060,12 @@ function createColorSelector(colors) {
             document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
             this.classList.add("selected");
             document.getElementById("selectedColor").textContent = key;
-            document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${randomType}/${key}-large.jpg" class="img-fluid rounded-start">`;
-            document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${randomType}/${key}-large.jpg`;
+            let currentColor = key;
+            let currentSize = document.querySelector(".size-button.selected").textContent;
+            console.log(currentColor);
+            document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${currentSize}/${key}-large.jpg" class="img-fluid rounded-start">`;
+            document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${currentSize}/${key}-large.jpg`;
         });
-
         container.appendChild(circle);
     });
     document.querySelector(".color-circle:first-of-type").classList.add("selected");
@@ -1048,7 +1073,13 @@ function createColorSelector(colors) {
     defaultOriginalColor = Object.entries(manualColorMap).find(([k, v]) => v === defaultColor)?.[0];
     document.getElementById("selectedColor").textContent = defaultOriginalColor;
 
-    return defaultOriginalColor;    
+/*     let currentSize = document.querySelector(".size-button.selected").textContent;;
+    if (!currentSize){
+      currentSize = randomType;
+    } */
+//    console.log(document.querySelector(".selected").textContent);
+    currentColor = defaultOriginalColor;
+    return defaultOriginalColor, currentColor;    
 }
 
  // Extract product ID from the URL
@@ -1063,9 +1094,11 @@ Object.entries(fileStructure[category]).forEach(([category, items]) => {
     return itemsArr;
   });
 
+(()=> { 
   itemsArr.forEach(filename => {
     colors.push(getClosestColor(filename));
   });
+})();
   createColorSelector(colors);
 
 //const defaultFile = filesArr[0];
@@ -1174,21 +1207,57 @@ document.querySelector("#image-viewer .close").addEventListener("click", functio
   document.getElementById("image-viewer").style.display = "none";
 });
 
+//SizeSelector:
+//Default size: 
+const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/))); // Get sizes dynamically
+function createSizeSelector(sizes) {
+    const container = document.getElementById("sizeSelector");
+    container.innerHTML = ""; // Clear previous content
 
-Object.entries(fileStructure).forEach(([category, items]) => {
-    const types = Object.keys(items);
-    const itemsArr = Object.values(items);
 
-    const randomType = types[[Math.floor(Math.random() * types.length)]];
-    const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
+    sizes.forEach(size => {
+        const button = document.createElement("button");
+        button.className = "size-button";
+        button.dataset.size = size;
+        button.textContent = size;
 
-/*     console.log(`All the types : ${Object.keys(items)}`);
-    console.log(`Category : ${category}`);
-    console.log(`All the items : ${itemsArr}`);
-    console.log(`Random type : ${randomType}`);
-    console.log(`Random item : ${randomItem}`); */
-    return randomType, randomItem;
-  });
+        // Add click event
+        button.addEventListener("click", function () {
+            document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
+            this.classList.add("selected");
+
+//Get current color:
+            let currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
+            console.log(currentColor);
+            document.getElementById("selectedSize").textContent = size;
+            document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${size}/${currentColor}-large.jpg" class="img-fluid rounded-start">`;
+            document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${size}/${currentColor}-large.jpg`;
+            
+            // Update color selector based on selected size
+            const availableColors = fileStructure[category][size].map(file => {
+                return file.replace("-large.jpg", "").replace(/_/g, ""); // Normalize name
+            }).filter(color => manualColorMap[color]); // Only include mapped colors
+            
+            createColorSelector(availableColors);
+        });
+
+        container.appendChild(button);
+    });
+
+    // Select the first size by default
+    document.querySelector(".size-button:first-of-type").classList.add("selected");
+    document.getElementById("selectedSize").textContent = sizes[0];
+
+    // Trigger color selector for the first size
+    const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
+        return file.replace("-large.jpg", "").replace(/_/g, ""); 
+    }).filter(color => manualColorMap[color]);
+
+    createColorSelector(firstSizeColors);
+    currentSize = sizes[0];
+    return currentSize;
+}
+createSizeSelector(sizes);
 
 
  </script>
