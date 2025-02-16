@@ -1,27 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   const products = {
-    cube:[
-      { id: 1, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
-      { id: 2, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
-      { id: 3, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' }
-    ],
-
     cylindrical:[
-      { id: 4, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
-      { id: 5, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
-      { id: 6, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
-      { id: 7, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
-      { id: 8, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
-      { id: 9, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
-      { id: 10, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
-      { id: 11, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
-      { id: 12, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
-      { id: 13, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
-      { id: 14, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
-      { id: 15, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
-      { id: 16, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
-      { id: 17, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
-      { id: 18, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
+      { id: 1, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
+      { id: 2, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
+      { id: 3, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
+      { id: 4, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
+      { id: 5, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
+      { id: 6, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
+      { id: 7, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
+      { id: 8, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
+      { id: 9, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
+      { id: 10, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
+      { id: 11, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
+      { id: 12, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
+      { id: 13, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
+      { id: 14, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
+      { id: 15, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
     ],
 
     pyramid:[
@@ -68,7 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' }
     ],
 
-    square_based:[
+    square_prism:[
+      { id: 100, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
+      { id: 101, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
+      { id: 102, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
       { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
       { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
       { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
@@ -84,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' }
     ],
 
-    triangular_based:[
+    triangular_prism:[
       { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
       { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
       { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
@@ -165,7 +162,528 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 };
 
-  const productsContainer = document.getElementById('productsContainer');
+const fileStructure = {
+  "triangular_prism": {
+    "D35":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_dreen-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "D25":[
+        "apricot-large.jpg",
+/*         "blue-large(1).jpg",
+ */        "blue-large.jpg",
+/*         "blue-medium.jpg",
+ *//*         "blue-small.jpg",
+ */        "burgundy-large.jpg",
+/*         "burgundy-medium.jpg",
+ *//*         "burgundy-small.jpg",
+ */        "caramel-large.jpg",
+        "cognac-large.jpg",
+/*         "cognac-medium.jpg",
+ *//*         "cognac-small.jpg",
+ */        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+/*         "dark_purple-large(1).jpg",
+ */        "dark_purple-large.jpg",
+/*         "dark_purple-medium.jpg",
+ *//*         "dark_purple-small.jpg",
+ */        "green-large.jpg",
+/*         "green-medium.jpg",
+ *//*         "green-small.jpg",
+ */        /* "orange-large(1).jpg", */
+        /* "orange-large(2).jpg", */
+        "orange-large.jpg",
+        /* "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ */        /* "red-large(1).jpg", */
+        "red-large.jpg",
+        /* "red-medium.jpg", */
+/*         "red-small.jpg",
+ */        "roze-large.jpg",
+        /* "turquoise-large(1).jpg", */
+        "turquoise-large.jpg",
+        /* "turquoise-medium.jpg", */
+/*         "turquoise-small.jpg",
+ *//*         "white-large(1).jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg",
+ */        "wine-large.jpg",
+        "yellow-large.jpg",
+        /* "yellow-medium.jpg", */
+/*         "yellow-small.jpg"
+ */      ],
+    "D20":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "D15":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_purple-large.jpg",
+        "green-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "D10":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ]
+  },
+  "square_prism": {
+    "V5":[
+        "blue-large.jpg",
+        "caramel-large.jpg",
+/*         "dark_blue-large(1).jpg",
+ */        "dark_blue-large.jpg",
+        /* "dark_blue-medium.jpg", */
+/*         "dark_blue-small.jpg",
+ */        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+/*         "peach-large(1).jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ *//*         "pink-large(1).jpg",
+ */        "pink-large.jpg",
+        /* "pink-medium.jpg", */
+/*         "pink-small.jpg",
+ */        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "V35":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "W.jpg",
+        "wine-large.jpg",
+        "WN.jpg"
+      ],
+    "V25":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_purple-large.jpg",
+        "green-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "wine-large.jpg"
+      ],
+    "V20":[
+        "apricot-large.jpg",
+/*         "blue-large(1).jpg",
+ */        "blue-large.jpg",
+        /* "blue-medium.jpg", */
+/*         "blue-small.jpg",
+ */        "burgundy-large.jpg",
+        /* "burgundy-medium.jpg", */
+/*         "burgundy-small.jpg",
+ */        "caramel-large.jpg",
+        "cognac-large.jpg",
+        /* "cognac-medium.jpg", */
+/*         "cognac-small.jpg",
+ *//*         "dark_blue-large(1).jpg",
+ */        "dark_blue-large.jpg",
+        /* "dark_blue-medium.jpg", */
+/*         "dark_blue-small.jpg",
+ */        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+        "green-large.jpg",
+        /* "green-medium.jpg", */
+/*         "green-small.jpg",
+ *//*         "orange-large(1).jpg",
+ *//*         "orange-large(2).jpg",
+ */        "orange-large.jpg",
+        /* "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ */        "pink-large.jpg",
+       /*  "pink-medium.jpg", */
+/*         "pink-small.jpg",
+ */        "purple-large.jpg",
+        /* "purple-medium.jpg", */
+/*         "purple-small.jpg",
+ *//*         "red-large(1).jpg",
+ */        "red-large.jpg",
+        /* "red-medium.jpg", */
+/*         "red-small.jpg",
+ */        "roze-large.jpg",
+        "turquoise large.jpg",
+        "turquoise-large.jpg",
+        /* "turquoise-medium.jpg", */
+/*         "turquoise-small.jpg",
+ *//*         "white-large(1).jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg",
+ */        "wine-large.jpg",
+        "yellow-large.jpg",
+        /* "yellow-medium.jpg", */
+/*         "yellow-small.jpg"
+ */      ],
+    "V15":[
+        "apricot-large.jpg",
+/*         "blue-large(1).jpg",
+ */        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "orange-large.jpg",
+        "pink-large.jpg",
+        "red-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "V10":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+/*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ]
+  },
+  "spherical": {
+    "K6":[
+        "burgundy-large.jpg",
+        /* "burgundy-medium.jpg", */
+/*         "burgundy-small.jpg",
+ */        "cognac-large.jpg",
+        /* "cognac-medium.jpg", */
+/*         "cognac-small.jpg",
+ */        "dark_blue-large.jpg",
+        /* "dark_blue-medium.jpg", */
+/*         "dark_blue-small.jpg",
+ */        "orange-large.jpg",
+        /* "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "pastel_blue-large.jpg",
+        /* "pastel_blue-medium.jpg", */
+/*         "pastel_blue-small.jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ */        "purple-large.jpg",
+        /* "purple-medium.jpg", */
+/*         "purple-small.jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg",
+ */        "yellow-large.jpg",
+        /* "yellow-medium.jpg", */
+/*         "yellow-small.jpg"
+ */      ]
+  },
+  "special": {
+    "3B10":[
+        "apple_green-large.jpg",
+        /* "apple_green-medium.jpg", */
+/*         "apple_green-small.jpg",
+ */        "blue-large.jpg",
+        /* "blue-medium.jpg", */
+/*         "blue-small.jpg",
+ */        "burgundy-large.jpg",
+        /* "burgundy-medium.jpg", */
+/*         "burgundy-small.jpg",
+ */        "cognac-large.jpg",
+        /* "cognac-medium.jpg", */
+/*         "cognac-small.jpg",
+ */        "dark_blue-large.jpg",
+        /* "dark_blue-medium.jpg", */
+/*         "dark_blue-small.jpg",
+ */        "orange-large.jpg",
+        /* "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ */        "pink-large.jpg",
+        /* "pink-medium.jpg", */
+/*         "pink-small.jpg",
+ */        "purple-large.jpg",
+        /* "purple-medium.jpg", */
+/*         "purple-small.jpg",
+ */        "red-large.jpg",
+        /* "red-medium.jpg", */
+/*         "red-small.jpg",
+ */        "turquoise-large.jpg",
+        /* "turquoise-medium.jpg", */
+/*         "turquoise-small.jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg"
+ */      ]
+  },
+/*   "sample":[
+      "square_prism_steps-red-large.jpg",
+      "square_prism_steps-red-medium.jpg",
+      "square_prism_steps-red-small.jpg"
+    ], */
+  "pyramid": {
+    "P10":[
+        "blue-large.jpg",
+        /* "blue-medium.jpg", */
+/*         "blue-small.jpg",
+ */        "burgundy-large.jpg",
+        /* "burgundy-medium.jpg", */
+/*         "burgundy-small.jpg",
+ */        "cognac-large.jpg",
+        /* "cognac-medium.jpg", */
+/*         "cognac-small.jpg",
+ */        "dark_blue-large.jpg",
+       /*  "dark_blue-medium.jpg", */
+/*         "dark_blue-small.jpg",
+ */        "green-large.jpg",
+        /* "green-medium.jpg", */
+/*         "green-small.jpg",
+ */        "orange-large.jpg",
+        /* "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "peach-large.jpg",
+        /* "peach-medium.jpg", */
+/*         "peach-small.jpg",
+ */        "pink-large.jpg",
+        /* "pink-medium.jpg", */
+/*         "pink-small.jpg",
+ */        "purple-large.jpg",
+        /* "purple-medium.jpg", */
+/*         "purple-small.jpg",
+ */        "red-large.jpg",
+        /* "red-medium.jpg", */
+/*         "red-small.jpg",
+ */        "turquoise-large.jpg",
+        /* "turquoise-medium.jpg", */
+/*         "turquoise-small.jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg",
+ */        "wine-large.jpg",
+        /* "wine-medium.jpg", */
+/*         "wine-small.jpg",
+ */        "yellow-large.jpg",
+        /* "yellow-medium.jpg", */
+/*         "yellow-small.jpg"
+ */      ]
+  },
+  "cylindrical": {
+    "C5":[
+        "blue-large.jpg",
+        "cognac-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "mandarin-large.jpg",
+        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "C30":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "C25":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_purple-large.jpg",
+        "mandarin-large.jpg",
+        "orange-large.jpg",
+/*         "roze-large(1).jpg",
+ */        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "C20":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "C17":[
+        "apricot-large.jpg",
+        "blue-large.jpg",
+        "cognac-large.jpg",
+        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "orange-large.jpg",
+        "red-large.jpg",
+        "roze-large.jpg",
+        "turquoise-large.jpg",
+        "white-large.jpg",
+        "wine-large.jpg"
+      ],
+    "C10":[
+        "blue-large.jpg",
+        "caramel-large.jpg",
+        /* "caramel-medium.jpg", */
+/*         "caramel-small.jpg",
+ */        "cognac-large.jpg",
+        "color_blue-large.jpg",
+        "creamy_peach-large.jpg",
+        /* "creamy_peach-medium.jpg", */
+/*         "creamy_peach-small.jpg",
+ */        "creamy_pink-large.jpg",
+        /* "creamy_pink-medium.jpg", */
+/*         "creamy_pink-small.jpg",
+ */        "dark_blue-large.jpg",
+        "dark_green-large.jpg",
+        "dark_orange-large.jpg",
+        "dark_purple-large.jpg",
+        "ice_blue-large.jpg",
+        /* "ice_blue-medium.jpg", */
+/*         "ice_blue-small.jpg",
+ */        "ice_pink-large.jpg",
+        /* "ice_pink-medium.jpg", */
+/*         "ice_pink-small.jpg",
+ */        "light_blue-large.jpg",
+        /* "light_blue-medium.jpg", */
+/*         "light_blue-small.jpg",
+ */        "light_pink-large.jpg",
+        /* "light_pink-medium.jpg", */
+/*         "light_pink-small.jpg",
+ */        "mandarin-large.jpg",
+        "mint-large.jpg",
+        /* "mint-medium.jpg", */
+/*         "mint-small.jpg",
+ *//*         "orange-large(1).jpg",
+ */        "orange-large.jpg",
+       /*  "orange-medium.jpg", */
+/*         "orange-small.jpg",
+ */        "pink-large.jpg",
+        /* "pink-medium.jpg", */
+/*         "pink-small.jpg",
+ */        "purple-large.jpg",
+        /* "purple-medium.jpg", */
+/*         "purple-small.jpg",
+ */        "red-large.jpg",
+        "roze-large.jpg",
+/*         "white-large(1).jpg",
+ */        "white-large.jpg",
+        /* "white-medium.jpg", */
+/*         "white-small.jpg",
+ */        "wine-large.jpg",
+        "yellow-large.jpg",
+        /* "yellow-medium.jpg", */
+/*         "yellow-small.jpg"
+ */      ]
+  },
+  "advent": {
+    "CAdvent":[
+        "cylindrical-red_special-large.jpg",
+        /* "cylindrical-red_special-medium.jpg", */
+/*         "cylindrical-red_special-small.jpg",
+ */        "cylindrical-wine-large.jpg",
+        /* "cylindrical-wine-medium.jpg", */
+/*         "cylindrical-wine-small.jpg"
+ */      ]
+  }
+};
+
+/*   const productsContainer = document.getElementById('productsContainer');
+  productsContainer.innerHTML += "GYERTYA";
+
+  function getCategories(object){
+    return Object.keys(object);
+  };
+  getCategories(products);
+
 
   // Function to render only categories
   function renderCategories() {
@@ -173,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     Object.keys(physicalProps).forEach((category) => {
       const categoryData = physicalProps[category];
+      console.log(categoryData);
   
       // Create a link element for each category
       const categoryElement = document.createElement('a');
@@ -223,5 +742,31 @@ document.addEventListener('DOMContentLoaded', () => {
   } 
   
   // Call renderCategories to initialize the category list
-  renderCategories();
+  renderCategories(); */
+
+  const container = document.getElementById('productsContainer');
+
+  Object.entries(fileStructure).forEach(([category, items]) => {
+    const types = Object.keys(items);
+    const itemsArr = Object.values(items);
+
+    const randomType = types[[Math.floor(Math.random() * types.length)]];
+    const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
+
+    console.log(`All the types : ${Object.keys(items)}`);
+    console.log(`Category : ${category}`);
+    console.log(`All the items : ${itemsArr}`);
+    console.log(`Random type : ${randomType}`);
+    console.log(`Random item : ${randomItem}`);
+
+    const card = document.createElement('a');
+    card.href = `product.html?category=${category}`;
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="./src/assets/images/products/candles/${category}/${randomType}/${randomItem}" alt="${randomItem.name}">
+      <h3>${category.replace('_', ' ').toUpperCase()}</h3>
+    `;
+    container.appendChild(card);
+  });
+
 });
