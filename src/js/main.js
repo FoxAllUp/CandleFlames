@@ -666,10 +666,10 @@ const fileStructure = {
   },
   "advent": {
     "CAdvent":[
-        "cylindrical-red_special-large.jpg",
+        "crimson-large.jpg",
         /* "cylindrical-red_special-medium.jpg", */
 /*         "cylindrical-red_special-small.jpg",
- */        "cylindrical-wine-large.jpg",
+ */        "firebrick-large.jpg",
         /* "cylindrical-wine-medium.jpg", */
 /*         "cylindrical-wine-small.jpg"
  */      ]
