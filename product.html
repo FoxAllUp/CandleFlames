@@ -108,6 +108,15 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.lazy {
+    filter: blur(10px);
+    transition: filter 1s ease-in-out;
+}
+
+.lazy.loaded {
+    filter: blur(0);
+}
+
 
 @media only screen and (max-width: 700px){
     .modal-content {
@@ -1126,6 +1135,7 @@ Object.entries(fileStructure[category]).forEach(([category, items]) => {
     colorsArr.push(getClosestColor(filename));
   });
 })();
+console.log(colorsArr);
 
 //ColorSelector:
 let defaultOriginalColor;
@@ -1171,7 +1181,12 @@ function createColorSelector(colors) {
     currentColor = defaultOriginalColor;
     return defaultOriginalColor, currentColor;    
 }
-createColorSelector(colorsArr);
+let availableColors = fileStructure[category][Object.keys(fileStructure[category])[0]].map(file => {
+            return file.replace("-large.jpg", "").replace(/_/g, "_"); // Preserve spaces
+            }).filter(color => manualColorMap[color]); // Only include mapped colors
+console.log(availableColors);
+createColorSelector(availableColors);
+//createColorSelector(colorsArr);
 
 //const defaultFile = filesArr[0];
 //console.log(getClosestColor(defaultFile));
@@ -1254,10 +1269,19 @@ if (category != 'cube') {
 }
 
 // Render the default product image
-document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${randomType}/${defaultOriginalColor}-large.jpg" class="img-fluid rounded-start">`;
-document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${randomType}/${defaultOriginalColor}-large.jpg`;
+document.querySelector('#image-container').innerHTML = `<img src="" data-src="./src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}" class="lazy img-fluid rounded-start">`;
+document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll("img.lazy");
 
-//}
+    images.forEach(img => {
+        const highRes = img.dataset.src;
+        if (!highRes) return;
+
+        img.src = highRes; // Start loading the image
+        img.onload = () => img.classList.add("loaded"); // Remove blur after loading
+    });
+});
 
 // Image render (this part assumes you want to add an image element dynamically)
 /* const imageContainer = document.getElementById('image-container');
