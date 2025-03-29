@@ -1158,11 +1158,21 @@ function createSizeSelector(sizes) {
             return file.replace("-large.jpg", "").replace(/_/g, "_"); // Preserve spaces
             }).filter(color => manualColorMap[color]); // Only include mapped colors
             
-            document.querySelector('#product-image').src = `./src/assets/images/products/candles/${category}/${this.innerText}/${currentColor?currentColor:availableColors[0]}-large.jpg`;
+            console.log(`Available colors: ${availableColors}`);
+
+            if (availableColors.includes(currentColor)){
+                var colorToSet = currentColor;
+            }
+            else {
+                var colorToSet = availableColors[0];
+            }
+
+            console.log(`Color wanted : ${colorToSet}`);
+
+            document.querySelector('#product-image').src = `./src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.jpg`;
             document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${this.innerText}/${currentColor}-large.jpg`;
 
             createColorSelector(availableColors);
-            console.log(`Available colors: ${availableColors}`);
         });
 
         container.appendChild(button);
