@@ -33,7 +33,20 @@ body {
 #image-container {
     cursor: pointer;
     transition: 0.3s;
+    height: 28rem;
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image doesn't overflow */
 }
+
+#image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the container */
+}
+
 
 #image-container:hover {opacity: 0.7;}
 
@@ -1115,10 +1128,11 @@ imgElement.alt = 'Candle image'; */
 
 	
 // Image modal
-document.getElementById("image-container").addEventListener("click", function() {
-    // Show the image viewer
-    document.getElementById("image-viewer").style.display = "block";
-  });
+document.getElementById("image-container").addEventListener("click", function(event) {
+    if (event.target.tagName === "IMG") {
+        document.getElementById("image-viewer").style.display = "block";
+    }
+});
 
 // Add click event to the close button
 document.querySelector("#image-viewer .close").addEventListener("click", function() {
