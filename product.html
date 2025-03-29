@@ -31,7 +31,6 @@ body {
 
 /* Style the Image Used to Trigger the Modal */
 #image-container {
-    cursor: pointer;
     transition: 0.3s;
     height: 28rem;
     background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
@@ -42,6 +41,7 @@ body {
 }
 
 #image-container img {
+    cursor: pointer;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; /* Ensures the image fits within the container */
@@ -1118,20 +1118,10 @@ document.addEventListener("DOMContentLoaded", function () {
         img.onload = () => img.classList.add("loaded"); // Remove blur after loading
     });
 });
-
-// Image render (this part assumes you want to add an image element dynamically)
-/* const imageContainer = document.getElementById('image-container');
-const imgElement = document.createElement('img');
-imgElement.src = `./src/assets/images/products/candles/${filteredProducts[0].shape}-${filteredProducts[0].color}-small.jpg`;
-console.log(imgElement.src);
-imgElement.alt = 'Candle image'; */
-
 	
 // Image modal
-document.getElementById("image-container").addEventListener("click", function(event) {
-    if (event.target.tagName === "IMG") {
-        document.getElementById("image-viewer").style.display = "block";
-    }
+document.querySelector("#image-container img").addEventListener("click", function() {
+    document.getElementById("image-viewer").style.display = "block";
 });
 
 // Add click event to the close button
