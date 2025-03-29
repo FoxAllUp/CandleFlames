@@ -32,7 +32,6 @@ body {
 /* Style the Image Used to Trigger the Modal */
 #image-container {
     transition: 0.3s;
-    height: 28rem;
     background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
     display: flex;
     justify-content: center;
@@ -40,7 +39,7 @@ body {
     overflow: hidden; /* Ensures the image doesn't overflow */
 }
 
-#image-container img {
+#product-image {
     cursor: pointer;
     max-width: 100%;
     max-height: 100%;
@@ -191,7 +190,7 @@ body {
   <div class="row g-0">
     <div class="col-md-4">
     <div class="row" id="image-container">   
-      <!-- <img src="`./src/assets/images/products/candles/${product.shape}-${product.color}-medium.jpg`"> -->
+        <img id="product-image" class="img-fluid rounded-start" height="28rem" alt="Product image">
     </div>
     <div class="row">
       <h3>Size:</h3>
@@ -1159,7 +1158,7 @@ function createSizeSelector(sizes) {
             return file.replace("-large.jpg", "").replace(/_/g, "_"); // Preserve spaces
             }).filter(color => manualColorMap[color]); // Only include mapped colors
             
-            document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${this.innerText}/${currentColor?currentColor:availableColors[0]}-large.jpg" class="img-fluid rounded-start">`;
+            document.querySelector('#product-image').src = `./src/assets/images/products/candles/${category}/${this.innerText}/${currentColor?currentColor:availableColors[0]}-large.jpg`;
             document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${this.innerText}/${currentColor}-large.jpg`;
 
             createColorSelector(availableColors);
