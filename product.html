@@ -41,6 +41,7 @@ body {
 
 #product-image {
     cursor: pointer;
+    height: 28rem;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; /* Ensures the image fits within the container */
@@ -137,7 +138,6 @@ body {
 }
 
     </style>
-<!--     <script src='main.js'></script>-->
 </head>
 <body>
     <section>
@@ -190,7 +190,7 @@ body {
   <div class="row g-0">
     <div class="col-md-4">
     <div class="row" id="image-container">   
-        <img id="product-image" class="img-fluid rounded-start" height="28rem" alt="Product image">
+        <img id="product-image" class="img-fluid rounded-start" alt="Product image">
     </div>
     <div class="row">
       <h3>Size:</h3>
@@ -998,7 +998,7 @@ function createColorSelector(colors) {
             
             currentColor = key;
             currentSize = document.querySelector(".size-button.selected").textContent;
-            document.querySelector('#image-container').innerHTML = `<img src="./src/assets/images/products/candles/${category}/${currentSize}/${color}-large.jpg" class="img-fluid rounded-start">`;
+            document.querySelector('#product-image').src = `./src/assets/images/products/candles/${category}/${currentSize}/${color}-large.jpg`;
             document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${currentSize}/${color}-large.jpg`;
         });
         container.appendChild(circle);
@@ -1104,7 +1104,7 @@ if (category != 'cube') {
 }
 
 // Render the default product image
-document.querySelector('#image-container').innerHTML = `<img src="" data-src="./src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}" class="lazy img-fluid rounded-start">`;
+document.querySelector('#product-image').src = `./src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
 document.getElementById("full-image").src = `./src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
 document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll("img.lazy");
@@ -1119,7 +1119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 	
 // Image modal
-document.querySelector("#image-container img").addEventListener("click", function() {
+document.querySelector("#product-image").addEventListener("click", function() {
     document.getElementById("image-viewer").style.display = "block";
 });
 
