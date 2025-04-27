@@ -745,6 +745,8 @@ const fileStructure = {
   renderCategories(); */
 
   const container = document.getElementById('productsContainer');
+  const url = window.location.pathname;
+  let typeName = "";
 
   Object.entries(fileStructure).forEach(([category, items]) => {
     const types = Object.keys(items);
@@ -762,11 +764,71 @@ const fileStructure = {
     const card = document.createElement('a');
     card.href = `product.html?category=${category}`;
     card.className = 'card';
-    card.innerHTML = `
-      <img src="./src/assets/images/products/candles/${category}/${randomType}/${randomItem}" alt="${randomItem.name}">
-      <h3>${category.replace('_', ' ').toUpperCase()}</h3>
-    `;
-    container.appendChild(card);
+    
+    if(url.includes('/hu/')){
+        switch (category) {
+                case "triangular_prism":
+                typeName = "Háromszög Alapú Hasáb Gyertyák";
+                    break;
+                case "square_prism":
+                typeName = "Négyzet Alapú Hasáb Gyertyák";
+                    break;
+                case "spherical":
+                typeName = "Gömb Gyertyák";
+                    break;
+                case "special":
+                typeName = "Különleges Gyertyák";
+                    break;
+                case "pyramid":
+                typeName = "Piramis Gyertyák";
+                    break;
+                case "cylindrical":
+                typeName = "Hengeres Gyertyák";    
+                    break;
+                case "advent":
+                typeName = "Adventi Gyertyák";
+                    break;
+                default:
+                    break;
+            }
+    }
+    else if(url.includes('/de/')){
+        switch (category) {
+                case "triangular_prism":
+                typeName = "Dreiecksprisma";
+                    break;
+                case "square_prism":
+                typeName = "Quadratprisma";
+                    break;
+                case "spherical":
+                typeName = "Kugelförmig";
+                    break;
+                case "special":
+                typeName = "Spezialform";
+                    break;
+                case "pyramid":
+                typeName = "Pyramide";
+                    break;
+                case "cylindrical":
+                typeName = "Zylindrisch";    
+                    break;
+                case "advent":
+                typeName = "Advent";
+                    break;
+                default:
+                    break;
+            }
+    }
+    else{
+        typeName = category.replace('_', ' ').toUpperCase();
+        }
+
+        card.innerHTML = `
+        <img src="/src/assets/images/products/candles/${category}/${randomType}/${randomItem}" alt="${randomItem.name}">
+        <h3>${typeName}</h3>
+        `;
+        container.appendChild(card);
+        
   });
 
 });

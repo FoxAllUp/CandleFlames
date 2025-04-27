@@ -36,7 +36,7 @@ body {
         }
 
         #jumbotron-bg {
-            background: url("./src/assets/images/candles2.jpg") no-repeat center center;
+            background: url("/src/assets/images/candles2.jpg") no-repeat center center;
             position: fixed;
             width: 100%;
             height: 550px;
@@ -54,7 +54,7 @@ body {
         }
 
         .parallax-bg {
-    background-image: url('./src/assets/images/candles2.jpg');
+    background-image: url('/src/assets/images/candles2.jpg');
     background-attachment: fixed;
     background-position: top;
     position: relative;
@@ -104,7 +104,7 @@ body {
     <section>
         <nav class="navbar fixed-top navbar-expand-lg bg-black">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./src/assets/images/logo.png" alt="" width="75px"
+                <a class="navbar-brand" href="#"><img src="/src/assets/images/logo.png" alt="" width="75px"
                         height="75px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -115,23 +115,23 @@ body {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <h3><a class="nav-link active" aria-current="page" href="./index.html">About</a></h3>
+                            <h3><a class="nav-link active" aria-current="page" href="./index.html">Über uns</a></h3>
                         </li>
                         <li class="nav-item">
-                            <h3><a class="nav-link" href="./products.html">Products</a></h3>
+                            <h3><a class="nav-link" href="./products.html">Produkte</a></h3>
                         </li>
                         <li class="nav-item">
-                            <h3><a class="nav-link" href="./events.html">Events & Locations</a></h3>
+                            <h3><a class="nav-link" href="./events.html">Aktuelles</a></h3>
                         </li>
                     </ul>
                     <div class="d-flex" id="languageSelector">
-                        <button class="btn btn-dark active" onclick="changeLanguage('en', event)">
+                        <button class="btn btn-dark" onclick="changeLanguage('en', event)">
                             EN<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
                         </button>
                         <button class="btn btn-dark" onclick="changeLanguage('hu', event)">
                             HU<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
                         </button>
-                        <button class="btn btn-dark" onclick="changeLanguage('de', event)">
+                        <button class="btn btn-dark active" onclick="changeLanguage('de', event)">
                             DE<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
                         </button>
                     </div>
@@ -148,10 +148,10 @@ body {
             <div class="py-5">
               <h1 class="display-5 fw-bold text-warning">Candle Flames</h1>
               <div class="col-lg-6 mx-auto">
-                <p class="fs-5 mb-4 text-white"><i>Handmade candles that not only provide light, but also bring warmth and harmony to every moment. Discover natural scents, quality materials, and perfectly crafted light to experience the most beautiful moments at home!</i></p>
+                <p class="fs-5 mb-4 text-white"><i>Handgefertigte Kerzen, die nicht nur Licht spenden, sondern auch Wärme und Harmonie in jeden Moment zaubern. Entdecke natürliche Düfte, hochwertige Materialien und perfekt komponiertes Licht für die schönsten Augenblicke in deinem Zuhause!</i></p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <a href="./products.html" type="button" class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Products</a>
-                  <a href="#footer-section" class="btn btn-outline-light btn-lg px-4" id="contactButton">Contact</a>
+                  <a href="./products.html" type="button" class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Unsere Produkte</a>
+                  <a href="#footer-section" class="btn btn-outline-light btn-lg px-4" id="contactButton">Kontakt</a>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@ body {
         <div class="container">
             <div class="page-header d-flex justify-content-around">
                 <span class="h1 align-middle">
-                    <strong>ABOUT</strong>
+                    <strong>ÜBER UNS</strong>
                 </span>
             </div>
             <br>
@@ -198,16 +198,16 @@ body {
                     <div class="h4 col-12 col-md-6 order-2 order-md-2">
                         <figure>
                             <blockquote class="blockquote">
-                              <p class="h4">Our company specializes in candle making, which can be used both as decorative elements or in their traditional sense. Whatever the purpose, you can find what you need in every color of the rainbow and in various shapes. Custom orders are also available in scented forms. All of our products are individually handmade, ensuring that you will not find two exactly identical products. With many years of professional experience, we strive to fully meet our customers' needs. Feel free to contact us with confidence!</p>
+                              <p class="h4">Unser Unternehmen stellt handgefertigte Kerzen her, die sowohl als dekorative Elemente als auch in ihrer traditionellen Funktion verwendet werden können. Egal, zu welchem Zweck Sie eine Kerze suchen – bei uns finden Sie sie in allen Farben des Regenbogens und in verschiedenen Formen. Auf Wunsch sind unsere Kerzen auch in duftender Ausführung erhältlich. Jedes unserer Produkte wird von Hand gefertigt, sodass Sie sicher sein können, dass keine zwei Kerzen völlig identisch sind. Mit unserer langjährigen Erfahrung streben wir danach, die Wünsche unserer Kunden bestmöglich zu erfüllen. Vertrauen Sie uns!</p>
                             </blockquote>
                             <br>
                             <figcaption class="blockquote-footer">
-                              <i>Imre Buglyó</i>
+                              <i> Buglyó Imre</i>
                             </figcaption>
                           </figure>
                     </div>
                     <div class="col-12 col-md-6 order-1 order-md-1 d-flex">
-                        <img id="artistPhoto" class="img-fluid shadow-lg bg-body rounded-3 border border-white border-2" src="./src/assets/images/artist_photo.jpg"
+                        <img id="artistPhoto" class="img-fluid shadow-lg bg-body rounded-3 border border-white border-2" src="/src/assets/images/artist_photo.jpg"
                             alt="Artist photo">
                     </div>
                 </div>
@@ -224,17 +224,18 @@ body {
                 <span class="mb-3 mb-md-0">
                     <div class="container">
                         <p class="h3">
-                            Our company and products are available not only on our website, but also on the following social media platforms! Find us through our other contact details as well!</p>
+                            Unser Unternehmen und unsere Produkte finden Sie nicht nur auf unserer Website, sondern auch auf folgenden Social-Media-Plattformen! Kontaktieren Sie uns auch über andere Kanäle!
+                        </p>
                     </div>
                 </span>
             </div>
             <div class="nav col-md-4 justify-content-end d-flex order-2">
                 <div>
                     <p class="h3">
-                        Imre Buglyó
+                        Buglyó Imre
                     </p>
                     <p>
-                        Sole Proprietor
+                        Einzelunternehmer
                     </p>
                     <hr>
                     <p>
@@ -270,7 +271,7 @@ body {
         <footer class="d-flex flex-wrap py-3 border-top border-black bg-black bottom bg-gradient container-fluid">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="#" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-                    <img class="rounded-circle" width="37.5" height="37.5" src="./src/assets/images/developer/faulogo-cropped.png" />
+                    <img class="rounded-circle" width="37.5" height="37.5" src="/src/assets/images/developer/faulogo-cropped.png" />
                 </a>
                 <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Fox All Up</span>
             </div>
