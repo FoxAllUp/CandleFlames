@@ -737,8 +737,8 @@ const fileStructure = {
     const randomCategory = categoryData[Math.floor(Math.random() * categoryData.length)];
     const randomType = categoryData[randomCategory][Math.floor(Math.random() * categoryData[randomCategory].length)];
     const randomUnit = categoryData[randomCategory][randomType][Math.floor(Math.random() * categoryData[randomCategory][randomType].length)];
-    console.log(`Searching for file: ./src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`);
-    return `./src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`;
+    console.log(`Searching for file: ../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`);
+    return `../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`;
   } 
   
   // Call renderCategories to initialize the category list
@@ -824,7 +824,7 @@ const fileStructure = {
         }
 
         card.innerHTML = `
-        <img src="/src/assets/images/products/candles/${category}/${randomType}/${randomItem}" alt="${randomItem.name}">
+        <img src="../src/assets/images/products/candles/${category}/${randomType}/${randomItem}" alt="${randomItem.name}">
         <h3>${typeName}</h3>
         `;
         container.appendChild(card);
