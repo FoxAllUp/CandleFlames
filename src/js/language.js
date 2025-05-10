@@ -1,33 +1,24 @@
-const url = window.location.href;
-
 function changeLanguage(language, event) {
-    const languageSelector = document.getElementById('languageSelector');
+  // Update active button styling
+  const languageSelector = document.getElementById('languageSelector');
+  const buttons = languageSelector.querySelectorAll('.btn');
+  buttons.forEach(button => button.classList.remove('active'));
+  event.currentTarget.classList.add('active');
 
-    const buttons = languageSelector.querySelectorAll('.btn');
-    buttons.forEach(button => {
-        button.classList.remove('active');
-    });
+  const url = new URL(window.location.href);
+  const pathParts = url.pathname.split('/');
 
-    const clickedButton = event.currentTarget;
-    clickedButton.classList.add('active');
+  // Find and replace the language segment, or insert if missing
+  const langIndex = pathParts.findIndex(p => ['hu', 'de', 'en'].includes(p));
 
-    let newUrl = url;
-
-  if (language === 'en') {
-    newUrl = url.replace('/hu/', '/').replace('/de/', '/');
-  } else if (language === 'hu') {
-    if (url.includes('/de/')) {
-      newUrl = url.replace('/de/', '/hu/');
-    } else if (!url.includes('/hu/')) {
-      newUrl = url.replace(window.location.origin + '/', window.location.origin + '/hu/');
-    }
-  } else if (language === 'de') {
-    if (url.includes('/hu/')) {
-      newUrl = url.replace('/hu/', '/de/');
-    } else if (!url.includes('/de/')) {
-      newUrl = url.replace(window.location.origin + '/', window.location.origin + '/de/');
-    }
+  if (langIndex !== -1) {
+    pathParts[langIndex] = language;
+  } else {
+    const testIndex = pathParts.findIndex(p => p === 'TEST');
+    if (testIndex !== -1) pathParts.splice(testIndex + 1, 0, language);
   }
 
-  window.location.href = newUrl;
+  // Set new pathname and preserve search params
+  url.pathname = pathParts.join('/');
+  window.location.href = url.toString();
 }

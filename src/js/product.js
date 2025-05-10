@@ -1,8 +1,8 @@
-import { products } from '../data/products-db.js';
+import { products } from './data/products-db.js';
 
 console.log(products);
 
-/* fetch('./src/data/products.json')
+/* fetch('../src/data/products.json')
   .then(response => response.json())
   .then(data => {
     const products = data;

@@ -165,513 +165,513 @@ document.addEventListener('DOMContentLoaded', () => {
 const fileStructure = {
   "triangular_prism": {
     "D35":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_dreen-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_dreen-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "D25":[
-        "apricot-large.jpg",
-/*         "blue-large(1).jpg",
- */        "blue-large.jpg",
-/*         "blue-medium.jpg",
- *//*         "blue-small.jpg",
- */        "burgundy-large.jpg",
-/*         "burgundy-medium.jpg",
- *//*         "burgundy-small.jpg",
- */        "caramel-large.jpg",
-        "cognac-large.jpg",
-/*         "cognac-medium.jpg",
- *//*         "cognac-small.jpg",
- */        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-/*         "dark_purple-large(1).jpg",
- */        "dark_purple-large.jpg",
-/*         "dark_purple-medium.jpg",
- *//*         "dark_purple-small.jpg",
- */        "green-large.jpg",
-/*         "green-medium.jpg",
- *//*         "green-small.jpg",
- */        /* "orange-large(1).jpg", */
-        /* "orange-large(2).jpg", */
-        "orange-large.jpg",
-        /* "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- */        /* "red-large(1).jpg", */
-        "red-large.jpg",
-        /* "red-medium.jpg", */
-/*         "red-small.jpg",
- */        "roze-large.jpg",
-        /* "turquoise-large(1).jpg", */
-        "turquoise-large.jpg",
-        /* "turquoise-medium.jpg", */
-/*         "turquoise-small.jpg",
- *//*         "white-large(1).jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg",
- */        "wine-large.jpg",
-        "yellow-large.jpg",
-        /* "yellow-medium.jpg", */
-/*         "yellow-small.jpg"
+        "apricot-large.webp",
+/*         "blue-large(1).webp",
+ */        "blue-large.webp",
+/*         "blue-medium.webp",
+ *//*         "blue-small.webp",
+ */        "burgundy-large.webp",
+/*         "burgundy-medium.webp",
+ *//*         "burgundy-small.webp",
+ */        "caramel-large.webp",
+        "cognac-large.webp",
+/*         "cognac-medium.webp",
+ *//*         "cognac-small.webp",
+ */        "dark_blue-large.webp",
+        "dark_green-large.webp",
+/*         "dark_purple-large(1).webp",
+ */        "dark_purple-large.webp",
+/*         "dark_purple-medium.webp",
+ *//*         "dark_purple-small.webp",
+ */        "green-large.webp",
+/*         "green-medium.webp",
+ *//*         "green-small.webp",
+ */        /* "orange-large(1).webp", */
+        /* "orange-large(2).webp", */
+        "orange-large.webp",
+        /* "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ */        /* "red-large(1).webp", */
+        "red-large.webp",
+        /* "red-medium.webp", */
+/*         "red-small.webp",
+ */        "roze-large.webp",
+        /* "turquoise-large(1).webp", */
+        "turquoise-large.webp",
+        /* "turquoise-medium.webp", */
+/*         "turquoise-small.webp",
+ *//*         "white-large(1).webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp",
+ */        "wine-large.webp",
+        "yellow-large.webp",
+        /* "yellow-medium.webp", */
+/*         "yellow-small.webp"
  */      ],
     "D20":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "D15":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_purple-large.jpg",
-        "green-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_purple-large.webp",
+        "green-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "D10":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ]
   },
   "square_prism": {
     "V5":[
-        "blue-large.jpg",
-        "caramel-large.jpg",
-/*         "dark_blue-large(1).jpg",
- */        "dark_blue-large.jpg",
-        /* "dark_blue-medium.jpg", */
-/*         "dark_blue-small.jpg",
- */        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-/*         "peach-large(1).jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- *//*         "pink-large(1).jpg",
- */        "pink-large.jpg",
-        /* "pink-medium.jpg", */
-/*         "pink-small.jpg",
- */        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "blue-large.webp",
+        "caramel-large.webp",
+/*         "dark_blue-large(1).webp",
+ */        "dark_blue-large.webp",
+        /* "dark_blue-medium.webp", */
+/*         "dark_blue-small.webp",
+ */        "dark_green-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+/*         "peach-large(1).webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ *//*         "pink-large(1).webp",
+ */        "pink-large.webp",
+        /* "pink-medium.webp", */
+/*         "pink-small.webp",
+ */        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "V35":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "W.jpg",
-        "wine-large.jpg",
-        "WN.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "W.webp",
+        "wine-large.webp",
+        "WN.webp"
       ],
     "V25":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_purple-large.jpg",
-        "green-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_purple-large.webp",
+        "green-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "wine-large.webp"
       ],
     "V20":[
-        "apricot-large.jpg",
-/*         "blue-large(1).jpg",
- */        "blue-large.jpg",
-        /* "blue-medium.jpg", */
-/*         "blue-small.jpg",
- */        "burgundy-large.jpg",
-        /* "burgundy-medium.jpg", */
-/*         "burgundy-small.jpg",
- */        "caramel-large.jpg",
-        "cognac-large.jpg",
-        /* "cognac-medium.jpg", */
-/*         "cognac-small.jpg",
- *//*         "dark_blue-large(1).jpg",
- */        "dark_blue-large.jpg",
-        /* "dark_blue-medium.jpg", */
-/*         "dark_blue-small.jpg",
- */        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-        "green-large.jpg",
-        /* "green-medium.jpg", */
-/*         "green-small.jpg",
- *//*         "orange-large(1).jpg",
- *//*         "orange-large(2).jpg",
- */        "orange-large.jpg",
-        /* "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- */        "pink-large.jpg",
-       /*  "pink-medium.jpg", */
-/*         "pink-small.jpg",
- */        "purple-large.jpg",
-        /* "purple-medium.jpg", */
-/*         "purple-small.jpg",
- *//*         "red-large(1).jpg",
- */        "red-large.jpg",
-        /* "red-medium.jpg", */
-/*         "red-small.jpg",
- */        "roze-large.jpg",
-        "turquoise large.jpg",
-        "turquoise-large.jpg",
-        /* "turquoise-medium.jpg", */
-/*         "turquoise-small.jpg",
- *//*         "white-large(1).jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg",
- */        "wine-large.jpg",
-        "yellow-large.jpg",
-        /* "yellow-medium.jpg", */
-/*         "yellow-small.jpg"
+        "apricot-large.webp",
+/*         "blue-large(1).webp",
+ */        "blue-large.webp",
+        /* "blue-medium.webp", */
+/*         "blue-small.webp",
+ */        "burgundy-large.webp",
+        /* "burgundy-medium.webp", */
+/*         "burgundy-small.webp",
+ */        "caramel-large.webp",
+        "cognac-large.webp",
+        /* "cognac-medium.webp", */
+/*         "cognac-small.webp",
+ *//*         "dark_blue-large(1).webp",
+ */        "dark_blue-large.webp",
+        /* "dark_blue-medium.webp", */
+/*         "dark_blue-small.webp",
+ */        "dark_green-large.webp",
+        "dark_purple-large.webp",
+        "green-large.webp",
+        /* "green-medium.webp", */
+/*         "green-small.webp",
+ *//*         "orange-large(1).webp",
+ *//*         "orange-large(2).webp",
+ */        "orange-large.webp",
+        /* "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ */        "pink-large.webp",
+       /*  "pink-medium.webp", */
+/*         "pink-small.webp",
+ */        "purple-large.webp",
+        /* "purple-medium.webp", */
+/*         "purple-small.webp",
+ *//*         "red-large(1).webp",
+ */        "red-large.webp",
+        /* "red-medium.webp", */
+/*         "red-small.webp",
+ */        "roze-large.webp",
+        "turquoise large.webp",
+        "turquoise-large.webp",
+        /* "turquoise-medium.webp", */
+/*         "turquoise-small.webp",
+ *//*         "white-large(1).webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp",
+ */        "wine-large.webp",
+        "yellow-large.webp",
+        /* "yellow-medium.webp", */
+/*         "yellow-small.webp"
  */      ],
     "V15":[
-        "apricot-large.jpg",
-/*         "blue-large(1).jpg",
- */        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "orange-large.jpg",
-        "pink-large.jpg",
-        "red-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+/*         "blue-large(1).webp",
+ */        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "orange-large.webp",
+        "pink-large.webp",
+        "red-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "V10":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-/*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_purple-large.webp",
+/*         "orange-large(1).webp",
+ */        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ]
   },
   "spherical": {
     "K6":[
-        "burgundy-large.jpg",
-        /* "burgundy-medium.jpg", */
-/*         "burgundy-small.jpg",
- */        "cognac-large.jpg",
-        /* "cognac-medium.jpg", */
-/*         "cognac-small.jpg",
- */        "dark_blue-large.jpg",
-        /* "dark_blue-medium.jpg", */
-/*         "dark_blue-small.jpg",
- */        "orange-large.jpg",
-        /* "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "pastel_blue-large.jpg",
-        /* "pastel_blue-medium.jpg", */
-/*         "pastel_blue-small.jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- */        "purple-large.jpg",
-        /* "purple-medium.jpg", */
-/*         "purple-small.jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg",
- */        "yellow-large.jpg",
-        /* "yellow-medium.jpg", */
-/*         "yellow-small.jpg"
+        "burgundy-large.webp",
+        /* "burgundy-medium.webp", */
+/*         "burgundy-small.webp",
+ */        "cognac-large.webp",
+        /* "cognac-medium.webp", */
+/*         "cognac-small.webp",
+ */        "dark_blue-large.webp",
+        /* "dark_blue-medium.webp", */
+/*         "dark_blue-small.webp",
+ */        "orange-large.webp",
+        /* "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "pastel_blue-large.webp",
+        /* "pastel_blue-medium.webp", */
+/*         "pastel_blue-small.webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ */        "purple-large.webp",
+        /* "purple-medium.webp", */
+/*         "purple-small.webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp",
+ */        "yellow-large.webp",
+        /* "yellow-medium.webp", */
+/*         "yellow-small.webp"
  */      ]
   },
   "special": {
     "3B10":[
-        "apple_green-large.jpg",
-        /* "apple_green-medium.jpg", */
-/*         "apple_green-small.jpg",
- */        "blue-large.jpg",
-        /* "blue-medium.jpg", */
-/*         "blue-small.jpg",
- */        "burgundy-large.jpg",
-        /* "burgundy-medium.jpg", */
-/*         "burgundy-small.jpg",
- */        "cognac-large.jpg",
-        /* "cognac-medium.jpg", */
-/*         "cognac-small.jpg",
- */        "dark_blue-large.jpg",
-        /* "dark_blue-medium.jpg", */
-/*         "dark_blue-small.jpg",
- */        "orange-large.jpg",
-        /* "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- */        "pink-large.jpg",
-        /* "pink-medium.jpg", */
-/*         "pink-small.jpg",
- */        "purple-large.jpg",
-        /* "purple-medium.jpg", */
-/*         "purple-small.jpg",
- */        "red-large.jpg",
-        /* "red-medium.jpg", */
-/*         "red-small.jpg",
- */        "turquoise-large.jpg",
-        /* "turquoise-medium.jpg", */
-/*         "turquoise-small.jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg"
+        "apple_green-large.webp",
+        /* "apple_green-medium.webp", */
+/*         "apple_green-small.webp",
+ */        "blue-large.webp",
+        /* "blue-medium.webp", */
+/*         "blue-small.webp",
+ */        "burgundy-large.webp",
+        /* "burgundy-medium.webp", */
+/*         "burgundy-small.webp",
+ */        "cognac-large.webp",
+        /* "cognac-medium.webp", */
+/*         "cognac-small.webp",
+ */        "dark_blue-large.webp",
+        /* "dark_blue-medium.webp", */
+/*         "dark_blue-small.webp",
+ */        "orange-large.webp",
+        /* "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ */        "pink-large.webp",
+        /* "pink-medium.webp", */
+/*         "pink-small.webp",
+ */        "purple-large.webp",
+        /* "purple-medium.webp", */
+/*         "purple-small.webp",
+ */        "red-large.webp",
+        /* "red-medium.webp", */
+/*         "red-small.webp",
+ */        "turquoise-large.webp",
+        /* "turquoise-medium.webp", */
+/*         "turquoise-small.webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp"
  */      ]
   },
 /*   "sample":[
-      "square_prism_steps-red-large.jpg",
-      "square_prism_steps-red-medium.jpg",
-      "square_prism_steps-red-small.jpg"
+      "square_prism_steps-red-large.webp",
+      "square_prism_steps-red-medium.webp",
+      "square_prism_steps-red-small.webp"
     ], */
   "pyramid": {
     "P10":[
-        "blue-large.jpg",
-        /* "blue-medium.jpg", */
-/*         "blue-small.jpg",
- */        "burgundy-large.jpg",
-        /* "burgundy-medium.jpg", */
-/*         "burgundy-small.jpg",
- */        "cognac-large.jpg",
-        /* "cognac-medium.jpg", */
-/*         "cognac-small.jpg",
- */        "dark_blue-large.jpg",
-       /*  "dark_blue-medium.jpg", */
-/*         "dark_blue-small.jpg",
- */        "green-large.jpg",
-        /* "green-medium.jpg", */
-/*         "green-small.jpg",
- */        "orange-large.jpg",
-        /* "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "peach-large.jpg",
-        /* "peach-medium.jpg", */
-/*         "peach-small.jpg",
- */        "pink-large.jpg",
-        /* "pink-medium.jpg", */
-/*         "pink-small.jpg",
- */        "purple-large.jpg",
-        /* "purple-medium.jpg", */
-/*         "purple-small.jpg",
- */        "red-large.jpg",
-        /* "red-medium.jpg", */
-/*         "red-small.jpg",
- */        "turquoise-large.jpg",
-        /* "turquoise-medium.jpg", */
-/*         "turquoise-small.jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg",
- */        "wine-large.jpg",
-        /* "wine-medium.jpg", */
-/*         "wine-small.jpg",
- */        "yellow-large.jpg",
-        /* "yellow-medium.jpg", */
-/*         "yellow-small.jpg"
+        "blue-large.webp",
+        /* "blue-medium.webp", */
+/*         "blue-small.webp",
+ */        "burgundy-large.webp",
+        /* "burgundy-medium.webp", */
+/*         "burgundy-small.webp",
+ */        "cognac-large.webp",
+        /* "cognac-medium.webp", */
+/*         "cognac-small.webp",
+ */        "dark_blue-large.webp",
+       /*  "dark_blue-medium.webp", */
+/*         "dark_blue-small.webp",
+ */        "green-large.webp",
+        /* "green-medium.webp", */
+/*         "green-small.webp",
+ */        "orange-large.webp",
+        /* "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "peach-large.webp",
+        /* "peach-medium.webp", */
+/*         "peach-small.webp",
+ */        "pink-large.webp",
+        /* "pink-medium.webp", */
+/*         "pink-small.webp",
+ */        "purple-large.webp",
+        /* "purple-medium.webp", */
+/*         "purple-small.webp",
+ */        "red-large.webp",
+        /* "red-medium.webp", */
+/*         "red-small.webp",
+ */        "turquoise-large.webp",
+        /* "turquoise-medium.webp", */
+/*         "turquoise-small.webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp",
+ */        "wine-large.webp",
+        /* "wine-medium.webp", */
+/*         "wine-small.webp",
+ */        "yellow-large.webp",
+        /* "yellow-medium.webp", */
+/*         "yellow-small.webp"
  */      ]
   },
   "cylindrical": {
     "C5":[
-        "blue-large.jpg",
-        "cognac-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "mandarin-large.jpg",
-        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "blue-large.webp",
+        "cognac-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "mandarin-large.webp",
+        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "C30":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "C25":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_purple-large.jpg",
-        "mandarin-large.jpg",
-        "orange-large.jpg",
-/*         "roze-large(1).jpg",
- */        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_purple-large.webp",
+        "mandarin-large.webp",
+        "orange-large.webp",
+/*         "roze-large(1).webp",
+ */        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "C20":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "caramel-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "C17":[
-        "apricot-large.jpg",
-        "blue-large.jpg",
-        "cognac-large.jpg",
-        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "orange-large.jpg",
-        "red-large.jpg",
-        "roze-large.jpg",
-        "turquoise-large.jpg",
-        "white-large.jpg",
-        "wine-large.jpg"
+        "apricot-large.webp",
+        "blue-large.webp",
+        "cognac-large.webp",
+        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "orange-large.webp",
+        "red-large.webp",
+        "roze-large.webp",
+        "turquoise-large.webp",
+        "white-large.webp",
+        "wine-large.webp"
       ],
     "C10":[
-        "blue-large.jpg",
-        "caramel-large.jpg",
-        /* "caramel-medium.jpg", */
-/*         "caramel-small.jpg",
- */        "cognac-large.jpg",
-        "color_blue-large.jpg",
-        "creamy_peach-large.jpg",
-        /* "creamy_peach-medium.jpg", */
-/*         "creamy_peach-small.jpg",
- */        "creamy_pink-large.jpg",
-        /* "creamy_pink-medium.jpg", */
-/*         "creamy_pink-small.jpg",
- */        "dark_blue-large.jpg",
-        "dark_green-large.jpg",
-        "dark_orange-large.jpg",
-        "dark_purple-large.jpg",
-        "ice_blue-large.jpg",
-        /* "ice_blue-medium.jpg", */
-/*         "ice_blue-small.jpg",
- */        "ice_pink-large.jpg",
-        /* "ice_pink-medium.jpg", */
-/*         "ice_pink-small.jpg",
- */        "light_blue-large.jpg",
-        /* "light_blue-medium.jpg", */
-/*         "light_blue-small.jpg",
- */        "light_pink-large.jpg",
-        /* "light_pink-medium.jpg", */
-/*         "light_pink-small.jpg",
- */        "mandarin-large.jpg",
-        "mint-large.jpg",
-        /* "mint-medium.jpg", */
-/*         "mint-small.jpg",
- *//*         "orange-large(1).jpg",
- */        "orange-large.jpg",
-       /*  "orange-medium.jpg", */
-/*         "orange-small.jpg",
- */        "pink-large.jpg",
-        /* "pink-medium.jpg", */
-/*         "pink-small.jpg",
- */        "purple-large.jpg",
-        /* "purple-medium.jpg", */
-/*         "purple-small.jpg",
- */        "red-large.jpg",
-        "roze-large.jpg",
-/*         "white-large(1).jpg",
- */        "white-large.jpg",
-        /* "white-medium.jpg", */
-/*         "white-small.jpg",
- */        "wine-large.jpg",
-        "yellow-large.jpg",
-        /* "yellow-medium.jpg", */
-/*         "yellow-small.jpg"
+        "blue-large.webp",
+        "caramel-large.webp",
+        /* "caramel-medium.webp", */
+/*         "caramel-small.webp",
+ */        "cognac-large.webp",
+        "color_blue-large.webp",
+        "creamy_peach-large.webp",
+        /* "creamy_peach-medium.webp", */
+/*         "creamy_peach-small.webp",
+ */        "creamy_pink-large.webp",
+        /* "creamy_pink-medium.webp", */
+/*         "creamy_pink-small.webp",
+ */        "dark_blue-large.webp",
+        "dark_green-large.webp",
+        "dark_orange-large.webp",
+        "dark_purple-large.webp",
+        "ice_blue-large.webp",
+        /* "ice_blue-medium.webp", */
+/*         "ice_blue-small.webp",
+ */        "ice_pink-large.webp",
+        /* "ice_pink-medium.webp", */
+/*         "ice_pink-small.webp",
+ */        "light_blue-large.webp",
+        /* "light_blue-medium.webp", */
+/*         "light_blue-small.webp",
+ */        "light_pink-large.webp",
+        /* "light_pink-medium.webp", */
+/*         "light_pink-small.webp",
+ */        "mandarin-large.webp",
+        "mint-large.webp",
+        /* "mint-medium.webp", */
+/*         "mint-small.webp",
+ *//*         "orange-large(1).webp",
+ */        "orange-large.webp",
+       /*  "orange-medium.webp", */
+/*         "orange-small.webp",
+ */        "pink-large.webp",
+        /* "pink-medium.webp", */
+/*         "pink-small.webp",
+ */        "purple-large.webp",
+        /* "purple-medium.webp", */
+/*         "purple-small.webp",
+ */        "red-large.webp",
+        "roze-large.webp",
+/*         "white-large(1).webp",
+ */        "white-large.webp",
+        /* "white-medium.webp", */
+/*         "white-small.webp",
+ */        "wine-large.webp",
+        "yellow-large.webp",
+        /* "yellow-medium.webp", */
+/*         "yellow-small.webp"
  */      ]
   },
   "advent": {
     "CAdvent":[
-        "crimson-large.jpg",
-        /* "cylindrical-red_special-medium.jpg", */
-/*         "cylindrical-red_special-small.jpg",
- */        "firebrick-large.jpg",
-        /* "cylindrical-wine-medium.jpg", */
-/*         "cylindrical-wine-small.jpg"
+        "crimson-large.webp",
+        /* "cylindrical-red_special-medium.webp", */
+/*         "cylindrical-red_special-small.webp",
+ */        "firebrick-large.webp",
+        /* "cylindrical-wine-medium.webp", */
+/*         "cylindrical-wine-small.webp"
  */      ]
   }
 };
@@ -737,8 +737,8 @@ const fileStructure = {
     const randomCategory = categoryData[Math.floor(Math.random() * categoryData.length)];
     const randomType = categoryData[randomCategory][Math.floor(Math.random() * categoryData[randomCategory].length)];
     const randomUnit = categoryData[randomCategory][randomType][Math.floor(Math.random() * categoryData[randomCategory][randomType].length)];
-    console.log(`Searching for file: ../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`);
-    return `../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.jpg`;
+    console.log(`Searching for file: ../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.webp`);
+    return `../src/assets/images/products/candles/${categoryData}/${randomType}/${randomUnit}.webp`;
   } 
   
   // Call renderCategories to initialize the category list

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=chrome'>
+    <title>Candle Flames</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+
+footer {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-family: "Inknut Antiqua", Tofu;
+}
+
+        #candleIllustration {
+            opacity: 0.5;
+        }
+
+        #jumbotron-bg {
+            background: url("../src/assets/images/candles2.jpg") no-repeat center center;
+            position: fixed;
+            width: 100%;
+            height: 550px;
+            /*same height as jumbotron */
+            top: 0;
+            left: 0;
+            z-index: +99;
+        }
+
+        #jumbotron {
+            height: 550px;
+            color: white;
+            text-shadow: #444 0 1px 1px;
+            background: transparent;
+        }
+
+        .parallax-bg {
+    background-image: url('../src/assets/images/candles2.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    position: relative;
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+.parallax-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Dark overlay */
+    z-index: -1; /* Ensure it's behind the content */
+}
+
+
+/* Default footer styles */
+#footer-section {
+  transition: all 0.5s ease-out; /* Smooth transition */
+  transform: scale(1); /* Default size */
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0); /* No shadow */
+  filter: brightness(1); /* Normal brightness */
+}
+
+/* Highlighted state */
+#footer-section.highlighted {
+  transform: scale(1.1); /* Slightly enlarge */
+  filter: brightness(1.3); /* Increase brightness */
+}
+
+#artistPhoto {
+    object-fit: cover; /* Keeps the aspect ratio */
+    width: 100%;
+    max-height: 100%; /* Makes sure the image height doesn't exceed the height of the text */
+}
+.rowka {
+    display: flex;
+    align-items: flex-start;
+}
+    </style>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <section>
+        <nav class="navbar fixed-top navbar-expand-lg bg-black">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../src/assets/images/logo.png" alt="" width="75px"
+                        height="75px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <h3><a class="nav-link active" aria-current="page" href="./index.html">About</a></h3>
+                        </li>
+                        <li class="nav-item">
+                            <h3><a class="nav-link" href="./products.html">Products</a></h3>
+                        </li>
+                        <li class="nav-item">
+                            <h3><a class="nav-link" href="./events.html">Events & Locations</a></h3>
+                        </li>
+                    </ul>
+                    <div class="d-flex" id="languageSelector">
+                        <button class="btn btn-dark active" onclick="changeLanguage('en', event)">
+                            EN<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
+                        </button>
+                        <button class="btn btn-dark" onclick="changeLanguage('hu', event)">
+                            HU<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
+                        </button>
+                        <button class="btn btn-dark" onclick="changeLanguage('de', event)">
+                            DE<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+    </section>
+    <section id="mainContent" class="bg-dark bg-gradient">
+        <div class="parallax-bg bg-dark text-secondary px-4 py-5 text-center border-bottom border-black">
+            <div class="py-5">
+              <h1 class="display-5 fw-bold text-warning">Candle Flames</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4 text-white"><i>Handmade candles that not only provide light, but also bring warmth and harmony to every moment. Discover natural scents, quality materials, and perfectly crafted light to experience the most beautiful moments at home!</i></p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <a href="./products.html" type="button" class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Products</a>
+                  <a href="#footer-section" class="btn btn-outline-light btn-lg px-4" id="contactButton">Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+<br>
+<br>
+        <div class="container">
+            <div class="page-header d-flex justify-content-around">
+                <span class="h1 align-middle">
+                    <strong>ABOUT</strong>
+                </span>
+            </div>
+            <br>
+
+            <!--                     <img id="candleIllustration" class="col-6" src="../src/assets/images/DSC7218.jpg" alt="candleIllustration">
+ -->
+            <!--                        
+ <div class="h5 text-stroked">
+<p>
+                            Engedje meg, hogy bemutassam Önnek a CandleFlames világát – ahol a gyertya nem csupán egy fényforrás, hanem egy valódi műalkotás, amely megformálja és varázslatossá teszi az Ön környezetét. Buglyó Imre, a CandleFlames alapítója és vezetője, és örömmel osztom meg Önnel szenvedélyünket a gyertyakészítés művészetében.
+                        </p>
+                        <p>
+            A CandleFlames-nél minden egyes gyertya a kreativitás és a precizitás találkozása. Cégünk küldetése, hogy a gyertyákat ne csak egyszerű díszként, hanem az Ön életének elengedhetetlen részévé tegyük. Mi hiszünk abban, hogy a gyertya lehet egy szimbolikus ajándék, egy otthonos hangulatot teremtő elem, vagy éppen egy különleges alkalom megkoronázó részlete – a lehetőségek határtalanok, és mi mindegyiket kiaknázzuk, hogy az Ön elképzeléseit a legmagasabb színvonalon valósítsuk meg.
+                        </p>
+                        <p>
+            Széles választékunkban megtalálhatók a klasszikus, időtlen gyertyák, melyek a hagyományos eleganciát képviselik, valamint a legmodernebb, trendi formák és színek, amelyek frissességet és dinamizmust hoznak az Ön térbe. A CandleFlames gyertyáit a szivárvány minden színében kínáljuk, lehetővé téve, hogy bármely térben vagy alkalomban tökéletes harmóniát teremtsen.
+                        </p>
+                        <p>
+            Mi, a CandleFlames-nél, különös figyelmet fordítunk arra, hogy minden egyes termékünket kézzel készítsük, ami garantálja a teljes egyediséget és a prémium minőséget. Minden gyertya egy-egy mestermű, amely a szakértelem és a szeretet kombinációjából születik. A kézműves technikánk lehetővé teszi, hogy minden darab különböző legyen, így Ön biztos lehet benne, hogy az, amit kap, valóban egyedi és megismételhetetlen.
+                        </p>
+                        <p>
+            Ha Ön különleges igényekkel rendelkezik, örömmel kínálunk illatosított gyertyákat is, amelyek nemcsak látványban, hanem illatukkal is gazdagítják a teret. Legyen szó egy romantikus vacsoráról, egy ünnepi eseményről vagy egyszerűen a mindennapi élet szebbé tételéről, nálunk minden alkalomra megtalálja az ideális választást.
+                        </p>
+                        <p>
+            Több éves szakmai tapasztalattal és elkötelezett csapattal állunk rendelkezésére, hogy minden igényt teljesítsünk és minden elképzelést valóra váltsunk. A CandleFlames nem csupán gyertya, hanem egy élmény, egy hangulat, és egy művészi kifejezés.
+                        </p>
+                        <p>
+            Ne habozzon kapcsolatba lépni velünk, hiszen mi itt vagyunk, hogy az Ön egyedi elképzeléseit a legmagasabb szinten valósítsuk meg. Várjuk szeretettel a megkeresését, és bízunk benne, hogy a CandleFlames gyertyái hozzájárulnak majd az Ön életének minden fontos pillanatához!
+                        </p>
+                        </div>
+ -->
+            <div class="container">
+                <div class="rowka row d-flex justify-content-between">
+                    <div class="h4 col-12 col-md-6 order-2 order-md-2">
+                        <figure>
+                            <blockquote class="blockquote">
+                              <p class="h4">Our company specializes in candle making, which can be used both as decorative elements or in their traditional sense. Whatever the purpose, you can find what you need in every color of the rainbow and in various shapes. Custom orders are also available in scented forms. All of our products are individually handmade, ensuring that you will not find two exactly identical products. With many years of professional experience, we strive to fully meet our customers' needs. Feel free to contact us with confidence!</p>
+                            </blockquote>
+                            <br>
+                            <figcaption class="blockquote-footer">
+                              <i>Imre Buglyó</i>
+                            </figcaption>
+                          </figure>
+                    </div>
+                    <div class="col-12 col-md-6 order-1 order-md-1 d-flex">
+                        <img id="artistPhoto" class="img-fluid shadow-lg bg-body rounded-3 border border-white border-2" src="../src/assets/images/artist_photo.jpg"
+                            alt="Artist photo">
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section>
+        <div
+        id="footer-section" class="d-flex border-top border-black flex-wrap justify-content-around align-items-center py-3 bg-warning-subtle bg-gradient text-warning-emphasis bottom">
+            <div class="col-md-4 d-flex align-items-center order-1">
+                <span class="mb-3 mb-md-0">
+                    <div class="container">
+                        <p class="h3">
+                            Our company and products are available not only on our website, but also on the following social media platforms! Find us through our other contact details as well!</p>
+                    </div>
+                </span>
+            </div>
+            <div class="nav col-md-4 justify-content-end d-flex order-2">
+                <div>
+                    <p class="h3">
+                        Imre Buglyó
+                    </p>
+                    <p>
+                        Sole Proprietor
+                    </p>
+                    <hr>
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i> <a href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g" target="_blank">
+                            Nagyhegyes, Tulipán utca 22. Magyarország
+                          </a>
+                    </p>
+                    <p>
+                        <i class="bi bi-telephone-fill"></i> <a href="tel:+36303258956">+36-30/325-89-56</a>
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope-fill"></i> <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
+                    </p>
+                    <p>
+
+                        
+                            <a class="text-body-secondary" href="https://www.tiktok.com/" target="_blank"><img
+                                        class="bi" width="50" height="50"
+                                        src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"></a>
+                            <a class="text-body-secondary" href="https://www.instagram.com/" target="_blank"><img
+                                        class="bi" width="50" height="50"
+                                        src="https://static.cdnlogo.com/logos/i/4/instagram.svg"></a>
+                            <a class="text-body-secondary"
+                                    href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank"><img class="bi"
+                                        width="50" height="50" src="https://www.cdnlogo.com/logos/f/84/facebook.svg"></a>
+                        
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="d-flex flex-wrap py-3 border-top border-black bg-black bottom bg-gradient container-fluid">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="#" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
+                    <img class="rounded-circle" width="37.5" height="37.5" src="../src/assets/images/developer/faulogo-cropped.png" />
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Fox All Up</span>
+            </div>
+        </footer>
+    </section>
+    <script>
+        // Get the button and the footer section elements
+  const contactButton = document.getElementById('contactButton');
+  const footer = document.getElementById('footer-section');
+
+  // Add a click event listener to the button
+  contactButton.addEventListener('click', function () {
+    // Add the 'highlighted' class to the footer when the button is clicked
+    footer.classList.add('highlighted');
+    
+    // Optional: Scroll the page to the footer section after the button is clicked
+    footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Optionally, remove the highlight after a few seconds (so it doesn't stay highlighted forever)
+    setTimeout(() => {
+      footer.classList.remove('highlighted');
+    }, 750); // Removes the highlight after 2 seconds
+  });  
+    </script>
+     <script src="../src/js/language.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
