@@ -3,6 +3,4 @@ When approved by the "customer", recreate the whole site from the current "hardc
 - All the products' 'ask for the price' section should be a button which redirect to the Connect page to get some exact information about the prices.
 
 + Redesign the whole site to be prettier and more userfriendly:
-- Add some effects, animations.
-
-- Make the possibility to change between English, Hungarian and German.
+- Add some effects, animations.  
