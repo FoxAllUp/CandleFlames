@@ -9,6 +9,7 @@ Technologies Used:
 - CSS
 - JavaScript
 - Bootstrap
+- AOS
 
 Usage:
 
