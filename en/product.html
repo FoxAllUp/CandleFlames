@@ -970,42 +970,30 @@ function createColorSelector(colors) {
     const container = document.getElementById("colorSelector");
     container.innerHTML = ""; // Clear previous content
 
-
-
-    //Get current size:
     colors.forEach(color => {
         const circle = document.createElement("span");
-        const key = manualColorMap[color] || color;
+        // Get the correct display color from your map
+        const cssColor = manualColorMap[color] || color;
+        
         circle.className = "color-circle";
         circle.dataset.color = color;
-        circle.style.backgroundColor = key;
+        circle.style.backgroundColor = cssColor;
 
         // Add click event
         circle.addEventListener("mouseover", function () {
             document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
             this.classList.add("selected");
-
-            console.log(color);
             
-            currentColor = key;
+            currentColor = color;
             currentSize = document.querySelector(".size-button.selected").textContent;
             document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
             document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
         });
         container.appendChild(circle);
     });
+    
     document.querySelector(".color-circle:first-of-type").classList.add("selected");
-    let defaultColor = document.querySelector(".selected").getAttribute("data-color");
-    defaultOriginalColor = Object.entries(manualColorMap).find(([k, v]) => v === defaultColor)?.[0];
-//    document.getElementById("selectedColor").textContent = defaultOriginalColor;
-
-/*     let currentSize = document.querySelector(".size-button.selected").textContent;;
-    if (!currentSize){
-      currentSize = randomType;
-    } */
-//    console.log(document.querySelector(".selected").textContent);
-    currentColor = defaultOriginalColor;
-    return defaultOriginalColor, currentColor;    
+    currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
 }
 let availableColors = fileStructure[category][Object.keys(fileStructure[category])[0]].map(file => {
             return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
@@ -1125,8 +1113,7 @@ document.querySelector("#image-viewer .close").addEventListener("click", functio
 const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/))); // Get sizes dynamically
 function createSizeSelector(sizes) {
     const container = document.getElementById("sizeSelector");
-    container.innerHTML = ""; // Clear previous content
-
+    container.innerHTML = "";
 
     sizes.forEach(size => {
         const button = document.createElement("button");
@@ -1139,29 +1126,22 @@ function createSizeSelector(sizes) {
             document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
             this.classList.add("selected");
 
-//Get current color:
-            let currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
-            console.log("Current color: " + currentColor);
+            let currentColor = document.querySelector(".color-circle.selected")?.getAttribute("data-color");
             document.getElementById("selectedSize").textContent = size;
             
-            // Update color selector based on selected size
+            // Update color selector based on selected size - FIXED: preserve underscores
             const availableColors = fileStructure[category][size].map(file => {
-            return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
-            }).filter(color => manualColorMap[color]); // Only include mapped colors
+                return file.replace("-large.webp", "");
+            });
             
-            console.log(`Available colors: ${availableColors}`);
-
             if (availableColors.includes(currentColor)){
                 var colorToSet = currentColor;
-            }
-            else {
+            } else {
                 var colorToSet = availableColors[0];
             }
 
-            console.log(`Color wanted : ${colorToSet}`);
-
             document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
-            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${this.innerText}/${currentColor}-large.webp`;
+            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
 
             createColorSelector(availableColors);
         });
@@ -1173,10 +1153,10 @@ function createSizeSelector(sizes) {
     document.querySelector(".size-button:first-of-type").classList.add("selected");
     document.getElementById("selectedSize").textContent = sizes[0];
 
-    // Trigger color selector for the first size
+    // FIXED: Just get the color names without modifying underscores
     const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
-        return file.replace("-large.webp", "").replace(/_/g, ""); 
-    }).filter(color => manualColorMap[color]);
+        return file.replace("-large.webp", "");
+    });
 
     createColorSelector(firstSizeColors);
     currentSize = sizes[0];

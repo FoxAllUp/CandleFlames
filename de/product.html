@@ -288,933 +288,885 @@ body {
 Inline kód: -->
 
 <script>
-const products = {
-    cylindrical:[
-      { id: 1, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
-      { id: 2, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
-      { id: 3, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
-      { id: 4, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
-      { id: 5, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
-      { id: 6, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
-      { id: 7, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
-      { id: 8, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
-      { id: 9, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
-      { id: 10, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
-      { id: 11, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
-      { id: 12, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
-      { id: 13, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
-      { id: 14, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
-      { id: 15, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
-    ],
-
-    pyramid:[
-      { id: 19, name: 'Pyramid Blue Candle', shape: 'pyramid', color: 'blue' },
-      { id: 20, name: 'Pyramid Burgundy Candle', shape: 'pyramid', color: 'burgundy' },
-      { id: 21, name: 'Pyramid Cognac Candle', shape: 'pyramid', color: 'cognac' },
-      { id: 22, name: 'Pyramid Dark Blue Candle', shape: 'pyramid', color: 'dark_blue' },
-      { id: 23, name: 'Pyramid Green Candle', shape: 'pyramid', color: 'green' },
-      { id: 24, name: 'Pyramid Orange Candle', shape: 'pyramid', color: 'orange' },
-      { id: 25, name: 'Pyramid Peach Candle', shape: 'pyramid', color: 'peach' },
-      { id: 26, name: 'Pyramid Pink Candle', shape: 'pyramid', color: 'pink' },
-      { id: 27, name: 'Pyramid Purple Candle', shape: 'pyramid', color: 'purple' },
-      { id: 28, name: 'Pyramid Red Candle', shape: 'pyramid', color: 'red' },
-      { id: 29, name: 'Pyramid Turquoise Candle', shape: 'pyramid', color: 'turquoise' },
-      { id: 30, name: 'Pyramid White Candle', shape: 'pyramid', color: 'white' },
-      { id: 31, name: 'Pyramid Wine Candle', shape: 'pyramid', color: 'wine' },
-      { id: 32, name: 'Pyramid Yellow Candle', shape: 'pyramid', color: 'yellow' }
-    ],
-
-    special:[
-      { id: 33, name: 'Special Apple Green Candle', shape: 'special', color: 'apple_green' },
-      { id: 34, name: 'Special Blue Candle', shape: 'special', color: 'blue' },
-      { id: 35, name: 'Special Burgundy Candle', shape: 'special', color: 'burgundy' },
-      { id: 36, name: 'Special Cognac Candle', shape: 'special', color: 'cognac' },
-      { id: 37, name: 'Special Dark Blue Candle', shape: 'special', color: 'dark_blue' },
-      { id: 38, name: 'Special Orange Candle', shape: 'special', color: 'orange' },
-      { id: 39, name: 'Special Peach Candle', shape: 'special', color: 'peach' },
-      { id: 40, name: 'Special Pink Candle', shape: 'special', color: 'pink' },
-      { id: 41, name: 'Special Purple Candle', shape: 'special', color: 'purple' },
-      { id: 42, name: 'Special Red Candle', shape: 'special', color: 'red' },
-      { id: 43, name: 'Special Turquoise Candle', shape: 'special', color: 'turquoise' },
-      { id: 44, name: 'Special White Candle', shape: 'special', color: 'white' }
-    ],
-
-    spherical:[
-      { id: 45, name: 'Spherical Burgundy Candle', shape: 'spherical', color: 'burgundy' },
-      { id: 46, name: 'Spherical Cognac Candle', shape: 'spherical', color: 'cognac' },
-      { id: 47, name: 'Spherical Dark Blue Candle', shape: 'spherical', color: 'dark_blue' },
-      { id: 48, name: 'Spherical Orange Candle', shape: 'spherical', color: 'orange' },
-      { id: 49, name: 'Spherical Pastel Blue Candle', shape: 'spherical', color: 'pastel_blue' },
-      { id: 50, name: 'Spherical Peach Candle', shape: 'spherical', color: 'peach' },
-      { id: 51, name: 'Spherical Purple Candle', shape: 'spherical', color: 'purple' },
-      { id: 52, name: 'Spherical White Candle', shape: 'spherical', color: 'white' },
-      { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' }
-    ],
-
-    square_prism:[
-      { id: 100, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
-      { id: 101, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
-      { id: 102, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
-      { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
-      { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
-      { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
-      { id: 57, name: 'Square Prism Dark Blue Candle', shape: 'square_prism', color: 'dark_blue' },
-      { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
-      { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
-      { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
-      { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
-      { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
-      { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
-      { id: 64, name: 'Square Prism Turquoise Candle', shape: 'square_prism', color: 'turquoise' },
-      { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
-      { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' }
-    ],
-
-    triangular_prism:[
-      { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
-      { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
-      { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
-      { id: 70, name: 'Triangular Prism Green Candle', shape: 'triangular_prism', color: 'green' },
-      { id: 71, name: 'Triangular Prism Orange Candle', shape: 'triangular_prism', color: 'orange' },
-      { id: 72, name: 'Triangular Prism Peach Candle', shape: 'triangular_prism', color: 'peach' },
-      { id: 73, name: 'Triangular Prism Purple Candle', shape: 'triangular_prism', color: 'purple' },
-      { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
-      { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
-      { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
-      { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' }
-    ]
-
-    /* square_steps:[
-      { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
-    ] */
-  };
-
-  const physicalProps = {
-    // Cylindrical Candles
-    cylindrical: [
-        { type: 'C1', baseAreaMm2: 45, heightMm: 65, weightG: 95, burnTimeHours: '-' },
-        { type: 'C3', baseAreaMm2: 40, heightMm: 80, weightG: 85, burnTimeHours: '-' },
-        { type: 'C5', baseAreaMm2: 65, heightMm: 50, weightG: 150, burnTimeHours: 10 },
-        { type: 'C10', baseAreaMm2: 65, heightMm: 100, weightG: 300, burnTimeHours: 20 },
-        { type: 'C15', baseAreaMm2: 65, heightMm: 150, weightG: 450, burnTimeHours: 30 },
-        { type: 'C19', baseAreaMm2: 40, heightMm: 170, weightG: 170, burnTimeHours: '-' },
-        { type: 'C17', baseAreaMm2: 65, heightMm: 170, weightG: 510, burnTimeHours: 35 },
-        { type: 'C20', baseAreaMm2: 65, heightMm: 200, weightG: 600, burnTimeHours: 40 },
-        { type: 'C25', baseAreaMm2: 65, heightMm: 250, weightG: 750, burnTimeHours: 50 },
-        { type: 'C30', baseAreaMm2: 65, heightMm: 300, weightG: 900, burnTimeHours: 60 }
-    ], 
-
-    // Triangular Prism Candles
-    triangular_prism: [
-        { type: 'D10', baseAreaMm2: '∆ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
-        { type: 'D15', baseAreaMm2: '∆ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
-        { type: 'D20', baseAreaMm2: '∆ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
-        { type: 'D25', baseAreaMm2: '∆ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
-        { type: 'D35', baseAreaMm2: '∆ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
-    ],
-
-    // Pyramid Candles
-    pyramid: [
-        { type: 'P10', baseAreaMm2: '□ 70x70', heightMm: 100, weightG: 156, burnTimeHours: '-' },
-        { type: 'P15', baseAreaMm2: '□ 90x90', heightMm: 150, weightG: 340, burnTimeHours: '-' },
-        { type: 'P20', baseAreaMm2: '□ 100x100', heightMm: 200, weightG: 550, burnTimeHours: '-' }
-    ],
-
-    // Square Prism Candles
-    square_prism: [
-        { type: 'V5', baseAreaMm2: '□ 60x60', heightMm: 50, weightG: 140, burnTimeHours: 10 },
-        { type: 'V10', baseAreaMm2: '□ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
-        { type: 'V15', baseAreaMm2: '□ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
-        { type: 'V20', baseAreaMm2: '□ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
-        { type: 'V25', baseAreaMm2: '□ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
-        { type: 'V35', baseAreaMm2: '□ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
-    ],
-
-    // Spherical Candles
-    spherical: [
-        { type: 'K6', baseAreaMm2: 60, heightMm: 60, weightG: 120, burnTimeHours: '-' },
-        { type: 'K8', baseAreaMm2: 80, heightMm: 80, weightG: 200, burnTimeHours: '-' },
-        { type: 'K10', baseAreaMm2: 100, heightMm: 100, weightG: 475, burnTimeHours: '-' },
-        { type: 'K15', baseAreaMm2: 150, heightMm: 150, weightG: 1340, burnTimeHours: '-' }
-    ],
-
-    // Special Candles
-    special: [
-        { type: 'X5', baseAreaMm2: 80, heightMm: 80, weightG: 335, burnTimeHours: 'R_20' },
-        { type: 'X10', baseAreaMm2: 100, heightMm: 100, weightG: 590, burnTimeHours: 'R_25' },
-        { type: '3B10', baseAreaMm2: 150, heightMm: 100, weightG: 1350, burnTimeHours: 30 }
-    ],
-
-    //Advent Candles
-    advent: [
-        { type: 'C-advent', baseAreaMm2: 40, heightMm: '50-64-77-90', weightG: 410, burnTimeHours: '-' }
-    ]
-};
-
-const fileStructure = {
-  "triangular_prism": {
-    "D35":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D25":[
-        "red-large.webp",
-        "roze-large.webp",
-        "burgundy-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "peach-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-    ],
-    "D20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D15":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ]
-  },
-  "square_prism": {
-    "V5":[
-        "pink-large.webp",
-        "peach-large.webp",
-        "orange-large.webp",
-        "darkened_orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V35":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V25":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp"
-      ],
-    "V20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "V15":[
-        "red-large.webp",
-        "pink-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "turquoise-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "turquoise-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ]
-  },
-  "spherical": {
-    "K6":[
-        "orange-large.webp",
-        "yellow-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "burgundy-large.webp",
-        "purple-large.webp",
-        "pastel_blue-large.webp",
-        "dark_blue-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "special": {
-    "3B10":[
-        "red-large.webp",
-        "burgundy-large.webp",
-        "orange-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "pink-large.webp",
-        "purple-large.webp",
-        "apple_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "white-large.webp"
-    ]
-  },
-/*   "sample":[
-      "square_prism_steps-red-large.webp",
-      "square_prism_steps-red-medium.webp",
-      "square_prism_steps-red-small.webp"
-    ], */
-  "pyramid": {
-    "P10":[
-        "red-large.webp",
-        "burgundy-large.webp",
-        "orange-large.webp",
-        "yellow-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "pink-large.webp",
-        "purple-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "cylindrical": {
-    "C5":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "mandarin-large.webp",
-        "orange-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C30":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C25":[
-        "dark_roze-large.webp",
-        "roze-large.webp",
-        "mandarin-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C17":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "pink-large.webp",
-        "light_pink-large.webp",
-        "creamy_pink-large.webp",
-        "ice_pink-large.webp",
-        "dark_orange-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "mandarin-large.webp",
-        "creamy_peach-large.webp",
-        "yellow-large.webp",
-        "cognac-large.webp",
-        "caramel-large.webp",
-        "mint-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "light_blue-large.webp",
-        "ice_blue-large.webp",
-        "steel_blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "purple-large.webp",
-        "wine-large.webp",
-        "snow-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "advent": {
-    "CAdvent":[
-        "crimson-large.webp",
-        "firebrick-large.webp"
-    ]
-  }
-};
-
-const manualColorMap = {
-    "apricot": "peachpuff",
-    "cognac": "saddlebrown",
-    "wine": "darkRed",
-    "roze": "deepPink",
-    "burgundy": "maroon",
-    "dark_blue": "darkBlue",
-    "orange": "orange",
-    "pastel_blue": "powderBlue",
-    "peach": "lightSalmon",
-    "purple": "purple",
-    "dark_purple": "indigo",
-    "white": "white",
-    "yellow": "yellow",
-    "caramel": "chocolate",
-    "turquoise": "turquoise",
-    "firebrick": "firebrick",
-    "crimson": "crimson",
-    "blue": "dodgerBlue",
-    "pink": "hotPink",
-    "cognac": "peru",
-    "blue": "blue",
-    "creamy_peach": "navajoWhite",
-    "creamy_pink": "hotPink",
-    "steel_blue": "steelBlue",
-    "dark_green": "darkGreen",
-    "dark_orange": "orangeRed",
-    "ice_blue": "lightCyan",
-    "ice_pink": "lightPink",
-    "mandarin": "darkOrange",
-    "mint": "paleGreen",
-    "red": "red",
-    "darkened_orange": "gold",
-    "snow": "snow",
-    "dark_roze": "crimson",
-    "green": "green",
-    "apple_green": "greenYellow"
-};
-
-/* [
-    {
-        "id": 1,
-        "name": "Cylindrical Candle",
-        "shape": "cylindrical",
-        "sizes": [
-            {
-                "type": "C5",
-                "physicalProps": { "baseAreaMm2": 65, "heightMm": 50, "weightG": 150, "burnTimeHours": 10 },
-                "colors": [
-                    { "color": "burgundy", "image": "cylindrical/C5/burgundy.webp" },
-                    { "color": "cognac", "image": "cylindrical/C5/cognac.webp" }
-                ]
-            },
-            {
-                "type": "C10",
-                "physicalProps": { "baseAreaMm2": 65, "heightMm": 100, "weightG": 300, "burnTimeHours": 20 },
-                "colors": [
-                    { "color": "blue", "image": "cylindrical/C10/blue.webp" },
-                    { "color": "red", "image": "cylindrical/C10/red.webp" }
-                ]
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Triangular Prism Candle",
-        "shape": "triangular_prism",
-        "sizes": [
-            {
-                "type": "D10",
-                "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 100, "weightG": 280, "burnTimeHours": 20 },
-                "colors": [
-                    { "color": "blue", "image": "triangular_prism/D10/blue.webp" },
-                    { "color": "red", "image": "triangular_prism/D10/red.webp" }
-                ]
-            },
-            {
-                "type": "D35",
-                "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 350, "weightG": 980, "burnTimeHours": 70 },
-                "colors": [
-                    { "color": "apricot", "image": "triangular_prism/D35/apricot.webp" },
-                    { "color": "turquoise", "image": "triangular_prism/D35/turquoise.webp" }
-                ]
-            }
-        ]
-    }
-]
- */
-
-let currentSize, currentColor;
-
-function toCamelCase(color) {
-    return color.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
-}
-
-function getClosestColor(filename) {
-    const cleanName = filename.replace(/-large\.webp$/, ""); // Remove '-large.webp'
-    const camelCaseName = toCamelCase(cleanName); // Convert to camelCase
-
-    // 🔹 First, check manual map
-    if (manualColorMap[camelCaseName]) return manualColorMap[camelCaseName];
-/* 
-    // 🔹 Then, check exact match
-    if (knownColors.includes(camelCaseName)) return camelCaseName;
- */
-    // 🔥 Apply Levenshtein Distance for closest match
-    let closestMatch = "";
-    let minDistance = Infinity;
-
-/*     knownColors.forEach(color => {
-        let distance = levenshtein(camelCaseName, color);
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestMatch = color;
-        }
-    }); */
-    return closestMatch;
-}
-
-// Levenshtein function (same as before)
-function levenshtein(a, b) {
-    if (!a.length) return b.length;
-    if (!b.length) return a.length;
-    let matrix = Array(a.length + 1).fill(null).map(() => Array(b.length + 1).fill(null));
+    const products = {
+        cylindrical:[
+          { id: 1, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
+          { id: 2, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
+          { id: 3, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
+          { id: 4, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
+          { id: 5, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
+          { id: 6, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
+          { id: 7, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
+          { id: 8, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
+          { id: 9, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
+          { id: 10, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
+          { id: 11, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
+          { id: 12, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
+          { id: 13, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
+          { id: 14, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
+          { id: 15, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
+        ],
     
-    for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
-    for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+        pyramid:[
+          { id: 19, name: 'Pyramid Blue Candle', shape: 'pyramid', color: 'blue' },
+          { id: 20, name: 'Pyramid Burgundy Candle', shape: 'pyramid', color: 'burgundy' },
+          { id: 21, name: 'Pyramid Cognac Candle', shape: 'pyramid', color: 'cognac' },
+          { id: 22, name: 'Pyramid Dark Blue Candle', shape: 'pyramid', color: 'dark_blue' },
+          { id: 23, name: 'Pyramid Green Candle', shape: 'pyramid', color: 'green' },
+          { id: 24, name: 'Pyramid Orange Candle', shape: 'pyramid', color: 'orange' },
+          { id: 25, name: 'Pyramid Peach Candle', shape: 'pyramid', color: 'peach' },
+          { id: 26, name: 'Pyramid Pink Candle', shape: 'pyramid', color: 'pink' },
+          { id: 27, name: 'Pyramid Purple Candle', shape: 'pyramid', color: 'purple' },
+          { id: 28, name: 'Pyramid Red Candle', shape: 'pyramid', color: 'red' },
+          { id: 29, name: 'Pyramid Turquoise Candle', shape: 'pyramid', color: 'turquoise' },
+          { id: 30, name: 'Pyramid White Candle', shape: 'pyramid', color: 'white' },
+          { id: 31, name: 'Pyramid Wine Candle', shape: 'pyramid', color: 'wine' },
+          { id: 32, name: 'Pyramid Yellow Candle', shape: 'pyramid', color: 'yellow' }
+        ],
     
-    for (let i = 1; i <= a.length; i++) {
-        for (let j = 1; j <= b.length; j++) {
-            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-            matrix[i][j] = Math.min(
-                matrix[i - 1][j] + 1, 
-                matrix[i][j - 1] + 1, 
-                matrix[i - 1][j - 1] + cost
-            );
+        special:[
+          { id: 33, name: 'Special Apple Green Candle', shape: 'special', color: 'apple_green' },
+          { id: 34, name: 'Special Blue Candle', shape: 'special', color: 'blue' },
+          { id: 35, name: 'Special Burgundy Candle', shape: 'special', color: 'burgundy' },
+          { id: 36, name: 'Special Cognac Candle', shape: 'special', color: 'cognac' },
+          { id: 37, name: 'Special Dark Blue Candle', shape: 'special', color: 'dark_blue' },
+          { id: 38, name: 'Special Orange Candle', shape: 'special', color: 'orange' },
+          { id: 39, name: 'Special Peach Candle', shape: 'special', color: 'peach' },
+          { id: 40, name: 'Special Pink Candle', shape: 'special', color: 'pink' },
+          { id: 41, name: 'Special Purple Candle', shape: 'special', color: 'purple' },
+          { id: 42, name: 'Special Red Candle', shape: 'special', color: 'red' },
+          { id: 43, name: 'Special Turquoise Candle', shape: 'special', color: 'turquoise' },
+          { id: 44, name: 'Special White Candle', shape: 'special', color: 'white' }
+        ],
+    
+        spherical:[
+          { id: 45, name: 'Spherical Burgundy Candle', shape: 'spherical', color: 'burgundy' },
+          { id: 46, name: 'Spherical Cognac Candle', shape: 'spherical', color: 'cognac' },
+          { id: 47, name: 'Spherical Dark Blue Candle', shape: 'spherical', color: 'dark_blue' },
+          { id: 48, name: 'Spherical Orange Candle', shape: 'spherical', color: 'orange' },
+          { id: 49, name: 'Spherical Pastel Blue Candle', shape: 'spherical', color: 'pastel_blue' },
+          { id: 50, name: 'Spherical Peach Candle', shape: 'spherical', color: 'peach' },
+          { id: 51, name: 'Spherical Purple Candle', shape: 'spherical', color: 'purple' },
+          { id: 52, name: 'Spherical White Candle', shape: 'spherical', color: 'white' },
+          { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' }
+        ],
+    
+        square_prism:[
+          { id: 100, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
+          { id: 101, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
+          { id: 102, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
+          { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
+          { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
+          { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
+          { id: 57, name: 'Square Prism Dark Blue Candle', shape: 'square_prism', color: 'dark_blue' },
+          { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
+          { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
+          { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
+          { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
+          { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
+          { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
+          { id: 64, name: 'Square Prism Turquoise Candle', shape: 'square_prism', color: 'turquoise' },
+          { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
+          { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' }
+        ],
+    
+        triangular_prism:[
+          { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
+          { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
+          { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
+          { id: 70, name: 'Triangular Prism Green Candle', shape: 'triangular_prism', color: 'green' },
+          { id: 71, name: 'Triangular Prism Orange Candle', shape: 'triangular_prism', color: 'orange' },
+          { id: 72, name: 'Triangular Prism Peach Candle', shape: 'triangular_prism', color: 'peach' },
+          { id: 73, name: 'Triangular Prism Purple Candle', shape: 'triangular_prism', color: 'purple' },
+          { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
+          { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
+          { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
+          { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' }
+        ]
+    
+        /* square_steps:[
+          { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
+        ] */
+      };
+    
+      const physicalProps = {
+        // Cylindrical Candles
+        cylindrical: [
+            { type: 'C1', baseAreaMm2: 45, heightMm: 65, weightG: 95, burnTimeHours: '-' },
+            { type: 'C3', baseAreaMm2: 40, heightMm: 80, weightG: 85, burnTimeHours: '-' },
+            { type: 'C5', baseAreaMm2: 65, heightMm: 50, weightG: 150, burnTimeHours: 10 },
+            { type: 'C10', baseAreaMm2: 65, heightMm: 100, weightG: 300, burnTimeHours: 20 },
+            { type: 'C15', baseAreaMm2: 65, heightMm: 150, weightG: 450, burnTimeHours: 30 },
+            { type: 'C19', baseAreaMm2: 40, heightMm: 170, weightG: 170, burnTimeHours: '-' },
+            { type: 'C17', baseAreaMm2: 65, heightMm: 170, weightG: 510, burnTimeHours: 35 },
+            { type: 'C20', baseAreaMm2: 65, heightMm: 200, weightG: 600, burnTimeHours: 40 },
+            { type: 'C25', baseAreaMm2: 65, heightMm: 250, weightG: 750, burnTimeHours: 50 },
+            { type: 'C30', baseAreaMm2: 65, heightMm: 300, weightG: 900, burnTimeHours: 60 }
+        ], 
+    
+        // Triangular Prism Candles
+        triangular_prism: [
+            { type: 'D10', baseAreaMm2: '∆ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
+            { type: 'D15', baseAreaMm2: '∆ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
+            { type: 'D20', baseAreaMm2: '∆ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
+            { type: 'D25', baseAreaMm2: '∆ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
+            { type: 'D35', baseAreaMm2: '∆ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
+        ],
+    
+        // Pyramid Candles
+        pyramid: [
+            { type: 'P10', baseAreaMm2: '□ 70x70', heightMm: 100, weightG: 156, burnTimeHours: '-' },
+            { type: 'P15', baseAreaMm2: '□ 90x90', heightMm: 150, weightG: 340, burnTimeHours: '-' },
+            { type: 'P20', baseAreaMm2: '□ 100x100', heightMm: 200, weightG: 550, burnTimeHours: '-' }
+        ],
+    
+        // Square Prism Candles
+        square_prism: [
+            { type: 'V5', baseAreaMm2: '□ 60x60', heightMm: 50, weightG: 140, burnTimeHours: 10 },
+            { type: 'V10', baseAreaMm2: '□ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
+            { type: 'V15', baseAreaMm2: '□ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
+            { type: 'V20', baseAreaMm2: '□ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
+            { type: 'V25', baseAreaMm2: '□ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
+            { type: 'V35', baseAreaMm2: '□ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
+        ],
+    
+        // Spherical Candles
+        spherical: [
+            { type: 'K6', baseAreaMm2: 60, heightMm: 60, weightG: 120, burnTimeHours: '-' },
+            { type: 'K8', baseAreaMm2: 80, heightMm: 80, weightG: 200, burnTimeHours: '-' },
+            { type: 'K10', baseAreaMm2: 100, heightMm: 100, weightG: 475, burnTimeHours: '-' },
+            { type: 'K15', baseAreaMm2: 150, heightMm: 150, weightG: 1340, burnTimeHours: '-' }
+        ],
+    
+        // Special Candles
+        special: [
+            { type: 'X5', baseAreaMm2: 80, heightMm: 80, weightG: 335, burnTimeHours: 'R_20' },
+            { type: 'X10', baseAreaMm2: 100, heightMm: 100, weightG: 590, burnTimeHours: 'R_25' },
+            { type: '3B10', baseAreaMm2: 150, heightMm: 100, weightG: 1350, burnTimeHours: 30 }
+        ],
+    
+        //Advent Candles
+        advent: [
+            { type: 'C-advent', baseAreaMm2: 40, heightMm: '50-64-77-90', weightG: 410, burnTimeHours: '-' }
+        ]
+    };
+    
+    const fileStructure = {
+      "triangular_prism": {
+        "D35":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D25":[
+            "red-large.webp",
+            "roze-large.webp",
+            "burgundy-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "peach-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+        ],
+        "D20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D15":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ]
+      },
+      "square_prism": {
+        "V5":[
+            "pink-large.webp",
+            "peach-large.webp",
+            "orange-large.webp",
+            "darkened_orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V35":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V25":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp"
+          ],
+        "V20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "V15":[
+            "red-large.webp",
+            "pink-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "turquoise-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "turquoise-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ]
+      },
+      "spherical": {
+        "K6":[
+            "orange-large.webp",
+            "yellow-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "burgundy-large.webp",
+            "purple-large.webp",
+            "pastel_blue-large.webp",
+            "dark_blue-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "special": {
+        "3B10":[
+            "red-large.webp",
+            "burgundy-large.webp",
+            "orange-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "pink-large.webp",
+            "purple-large.webp",
+            "apple_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "white-large.webp"
+        ]
+      },
+    /*   "sample":[
+          "square_prism_steps-red-large.webp",
+          "square_prism_steps-red-medium.webp",
+          "square_prism_steps-red-small.webp"
+        ], */
+      "pyramid": {
+        "P10":[
+            "red-large.webp",
+            "burgundy-large.webp",
+            "orange-large.webp",
+            "yellow-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "pink-large.webp",
+            "purple-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "cylindrical": {
+        "C5":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "mandarin-large.webp",
+            "orange-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C30":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C25":[
+            "dark_roze-large.webp",
+            "roze-large.webp",
+            "mandarin-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C17":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "pink-large.webp",
+            "light_pink-large.webp",
+            "creamy_pink-large.webp",
+            "ice_pink-large.webp",
+            "dark_orange-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "mandarin-large.webp",
+            "creamy_peach-large.webp",
+            "yellow-large.webp",
+            "cognac-large.webp",
+            "caramel-large.webp",
+            "mint-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "light_blue-large.webp",
+            "ice_blue-large.webp",
+            "steel_blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "purple-large.webp",
+            "wine-large.webp",
+            "snow-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "advent": {
+        "CAdvent":[
+            "crimson-large.webp",
+            "firebrick-large.webp"
+        ]
+      }
+    };
+    
+    const manualColorMap = {
+        "apricot": "peachpuff",
+        "cognac": "saddlebrown",
+        "wine": "darkRed",
+        "roze": "deepPink",
+        "burgundy": "maroon",
+        "dark_blue": "darkBlue",
+        "orange": "orange",
+        "pastel_blue": "powderBlue",
+        "peach": "lightSalmon",
+        "purple": "purple",
+        "dark_purple": "indigo",
+        "white": "white",
+        "yellow": "yellow",
+        "caramel": "chocolate",
+        "turquoise": "turquoise",
+        "firebrick": "firebrick",
+        "crimson": "crimson",
+        "blue": "dodgerBlue",
+        "pink": "hotPink",
+        "cognac": "peru",
+        "blue": "blue",
+        "creamy_peach": "navajoWhite",
+        "creamy_pink": "hotPink",
+        "steel_blue": "steelBlue",
+        "dark_green": "darkGreen",
+        "dark_orange": "orangeRed",
+        "ice_blue": "lightCyan",
+        "ice_pink": "lightPink",
+        "mandarin": "darkOrange",
+        "mint": "paleGreen",
+        "red": "red",
+        "darkened_orange": "gold",
+        "snow": "snow",
+        "dark_roze": "crimson",
+        "green": "green",
+        "apple_green": "greenYellow"
+    };
+    
+    /* [
+        {
+            "id": 1,
+            "name": "Cylindrical Candle",
+            "shape": "cylindrical",
+            "sizes": [
+                {
+                    "type": "C5",
+                    "physicalProps": { "baseAreaMm2": 65, "heightMm": 50, "weightG": 150, "burnTimeHours": 10 },
+                    "colors": [
+                        { "color": "burgundy", "image": "cylindrical/C5/burgundy.webp" },
+                        { "color": "cognac", "image": "cylindrical/C5/cognac.webp" }
+                    ]
+                },
+                {
+                    "type": "C10",
+                    "physicalProps": { "baseAreaMm2": 65, "heightMm": 100, "weightG": 300, "burnTimeHours": 20 },
+                    "colors": [
+                        { "color": "blue", "image": "cylindrical/C10/blue.webp" },
+                        { "color": "red", "image": "cylindrical/C10/red.webp" }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Triangular Prism Candle",
+            "shape": "triangular_prism",
+            "sizes": [
+                {
+                    "type": "D10",
+                    "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 100, "weightG": 280, "burnTimeHours": 20 },
+                    "colors": [
+                        { "color": "blue", "image": "triangular_prism/D10/blue.webp" },
+                        { "color": "red", "image": "triangular_prism/D10/red.webp" }
+                    ]
+                },
+                {
+                    "type": "D35",
+                    "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 350, "weightG": 980, "burnTimeHours": 70 },
+                    "colors": [
+                        { "color": "apricot", "image": "triangular_prism/D35/apricot.webp" },
+                        { "color": "turquoise", "image": "triangular_prism/D35/turquoise.webp" }
+                    ]
+                }
+            ]
         }
+    ]
+     */
+    
+    let currentSize, currentColor;
+    
+    function toCamelCase(color) {
+        return color.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
     }
-    return matrix[a.length][b.length];
-}
-
-/* Object.entries(fileStructure).forEach(([category, items]) => {
-    const types = Object.keys(items);
-    const itemsArr = Object.values(items);
-
-    const randomType = types[[Math.floor(Math.random() * types.length)]];
-    const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
-
-     console.log(`All the types : ${Object.keys(items)}`);
-    console.log(`Category : ${category}`);
-    console.log(`All the items : ${itemsArr}`);
-    console.log(`Random type : ${randomType}`);
-    console.log(`Random item : ${randomItem}`); 
-    return randomType, randomItem;
-  }); 
-  
-*/
-
- // Extract product ID from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get('category'); // Get category from the URL
-let productType = 'Category not found.';
-let randomType, randomItem, itemsArr;
-let colorsArr = [];
-
-Object.entries(fileStructure[category]).forEach(([category, items]) => {
-    itemsArr = Object.values(items);
-    return itemsArr;
-  });
-
-(()=> { 
-  itemsArr.forEach(filename => {
-    colorsArr.push(getClosestColor(filename));
-  });
-})();
-console.log(colorsArr);
-
-//ColorSelector:
-let defaultOriginalColor;
-
-function createColorSelector(colors) {
-    const container = document.getElementById("colorSelector");
-    container.innerHTML = ""; // Clear previous content
-
-
-
-    //Get current size:
-    colors.forEach(color => {
-        const circle = document.createElement("span");
-        const key = manualColorMap[color] || color;
-        circle.className = "color-circle";
-        circle.dataset.color = color;
-        circle.style.backgroundColor = key;
-
-        // Add click event
-        circle.addEventListener("mouseover", function () {
-            document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
-            this.classList.add("selected");
-
-            console.log(color);
+    
+    function getClosestColor(filename) {
+        const cleanName = filename.replace(/-large\.webp$/, ""); // Remove '-large.webp'
+        const camelCaseName = toCamelCase(cleanName); // Convert to camelCase
+    
+        // 🔹 First, check manual map
+        if (manualColorMap[camelCaseName]) return manualColorMap[camelCaseName];
+    /* 
+        // 🔹 Then, check exact match
+        if (knownColors.includes(camelCaseName)) return camelCaseName;
+     */
+        // 🔥 Apply Levenshtein Distance for closest match
+        let closestMatch = "";
+        let minDistance = Infinity;
+    
+    /*     knownColors.forEach(color => {
+            let distance = levenshtein(camelCaseName, color);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestMatch = color;
+            }
+        }); */
+        return closestMatch;
+    }
+    
+    // Levenshtein function (same as before)
+    function levenshtein(a, b) {
+        if (!a.length) return b.length;
+        if (!b.length) return a.length;
+        let matrix = Array(a.length + 1).fill(null).map(() => Array(b.length + 1).fill(null));
+        
+        for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+        for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+        
+        for (let i = 1; i <= a.length; i++) {
+            for (let j = 1; j <= b.length; j++) {
+                const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j] + 1, 
+                    matrix[i][j - 1] + 1, 
+                    matrix[i - 1][j - 1] + cost
+                );
+            }
+        }
+        return matrix[a.length][b.length];
+    }
+    
+    /* Object.entries(fileStructure).forEach(([category, items]) => {
+        const types = Object.keys(items);
+        const itemsArr = Object.values(items);
+    
+        const randomType = types[[Math.floor(Math.random() * types.length)]];
+        const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
+    
+         console.log(`All the types : ${Object.keys(items)}`);
+        console.log(`Category : ${category}`);
+        console.log(`All the items : ${itemsArr}`);
+        console.log(`Random type : ${randomType}`);
+        console.log(`Random item : ${randomItem}`); 
+        return randomType, randomItem;
+      }); 
+      
+    */
+    
+     // Extract product ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category'); // Get category from the URL
+    let productType = 'Category not found.';
+    let randomType, randomItem, itemsArr;
+    let colorsArr = [];
+    
+    Object.entries(fileStructure[category]).forEach(([category, items]) => {
+        itemsArr = Object.values(items);
+        return itemsArr;
+      });
+    
+    (()=> { 
+      itemsArr.forEach(filename => {
+        colorsArr.push(getClosestColor(filename));
+      });
+    })();
+    console.log(colorsArr);
+    
+    //ColorSelector:
+    let defaultOriginalColor;
+    
+    function createColorSelector(colors) {
+        const container = document.getElementById("colorSelector");
+        container.innerHTML = ""; // Clear previous content
+    
+        colors.forEach(color => {
+            const circle = document.createElement("span");
+            // Get the correct display color from your map
+            const cssColor = manualColorMap[color] || color;
             
-            currentColor = key;
-            currentSize = document.querySelector(".size-button.selected").textContent;
-            document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
-            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
+            circle.className = "color-circle";
+            circle.dataset.color = color;
+            circle.style.backgroundColor = cssColor;
+    
+            // Add click event
+            circle.addEventListener("mouseover", function () {
+                document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
+                this.classList.add("selected");
+                
+                currentColor = color;
+                currentSize = document.querySelector(".size-button.selected").textContent;
+                document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
+                document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
+            });
+            container.appendChild(circle);
         });
-        container.appendChild(circle);
-    });
-    document.querySelector(".color-circle:first-of-type").classList.add("selected");
-    let defaultColor = document.querySelector(".selected").getAttribute("data-color");
-    defaultOriginalColor = Object.entries(manualColorMap).find(([k, v]) => v === defaultColor)?.[0];
-//    document.getElementById("selectedColor").textContent = defaultOriginalColor;
-
-/*     let currentSize = document.querySelector(".size-button.selected").textContent;;
-    if (!currentSize){
-      currentSize = randomType;
-    } */
-//    console.log(document.querySelector(".selected").textContent);
-    currentColor = defaultOriginalColor;
-    return defaultOriginalColor, currentColor;    
-}
-let availableColors = fileStructure[category][Object.keys(fileStructure[category])[0]].map(file => {
-            return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
-            }).filter(color => manualColorMap[color]); // Only include mapped colors
-console.log(availableColors);
-createColorSelector(availableColors);
-//createColorSelector(colorsArr);
-
-//const defaultFile = filesArr[0];
-//console.log(getClosestColor(defaultFile));
-
-/* function getRandoms() {
-    const types = Object.keys(fileStructure[category]);  // Get the types from the category's items
-//    console.log(`Types : ${types}`);
-
-    const randomTypeFromCategory = types[Math.floor(Math.random() * types.length)];
-    randomType = randomTypeFromCategory;  // Set the global variable
-//    console.log(`Random Type : ${randomType}`);
-
-    const itemKeys = Object.keys(fileStructure[category][randomType]);  // Get the valid keys of the chosen type
-//    console.log(`Valid Item Keys: ${itemKeys}`);
-
-    const randomItemFromType = itemKeys[Math.floor(Math.random() * itemKeys.length)];
-    randomItem = fileStructure[category][randomType][randomItemFromType];  // Set the global variable
-
-//    console.log(`Random Item : ${randomItem}`);
-    return { randomType, randomItem };  // Return both values as an object
-}
-
-const result = getRandoms(); */
-//console.log(`Random type : ${result.randomType}`);  // You can now access randomType
-//console.log(`Random item : ${result.randomItem}`);  // You can now access randomItem
-
-
-
-// Find products by category
-//const filteredProducts = products.filter(p => p.category == category);
-
-// If there are products in the selected category, display the first one (or modify as needed)
-//if (filteredProducts.length > 0) {
-//    const product = filteredProducts[0]; // Use the first product in the filtered list
-
-    // Display product details
-    let categoryGer = "";
-
-switch (category) {
-    case "triangular_prism":
-        categoryGer = "Dreiecksprisma";
-        break;
-    case "square_prism":
-        categoryGer = "Quadratprisma";
-        break;
-    case "spherical":
-        categoryGer = "Kugelförmig";
-        break;
-    case "special":
-        categoryGer = "Spezialform";
-        break;
-    case "pyramid":
-        categoryGer = "Pyramide";
-        break;
-    case "cylindrical":
-        categoryGer = "Zylindrisch";    
-        break;
-    case "advent":
-        categoryGer = "Advent";
-        break;
-    default:
-        break;
-}
-
-document.querySelector('#product-name').textContent = categoryGer;
-document.querySelector('#product-description').innerHTML = 
-    `<hr>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th colspan="5" class="text-center h5">Physikalische Eigenschaften</th>
-            </tr>
-        </thead>
-        <thead>
-            <tr>
-                <th scope="col">Typ</th>
-                <th scope="col">Grundfläche (mm²)</th>
-                <th scope="col">Höhe (mm)</th>
-                <th scope="col">Gewicht (g)</th>
-                <th scope="col">Brenndauer (Stunden)</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>`;
-
-// Loop through the physical properties based on the product shape
-if (category != 'cube') {
-    for (let i = 0; i < physicalProps[category].length; i++) {
+        
+        document.querySelector(".color-circle:first-of-type").classList.add("selected");
+        currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
+    }
+    let availableColors = fileStructure[category][Object.keys(fileStructure[category])[0]].map(file => {
+                return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
+                }).filter(color => manualColorMap[color]); // Only include mapped colors
+    console.log(availableColors);
+    createColorSelector(availableColors);
+    //createColorSelector(colorsArr);
+    
+    //const defaultFile = filesArr[0];
+    //console.log(getClosestColor(defaultFile));
+    
+    /* function getRandoms() {
+        const types = Object.keys(fileStructure[category]);  // Get the types from the category's items
+    //    console.log(`Types : ${types}`);
+    
+        const randomTypeFromCategory = types[Math.floor(Math.random() * types.length)];
+        randomType = randomTypeFromCategory;  // Set the global variable
+    //    console.log(`Random Type : ${randomType}`);
+    
+        const itemKeys = Object.keys(fileStructure[category][randomType]);  // Get the valid keys of the chosen type
+    //    console.log(`Valid Item Keys: ${itemKeys}`);
+    
+        const randomItemFromType = itemKeys[Math.floor(Math.random() * itemKeys.length)];
+        randomItem = fileStructure[category][randomType][randomItemFromType];  // Set the global variable
+    
+    //    console.log(`Random Item : ${randomItem}`);
+        return { randomType, randomItem };  // Return both values as an object
+    }
+    
+    const result = getRandoms(); */
+    //console.log(`Random type : ${result.randomType}`);  // You can now access randomType
+    //console.log(`Random item : ${result.randomItem}`);  // You can now access randomItem
+    
+    
+    
+    // Find products by category
+    //const filteredProducts = products.filter(p => p.category == category);
+    
+    // If there are products in the selected category, display the first one (or modify as needed)
+    //if (filteredProducts.length > 0) {
+    //    const product = filteredProducts[0]; // Use the first product in the filtered list
+    
+        // Display product details
+    document.querySelector('#product-name').textContent = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+    document.querySelector('#product-description').innerHTML = 
+        `<hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th colspan="5" class="text-center h5">Physical Properties</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Base Area (mm²)</th>
+                    <th scope="col">Height (mm)</th>
+                    <th scope="col">Weight (g)</th>
+                    <th scope="col">Burning Time (hour)</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>`;
+    
+    // Loop through the physical properties based on the product shape
+    if (category != 'cube') {
+        for (let i = 0; i < physicalProps[category].length; i++) {
+            document.querySelector('#tableBody').innerHTML += 
+                `<tr>
+                    <th scope="col">${physicalProps[category][i].type}</th>
+                    <td>${physicalProps[category][i].baseAreaMm2}</td>
+                    <td>${physicalProps[category][i].heightMm}</td>
+                    <td>${physicalProps[category][i].weightG}</td>
+                    <td>${physicalProps[category][i].burnTimeHours}</td>
+                </tr>`;
+        }
+    } else {
         document.querySelector('#tableBody').innerHTML += 
             `<tr>
-                <th scope="col">${physicalProps[category][i].type}</th>
-                <td>${physicalProps[category][i].baseAreaMm2}</td>
-                <td>${physicalProps[category][i].heightMm}</td>
-                <td>${physicalProps[category][i].weightG}</td>
-                <td>${physicalProps[category][i].burnTimeHours}</td>
+                <th scope="col">${physicalProps['square_prism'][0].type}</th>
+                <td>${physicalProps['square_prism'][0].baseAreaMm2}</td>
+                <td>${physicalProps['square_prism'][0].heightMm}</td>
+                <td>${physicalProps['square_prism'][0].weightG}</td>
+                <td>${physicalProps['square_prism'][0].burnTimeHours}</td>
             </tr>`;
     }
-} else {
-    document.querySelector('#tableBody').innerHTML += 
-        `<tr>
-            <th scope="col">${physicalProps['square_prism'][0].type}</th>
-            <td>${physicalProps['square_prism'][0].baseAreaMm2}</td>
-            <td>${physicalProps['square_prism'][0].heightMm}</td>
-            <td>${physicalProps['square_prism'][0].weightG}</td>
-            <td>${physicalProps['square_prism'][0].burnTimeHours}</td>
-        </tr>`;
-}
-
-// Render the default product image
-document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
-document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll("img.lazy");
-
-    images.forEach(img => {
-        const highRes = img.dataset.src;
-        if (!highRes) return;
-
-        img.src = highRes; // Start loading the image
-        img.onload = () => img.classList.add("loaded"); // Remove blur after loading
-    });
-});
-	
-// Image modal
-document.querySelector("#product-image").addEventListener("click", function() {
-    document.getElementById("image-viewer").style.display = "block";
-});
-
-// Add click event to the close button
-document.querySelector("#image-viewer .close").addEventListener("click", function() {
-  // Hide the image viewer
-  document.getElementById("image-viewer").style.display = "none";
-});
-
-//SizeSelector:
-//Default size: 
-const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/))); // Get sizes dynamically
-function createSizeSelector(sizes) {
-    const container = document.getElementById("sizeSelector");
-    container.innerHTML = ""; // Clear previous content
-
-
-    sizes.forEach(size => {
-        const button = document.createElement("button");
-        button.className = "size-button";
-        button.dataset.size = size;
-        button.textContent = size;
-
-        // Add click event
-        button.addEventListener("click", function () {
-            document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
-            this.classList.add("selected");
-
-//Get current color:
-            let currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
-            console.log("Current color: " + currentColor);
-            document.getElementById("selectedSize").textContent = size;
-            
-            // Update color selector based on selected size
-            const availableColors = fileStructure[category][size].map(file => {
-            return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
-            }).filter(color => manualColorMap[color]); // Only include mapped colors
-            
-            console.log(`Available colors: ${availableColors}`);
-
-            if (availableColors.includes(currentColor)){
-                var colorToSet = currentColor;
-            }
-            else {
-                var colorToSet = availableColors[0];
-            }
-
-            console.log(`Color wanted : ${colorToSet}`);
-
-            document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
-            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${this.innerText}/${currentColor}-large.webp`;
-
-            createColorSelector(availableColors);
+    
+    // Render the default product image
+    document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
+    document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll("img.lazy");
+    
+        images.forEach(img => {
+            const highRes = img.dataset.src;
+            if (!highRes) return;
+    
+            img.src = highRes; // Start loading the image
+            img.onload = () => img.classList.add("loaded"); // Remove blur after loading
         });
-
-        container.appendChild(button);
     });
-
-    // Select the first size by default
-    document.querySelector(".size-button:first-of-type").classList.add("selected");
-    document.getElementById("selectedSize").textContent = sizes[0];
-
-    // Trigger color selector for the first size
-    const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
-        return file.replace("-large.webp", "").replace(/_/g, ""); 
-    }).filter(color => manualColorMap[color]);
-
-    createColorSelector(firstSizeColors);
-    currentSize = sizes[0];
-    return currentSize;
-}
-createSizeSelector(sizes);
-
-
- </script>
+        
+    // Image modal
+    document.querySelector("#product-image").addEventListener("click", function() {
+        document.getElementById("image-viewer").style.display = "block";
+    });
+    
+    // Add click event to the close button
+    document.querySelector("#image-viewer .close").addEventListener("click", function() {
+      // Hide the image viewer
+      document.getElementById("image-viewer").style.display = "none";
+    });
+    
+    //SizeSelector:
+    //Default size: 
+    const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/))); // Get sizes dynamically
+    function createSizeSelector(sizes) {
+        const container = document.getElementById("sizeSelector");
+        container.innerHTML = "";
+    
+        sizes.forEach(size => {
+            const button = document.createElement("button");
+            button.className = "size-button";
+            button.dataset.size = size;
+            button.textContent = size;
+    
+            // Add click event
+            button.addEventListener("click", function () {
+                document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
+                this.classList.add("selected");
+    
+                let currentColor = document.querySelector(".color-circle.selected")?.getAttribute("data-color");
+                document.getElementById("selectedSize").textContent = size;
+                
+                // Update color selector based on selected size - FIXED: preserve underscores
+                const availableColors = fileStructure[category][size].map(file => {
+                    return file.replace("-large.webp", "");
+                });
+                
+                if (availableColors.includes(currentColor)){
+                    var colorToSet = currentColor;
+                } else {
+                    var colorToSet = availableColors[0];
+                }
+    
+                document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
+                document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
+    
+                createColorSelector(availableColors);
+            });
+    
+            container.appendChild(button);
+        });
+    
+        // Select the first size by default
+        document.querySelector(".size-button:first-of-type").classList.add("selected");
+        document.getElementById("selectedSize").textContent = sizes[0];
+    
+        // FIXED: Just get the color names without modifying underscores
+        const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
+            return file.replace("-large.webp", "");
+        });
+    
+        createColorSelector(firstSizeColors);
+        currentSize = sizes[0];
+        return currentSize;
+    }
+    createSizeSelector(sizes);
+    
+    
+     </script>
   <script src="../src/js/language.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
