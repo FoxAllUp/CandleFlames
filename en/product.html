@@ -1,1174 +1,1668 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+<html data-bs-theme="light" class="light-mode">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=chrome'>
-    <title>Candle Flames</title>
+    <title>Candle Flames | Premium Handcrafted Candles</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-
+    
+    <!-- AOS Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Theme Variables */
+        :root {
+            /* Light Theme */
+            --primary: #D1A773;
+            --primary-dark: #B38B5B;
+            --secondary: #4A4A4A;
+            --dark: #2C2C2C;
+            --light: #F9F5F1;
+            --light-accent: #E9DFD4;
+            --card-bg: #ffffff;
+            --text-color: #2C2C2C;
+            --table-header: #E9DFD4;
+            --table-border: #e9ecef;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        /* Dark Theme */
+        html.dark-mode {
+            --primary: #E0B984;
+            --primary-dark: #C9A36F;
+            --secondary: #BBBBBB;
+            --dark: #EEEEEE;
+            --light: #1A1A1A;
+            --light-accent: #2A2A2A;
+            --card-bg: #292929;
+            --text-color: #E0E0E0;
+            --table-header: #2A2A2A;
+            --table-border: #3A3A3A;
+        }
+        
+        /* Base Styles */
         html {
-  scroll-behavior: smooth;
-}
-
-footer {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-body {
-    font-family: "Inknut Antiqua", Tofu;
-}
-		#content {
-			padding: 20px;
-		}
-
-/* Style the Image Used to Trigger the Modal */
-#image-container {
-    transition: 0.3s;
-    background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ensures the image doesn't overflow */
-}
-
-#product-image {
-    cursor: pointer;
-    height: 28rem;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Ensures the image fits within the container */
-}
-
-
-#image-container:hover {opacity: 0.7;}
-
-/* The Modal (background) */
-#image-viewer {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.9);
-}
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-}
-.modal-content { 
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-#image-viewer .close {
-    position: absolute;
-    top: 2em;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    z-index: 5;
-}
-#image-viewer .close:hover,
-#image-viewer .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#color-selector {
-  display: flex !important; /* Force flexbox */
-    flex-direction: row !important; /* Ensure row layout */
-    gap: 12px; /* Space between circles */
-    padding: 10px;
-    align-items: center;
-    justify-content: flex-start; /* Align from left */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-}
-
-.color-circle {
-  width: 42.5px; /* Adjust size */
-  height: 42.5px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 3px solid rgba(0, 0, 0, 0.75); /* More visible outline */
-}
-
-.color-circle:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.lazy {
-    filter: blur(10px);
-    transition: filter 1s ease-in-out;
-}
-
-.lazy.loaded {
-    filter: blur(0);
-}
-
-
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-}
-
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.5s ease;
+        }
+        
+        .section-title {
+            position: relative;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            transition: background-color 0.5s ease;
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 110px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--card-bg);
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 5px;
+            transition: box-shadow 0.3s ease, background-color 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .theme-toggle:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        .theme-toggle button {
+            background: none;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            margin: 0 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .theme-toggle button.active {
+            background-color: var(--primary);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.25rem;
+            color: var(--text-color);
+        }
+        
+        .theme-toggle button.active i {
+            color: white;
+        }
+        
+        /* Navbar */
+        .navbar {
+            transition: background-color 0.5s ease, padding 0.4s ease;
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(var(--bs-light-rgb), 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+        
+        html.dark-mode .navbar.scrolled {
+            background-color: rgba(26, 26, 26, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navbar-brand img {
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            transform: scale(0.85);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin: 0 0.5rem;
+            color: var(--text-color) !important;
+            transition: color 0.5s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.4s ease, background-color 0.5s ease;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Mobile Navigation */
+        .navbar-collapse {
+            transition: var(--transition);
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                background-color: var(--card-bg);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
+                margin-top: 10px;
+            }
+            
+            .theme-toggle {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        /* Language Selector */
+        .lang-btn {
+            transition: var(--transition);
+            background: none;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            padding: 0.25rem;
+            margin: 0 0.25rem;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .lang-btn.active {
+            border-color: var(--primary);
+        }
+        
+        .lang-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        /* Product Section */
+        .product-container {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.5s ease;
+        }
+        
+        html.dark-mode .product-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        html.dark-mode .product-container:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Product Image */
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--card-bg);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: background-color 0.5s ease;
+        }
+        
+        .product-image {
+            cursor: pointer;
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+        
+        .product-image:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Size Selector */
+        .size-container {
+            margin: 1.5rem 0;
+        }
+        
+        .size-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--secondary);
+            transition: color 0.5s ease;
+        }
+        
+        .size-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .size-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background-color: transparent;
+            color: var(--secondary);
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.4s ease, color 0.5s ease, border-color 0.5s ease;
+            min-width: 60px;
+            position: relative;
+            outline: none;
+        }
+        
+        html.dark-mode .size-button {
+            border-color: #444;
+        }
+        
+        .size-button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(209, 167, 115, 0.2);
+        }
+        
+        .size-button.selected {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(209, 167, 115, 0.3);
+        }
+        
+        /* Color Selector */
+        .color-container {
+            margin: 1.5rem 0;
+        }
+        
+        .color-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--secondary);
+            transition: color 0.5s ease;
+        }
+        
+        #colorSelector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 0.5rem;
+        }
+        
+        .color-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--card-bg);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        html.dark-mode .color-circle {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .color-circle:hover {
+            transform: scale(1.15) translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            z-index: 1;
+        }
+        
+        .color-circle.selected {
+            transform: scale(1.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--primary);
+            z-index: 2;
+        }
+        
+        .color-circle.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Product Info Card */
+        .product-info {
+            padding: 2rem;
+        }
+        
+        .product-title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            position: relative;
+            text-transform: capitalize;
+            transition: color 0.5s ease;
+        }
+        
+        .product-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            transition: background-color 0.5s ease;
+        }
+        
+        .table {
+            margin-top: 2rem;
+            color: var(--text-color);
+            transition: color 0.5s ease;
+        }
+        
+        .table thead th {
+            background-color: var(--table-header);
+            border: none;
+            font-weight: 600;
+            color: var(--text-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        
+        .table tbody th, .table tbody td {
+            border-color: var(--table-border);
+            padding: 0.75rem 1rem;
+            vertical-align: middle;
+            transition: border-color 0.5s ease;
+        }
+        
+        .contact-price {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--light-accent);
+            border-radius: 8px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.5s ease;
+        }
+        
+        .contact-price:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        html.dark-mode .contact-price:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-price h3 {
+            margin: 0;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            transition: color 0.5s ease;
+        }
+        
+        /* Modal */
+        #image-viewer {
+            display: none;
+            position: fixed;
+            z-index: 1050;
+            padding: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #image-viewer.visible {
+            opacity: 1;
+        }
+        
+        .modal-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        .modal-content {
+            max-width: 80%;
+            max-height: 80vh;
+            margin: 0;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        #image-viewer.visible .modal-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        #image-viewer .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: 300;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        
+        #image-viewer .close:hover {
+            color: #fff;
+            text-decoration: none;
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        
+        /* Footer */
+        .footer-main {
+            background-color: var(--light-accent);
+            padding: 4rem 0;
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+        
+        .footer-main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            transition: background 0.5s ease;
+        }
+        
+        .footer-heading {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            transition: color 0.5s ease;
+        }
+        
+        .footer-content {
+            font-size: 1rem;
+            color: var(--secondary);
+            transition: color 0.5s ease;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            transition: transform 0.4s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: color 0.5s ease;
+        }
+        
+        .contact-item a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.5s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: var(--transition), background-color 0.5s ease;
+        }
+        
+        html.dark-mode .social-link {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary);
+        }
+        
+        html.dark-mode .social-link:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link img {
+            width: 22px;
+            height: 22px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover img {
+            filter: brightness(10);
+        }
+        
+        .footer-bottom {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            transition: background-color 0.5s ease;
+        }
+        
+        html.dark-mode .footer-bottom {
+            background-color: #111;
+        }
+        
+        .footer-bottom .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .product-image-container {
+                height: 350px;
+            }
+            
+            .product-info {
+                padding: 1.5rem;
+            }
+            
+            .product-title {
+                font-size: 1.8rem;
+            }
+            
+            #product-section {
+                padding-top: 5rem !important;
+            }
+            
+            .section-title {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-main {
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-image-container {
+                height: 300px;
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-content {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <section>
-        <nav class="navbar fixed-top navbar-expand-lg bg-black">          
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../src/assets/images/logo.png" alt="" width="75px" height="75px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../src/assets/images/logo.png" alt="Candle Flames Logo" width="80" height="80">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./events.html">Events & Locations</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex" id="languageSelector">
+                    <button class="lang-btn active" onclick="changeLanguage('en', event)">
+                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/></svg>
+                    </button>
+                    <button class="lang-btn" onclick="changeLanguage('hu', event)">
+                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/></svg>
+                    </button>
+                    <button class="lang-btn" onclick="changeLanguage('de', event)">
+                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="light-mode-btn" class="active">
+            <i class="bi bi-sun-fill"></i>
+        </button>
+        <button id="dark-mode-btn">
+            <i class="bi bi-moon-fill"></i>
+        </button>
+    </div>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                    <h3><a class="nav-link" aria-current="page" href="./index.html">About</a></h3>
-                            </li>
-                            <li class="nav-item">
-                                    <h3><a class="nav-link active" href="./products.html">Products</a></h3>
-                            </li>
-                            <li class="nav-item">
-                                <h3><a class="nav-link" href="./events.html">Events & Locations</a></h3>
-                            </li>
-                        </ul>
-
-                        <div class="d-flex" id="languageSelector">
-                            <button class="btn btn-dark active" onclick="changeLanguage('en', event)">
-                                EN<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                            </button>
-                            <button class="btn btn-dark" onclick="changeLanguage('hu', event)">
-                                HU<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                            </button>
-                            <button class="btn btn-dark" onclick="changeLanguage('de', event)">
-                                DE<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                            </button>
+    <!-- Main Content -->
+    <section id="product-section" class="py-5 mt-5">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 mb-4" data-aos="fade-up">
+                    <h1 class="section-title text-center" id="product-name">Premium Candles</h1>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product Image & Options -->
+                <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+                    <div class="product-container">
+                        <div class="product-image-container p-4" id="image-container">
+                            <img id="product-image" class="product-image" alt="Product image">
+                        </div>
+                        
+                        <div class="p-4">
+                            <div class="size-container">
+                                <h4 class="size-title">Size</h4>
+                                <div id="sizeSelector" class="size-button-container"></div>
+                            </div>
+                            
+                            <div class="color-container">
+                                <h4 class="color-title">Color</h4>
+                                <div id="colorSelector"></div>
+                            </div>
                         </div>
                     </div>
-            </div>
-        </nav>
-        <br><br><br><br>
-    </section>
-    <section id="content" class="bg-danger-subtle bg-gradient">
-        <div class="container">
-            <div class="page-header d-flex justify-content-around">
-                <span class="h1 align-middle">
-                    <h1>Products</h1>
-                </span>
-            </div>
-            <br>
-
-<div class="card mb-3 bg-secondary-subtle bg-gradient">
-  <div class="row g-0">
-    <div class="col-md-4">
-    <div class="row" id="image-container">   
-        <img id="product-image" class="img-fluid rounded-start" alt="Product image">
-    </div>
-    <div class="row">
-      <h3>Size:</h3>
-        <div id="sizeSelector"></div>
-      <p>Selected Size: <span id="selectedSize">None</span></p>
-    </div>
-    <div class="row">
-      <h3>Color:</h3>
-        <div id="colorSelector"></div>
-<!--       <p>Selected Color: <span id="selectedColor">None</span></p>
- -->    </div>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h2 class="card-title text-center" id="product-name">Card title</h2>
-        <p class="card-text" id="product-description"></p>
-        <br><br><hr><br><br>
-        <h3 class="card-text text-danger text-center align-bottom">Contact us for price information</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="image-viewer">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="full-image">
-</div>
-
-</section>
-<section>
-    <div
-    id="footer-section" class="d-flex border-top border-black flex-wrap justify-content-around align-items-center py-3 bg-warning-subtle bg-gradient text-warning-emphasis bottom">
-        <div class="col-md-4 d-flex align-items-center order-1">
-            <span class="mb-3 mb-md-0">
-                <div class="container">
-                    <p class="h3">
-                        Our company and products are available not only on our website, but also on the following social media platforms! Find us through our other contact details as well!</p>
                 </div>
-            </span>
-        </div>
-        <div class="nav col-md-4 justify-content-end d-flex order-2">
-            <div>
-                <p class="h3">
-                    Imre Buglyó
-                </p>
-                <p>
-                    Sole Proprietor
-                </p>
-                <hr>
-                <p>
-                    <i class="bi bi-geo-alt-fill"></i> <a href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g" target="_blank">
-                        Nagyhegyes, Tulipán utca 22. Magyarország
-                      </a>
-                </p>
-                <p>
-                    <i class="bi bi-telephone-fill"></i> <a href="tel:+36303258956">+36-30/325-89-56</a>
-                </p>
-                <p>
-                    <i class="bi bi-envelope-fill"></i> <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
-                </p>
-                <p>
-
-                    
-                        <a class="text-body-secondary" href="https://www.tiktok.com/" target="_blank"><img
-                                    class="bi" width="50" height="50"
-                                    src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"></a>
-                        <a class="text-body-secondary" href="https://www.instagram.com/" target="_blank"><img
-                                    class="bi" width="50" height="50"
-                                    src="https://static.cdnlogo.com/logos/i/4/instagram.svg"></a>
-                        <a class="text-body-secondary"
-                                href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank"><img class="bi"
-                                    width="50" height="50" src="https://www.cdnlogo.com/logos/f/84/facebook.svg"></a>
-                    
-
-                </p>
+                
+                <!-- Product Information -->
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                    <div class="product-container">
+                        <div class="product-info">
+                            <h2 class="product-title" id="product-name-details">Product Details</h2>
+                            
+                            <div class="product-description" id="product-description">
+                                <!-- Table will be inserted here -->
+                            </div>
+                            
+                            <div class="contact-price" data-aos="fade-up" data-aos-delay="300">
+                                <h3><i class="bi bi-envelope-heart me-2"></i> Contact us for price information</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Modal - Fixed for proper image display -->
+    <div id="image-viewer">
+        <span class="close">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="full-image">
         </div>
     </div>
 
-    <footer class="d-flex flex-wrap py-3 border-top border-black bg-black bottom bg-gradient container-fluid">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="#" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-                <img class="rounded-circle" width="37.5" height="37.5" src="../src/assets/images/developer/faulogo-cropped.png" />
-            </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Fox All Up</span>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h3 class="footer-heading">Our Presence</h3>
+                        <p class="footer-content">
+                            Our company and products are available not only on our website, but also on the following social media platforms! Find us through our other contact details as well!
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/" target="_blank" class="social-link">
+                                <img src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg" alt="TikTok">
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="social-link">
+                                <img src="https://static.cdnlogo.com/logos/i/4/instagram.svg" alt="Instagram">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank" class="social-link">
+                                <img src="https://www.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h3 class="footer-heading">Contact Information</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="bi bi-person"></i>
+                                <div>
+                                    <strong>Imre Buglyó</strong>
+                                    <p class="mb-0">Sole Proprietor</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g" target="_blank">
+                                    Nagyhegyes, Tulipán utca 22. Magyarország
+                                </a>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <a href="tel:+36303258956">+36-30/325-89-56</a>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="bi bi-envelope"></i>
+                                <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <img class="rounded-circle" width="30" height="30" src="../src/assets/images/developer/faulogo-cropped.png" alt="Developer logo">
+                    <span class="ms-2">© 2024 Fox All Up</span>
+                </div>
+                <a href="#" class="back-to-top">Back to Top <i class="bi bi-arrow-up"></i></a>
+            </div>
         </div>
     </footer>
-</section>
-<!-- Ezek lesznek majd élesben használva. Butás CORS miatt muszáj inline kóddal fejlesztenem
-<script src="../src/js/product.js"></script>
-<script src="../src/js/main.js"></script>
 
-Inline kód: -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../src/js/language.js"></script>
 
-<script>
-const products = {
-    cylindrical:[
-      { id: 1, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
-      { id: 2, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
-      { id: 3, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
-      { id: 4, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
-      { id: 5, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
-      { id: 6, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
-      { id: 7, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
-      { id: 8, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
-      { id: 9, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
-      { id: 10, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
-      { id: 11, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
-      { id: 12, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
-      { id: 13, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
-      { id: 14, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
-      { id: 15, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
-    ],
-
-    pyramid:[
-      { id: 19, name: 'Pyramid Blue Candle', shape: 'pyramid', color: 'blue' },
-      { id: 20, name: 'Pyramid Burgundy Candle', shape: 'pyramid', color: 'burgundy' },
-      { id: 21, name: 'Pyramid Cognac Candle', shape: 'pyramid', color: 'cognac' },
-      { id: 22, name: 'Pyramid Dark Blue Candle', shape: 'pyramid', color: 'dark_blue' },
-      { id: 23, name: 'Pyramid Green Candle', shape: 'pyramid', color: 'green' },
-      { id: 24, name: 'Pyramid Orange Candle', shape: 'pyramid', color: 'orange' },
-      { id: 25, name: 'Pyramid Peach Candle', shape: 'pyramid', color: 'peach' },
-      { id: 26, name: 'Pyramid Pink Candle', shape: 'pyramid', color: 'pink' },
-      { id: 27, name: 'Pyramid Purple Candle', shape: 'pyramid', color: 'purple' },
-      { id: 28, name: 'Pyramid Red Candle', shape: 'pyramid', color: 'red' },
-      { id: 29, name: 'Pyramid Turquoise Candle', shape: 'pyramid', color: 'turquoise' },
-      { id: 30, name: 'Pyramid White Candle', shape: 'pyramid', color: 'white' },
-      { id: 31, name: 'Pyramid Wine Candle', shape: 'pyramid', color: 'wine' },
-      { id: 32, name: 'Pyramid Yellow Candle', shape: 'pyramid', color: 'yellow' }
-    ],
-
-    special:[
-      { id: 33, name: 'Special Apple Green Candle', shape: 'special', color: 'apple_green' },
-      { id: 34, name: 'Special Blue Candle', shape: 'special', color: 'blue' },
-      { id: 35, name: 'Special Burgundy Candle', shape: 'special', color: 'burgundy' },
-      { id: 36, name: 'Special Cognac Candle', shape: 'special', color: 'cognac' },
-      { id: 37, name: 'Special Dark Blue Candle', shape: 'special', color: 'dark_blue' },
-      { id: 38, name: 'Special Orange Candle', shape: 'special', color: 'orange' },
-      { id: 39, name: 'Special Peach Candle', shape: 'special', color: 'peach' },
-      { id: 40, name: 'Special Pink Candle', shape: 'special', color: 'pink' },
-      { id: 41, name: 'Special Purple Candle', shape: 'special', color: 'purple' },
-      { id: 42, name: 'Special Red Candle', shape: 'special', color: 'red' },
-      { id: 43, name: 'Special Turquoise Candle', shape: 'special', color: 'turquoise' },
-      { id: 44, name: 'Special White Candle', shape: 'special', color: 'white' }
-    ],
-
-    spherical:[
-      { id: 45, name: 'Spherical Burgundy Candle', shape: 'spherical', color: 'burgundy' },
-      { id: 46, name: 'Spherical Cognac Candle', shape: 'spherical', color: 'cognac' },
-      { id: 47, name: 'Spherical Dark Blue Candle', shape: 'spherical', color: 'dark_blue' },
-      { id: 48, name: 'Spherical Orange Candle', shape: 'spherical', color: 'orange' },
-      { id: 49, name: 'Spherical Pastel Blue Candle', shape: 'spherical', color: 'pastel_blue' },
-      { id: 50, name: 'Spherical Peach Candle', shape: 'spherical', color: 'peach' },
-      { id: 51, name: 'Spherical Purple Candle', shape: 'spherical', color: 'purple' },
-      { id: 52, name: 'Spherical White Candle', shape: 'spherical', color: 'white' },
-      { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' }
-    ],
-
-    square_prism:[
-      { id: 100, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
-      { id: 101, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
-      { id: 102, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
-      { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
-      { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
-      { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
-      { id: 57, name: 'Square Prism Dark Blue Candle', shape: 'square_prism', color: 'dark_blue' },
-      { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
-      { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
-      { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
-      { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
-      { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
-      { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
-      { id: 64, name: 'Square Prism Turquoise Candle', shape: 'square_prism', color: 'turquoise' },
-      { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
-      { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' }
-    ],
-
-    triangular_prism:[
-      { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
-      { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
-      { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
-      { id: 70, name: 'Triangular Prism Green Candle', shape: 'triangular_prism', color: 'green' },
-      { id: 71, name: 'Triangular Prism Orange Candle', shape: 'triangular_prism', color: 'orange' },
-      { id: 72, name: 'Triangular Prism Peach Candle', shape: 'triangular_prism', color: 'peach' },
-      { id: 73, name: 'Triangular Prism Purple Candle', shape: 'triangular_prism', color: 'purple' },
-      { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
-      { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
-      { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
-      { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' }
-    ]
-
-    /* square_steps:[
-      { id: 78, name: 'Square Prism Steps Red Candle', shape: 'square_prism_steps', color: 'red' }
-    ] */
-  };
-
-  const physicalProps = {
-    // Cylindrical Candles
-    cylindrical: [
-        { type: 'C1', baseAreaMm2: 45, heightMm: 65, weightG: 95, burnTimeHours: '-' },
-        { type: 'C3', baseAreaMm2: 40, heightMm: 80, weightG: 85, burnTimeHours: '-' },
-        { type: 'C5', baseAreaMm2: 65, heightMm: 50, weightG: 150, burnTimeHours: 10 },
-        { type: 'C10', baseAreaMm2: 65, heightMm: 100, weightG: 300, burnTimeHours: 20 },
-        { type: 'C15', baseAreaMm2: 65, heightMm: 150, weightG: 450, burnTimeHours: 30 },
-        { type: 'C19', baseAreaMm2: 40, heightMm: 170, weightG: 170, burnTimeHours: '-' },
-        { type: 'C17', baseAreaMm2: 65, heightMm: 170, weightG: 510, burnTimeHours: 35 },
-        { type: 'C20', baseAreaMm2: 65, heightMm: 200, weightG: 600, burnTimeHours: 40 },
-        { type: 'C25', baseAreaMm2: 65, heightMm: 250, weightG: 750, burnTimeHours: 50 },
-        { type: 'C30', baseAreaMm2: 65, heightMm: 300, weightG: 900, burnTimeHours: 60 }
-    ], 
-
-    // Triangular Prism Candles
-    triangular_prism: [
-        { type: 'D10', baseAreaMm2: '∆ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
-        { type: 'D15', baseAreaMm2: '∆ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
-        { type: 'D20', baseAreaMm2: '∆ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
-        { type: 'D25', baseAreaMm2: '∆ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
-        { type: 'D35', baseAreaMm2: '∆ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
-    ],
-
-    // Pyramid Candles
-    pyramid: [
-        { type: 'P10', baseAreaMm2: '□ 70x70', heightMm: 100, weightG: 156, burnTimeHours: '-' },
-        { type: 'P15', baseAreaMm2: '□ 90x90', heightMm: 150, weightG: 340, burnTimeHours: '-' },
-        { type: 'P20', baseAreaMm2: '□ 100x100', heightMm: 200, weightG: 550, burnTimeHours: '-' }
-    ],
-
-    // Square Prism Candles
-    square_prism: [
-        { type: 'V5', baseAreaMm2: '□ 60x60', heightMm: 50, weightG: 140, burnTimeHours: 10 },
-        { type: 'V10', baseAreaMm2: '□ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
-        { type: 'V15', baseAreaMm2: '□ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
-        { type: 'V20', baseAreaMm2: '□ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
-        { type: 'V25', baseAreaMm2: '□ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
-        { type: 'V35', baseAreaMm2: '□ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
-    ],
-
-    // Spherical Candles
-    spherical: [
-        { type: 'K6', baseAreaMm2: 60, heightMm: 60, weightG: 120, burnTimeHours: '-' },
-        { type: 'K8', baseAreaMm2: 80, heightMm: 80, weightG: 200, burnTimeHours: '-' },
-        { type: 'K10', baseAreaMm2: 100, heightMm: 100, weightG: 475, burnTimeHours: '-' },
-        { type: 'K15', baseAreaMm2: 150, heightMm: 150, weightG: 1340, burnTimeHours: '-' }
-    ],
-
-    // Special Candles
-    special: [
-        { type: 'X5', baseAreaMm2: 80, heightMm: 80, weightG: 335, burnTimeHours: 'R_20' },
-        { type: 'X10', baseAreaMm2: 100, heightMm: 100, weightG: 590, burnTimeHours: 'R_25' },
-        { type: '3B10', baseAreaMm2: 150, heightMm: 100, weightG: 1350, burnTimeHours: 30 }
-    ],
-
-    //Advent Candles
-    advent: [
-        { type: 'C-advent', baseAreaMm2: 40, heightMm: '50-64-77-90', weightG: 410, burnTimeHours: '-' }
-    ]
-};
-
-const fileStructure = {
-  "triangular_prism": {
-    "D35":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D25":[
-        "red-large.webp",
-        "roze-large.webp",
-        "burgundy-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "peach-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-    ],
-    "D20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D15":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ],
-    "D10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "wine-large.webp",
-        "apricot-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "white-large.webp"
-      ]
-  },
-  "square_prism": {
-    "V5":[
-        "pink-large.webp",
-        "peach-large.webp",
-        "orange-large.webp",
-        "darkened_orange-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V35":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V25":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp"
-      ],
-    "V20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "V15":[
-        "red-large.webp",
-        "pink-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "turquoise-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ],
-    "V10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "turquoise-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-      ]
-  },
-  "spherical": {
-    "K6":[
-        "orange-large.webp",
-        "yellow-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "burgundy-large.webp",
-        "purple-large.webp",
-        "pastel_blue-large.webp",
-        "dark_blue-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "special": {
-    "3B10":[
-        "red-large.webp",
-        "burgundy-large.webp",
-        "orange-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "pink-large.webp",
-        "purple-large.webp",
-        "apple_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "white-large.webp"
-    ]
-  },
-/*   "sample":[
-      "square_prism_steps-red-large.webp",
-      "square_prism_steps-red-medium.webp",
-      "square_prism_steps-red-small.webp"
-    ], */
-  "pyramid": {
-    "P10":[
-        "red-large.webp",
-        "burgundy-large.webp",
-        "orange-large.webp",
-        "yellow-large.webp",
-        "peach-large.webp",
-        "cognac-large.webp",
-        "pink-large.webp",
-        "purple-large.webp",
-        "green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "cylindrical": {
-    "C5":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "mandarin-large.webp",
-        "orange-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C30":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C25":[
-        "dark_roze-large.webp",
-        "roze-large.webp",
-        "mandarin-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C20":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "caramel-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C17":[
-        "red-large.webp",
-        "roze-large.webp",
-        "dark_orange-large.webp",
-        "orange-large.webp",
-        "apricot-large.webp",
-        "cognac-large.webp",
-        "dark_green-large.webp",
-        "turquoise-large.webp",
-        "blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "wine-large.webp",
-        "white-large.webp"
-    ],
-    "C10":[
-        "red-large.webp",
-        "roze-large.webp",
-        "pink-large.webp",
-        "light_pink-large.webp",
-        "creamy_pink-large.webp",
-        "ice_pink-large.webp",
-        "dark_orange-large.webp",
-        "darkened_orange-large.webp",
-        "orange-large.webp",
-        "mandarin-large.webp",
-        "creamy_peach-large.webp",
-        "yellow-large.webp",
-        "cognac-large.webp",
-        "caramel-large.webp",
-        "mint-large.webp",
-        "dark_green-large.webp",
-        "blue-large.webp",
-        "light_blue-large.webp",
-        "ice_blue-large.webp",
-        "steel_blue-large.webp",
-        "dark_blue-large.webp",
-        "dark_purple-large.webp",
-        "purple-large.webp",
-        "wine-large.webp",
-        "snow-large.webp",
-        "white-large.webp"
-    ]
-  },
-  "advent": {
-    "CAdvent":[
-        "crimson-large.webp",
-        "firebrick-large.webp"
-    ]
-  }
-};
-
-const manualColorMap = {
-    "apricot": "peachpuff",
-    "cognac": "saddlebrown",
-    "wine": "darkRed",
-    "roze": "deepPink",
-    "burgundy": "maroon",
-    "dark_blue": "darkBlue",
-    "orange": "orange",
-    "pastel_blue": "powderBlue",
-    "peach": "lightSalmon",
-    "purple": "purple",
-    "dark_purple": "indigo",
-    "white": "white",
-    "yellow": "yellow",
-    "caramel": "chocolate",
-    "turquoise": "turquoise",
-    "firebrick": "firebrick",
-    "crimson": "crimson",
-    "blue": "dodgerBlue",
-    "pink": "hotPink",
-    "cognac": "peru",
-    "blue": "blue",
-    "creamy_peach": "navajoWhite",
-    "creamy_pink": "hotPink",
-    "steel_blue": "steelBlue",
-    "dark_green": "darkGreen",
-    "dark_orange": "orangeRed",
-    "ice_blue": "lightCyan",
-    "ice_pink": "lightPink",
-    "mandarin": "darkOrange",
-    "mint": "paleGreen",
-    "red": "red",
-    "darkened_orange": "gold",
-    "snow": "snow",
-    "dark_roze": "crimson",
-    "green": "green",
-    "apple_green": "greenYellow"
-};
-
-/* [
-    {
-        "id": 1,
-        "name": "Cylindrical Candle",
-        "shape": "cylindrical",
-        "sizes": [
-            {
-                "type": "C5",
-                "physicalProps": { "baseAreaMm2": 65, "heightMm": 50, "weightG": 150, "burnTimeHours": 10 },
-                "colors": [
-                    { "color": "burgundy", "image": "cylindrical/C5/burgundy.webp" },
-                    { "color": "cognac", "image": "cylindrical/C5/cognac.webp" }
-                ]
-            },
-            {
-                "type": "C10",
-                "physicalProps": { "baseAreaMm2": 65, "heightMm": 100, "weightG": 300, "burnTimeHours": 20 },
-                "colors": [
-                    { "color": "blue", "image": "cylindrical/C10/blue.webp" },
-                    { "color": "red", "image": "cylindrical/C10/red.webp" }
-                ]
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Triangular Prism Candle",
-        "shape": "triangular_prism",
-        "sizes": [
-            {
-                "type": "D10",
-                "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 100, "weightG": 280, "burnTimeHours": 20 },
-                "colors": [
-                    { "color": "blue", "image": "triangular_prism/D10/blue.webp" },
-                    { "color": "red", "image": "triangular_prism/D10/red.webp" }
-                ]
-            },
-            {
-                "type": "D35",
-                "physicalProps": { "baseAreaMm2": "∆ 60x60", "heightMm": 350, "weightG": 980, "burnTimeHours": 70 },
-                "colors": [
-                    { "color": "apricot", "image": "triangular_prism/D35/apricot.webp" },
-                    { "color": "turquoise", "image": "triangular_prism/D35/turquoise.webp" }
-                ]
-            }
-        ]
-    }
-]
- */
-
-let currentSize, currentColor;
-
-function toCamelCase(color) {
-    return color.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
-}
-
-function getClosestColor(filename) {
-    const cleanName = filename.replace(/-large\.webp$/, ""); // Remove '-large.webp'
-    const camelCaseName = toCamelCase(cleanName); // Convert to camelCase
-
-    // 🔹 First, check manual map
-    if (manualColorMap[camelCaseName]) return manualColorMap[camelCaseName];
-/* 
-    // 🔹 Then, check exact match
-    if (knownColors.includes(camelCaseName)) return camelCaseName;
- */
-    // 🔥 Apply Levenshtein Distance for closest match
-    let closestMatch = "";
-    let minDistance = Infinity;
-
-/*     knownColors.forEach(color => {
-        let distance = levenshtein(camelCaseName, color);
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestMatch = color;
-        }
-    }); */
-    return closestMatch;
-}
-
-// Levenshtein function (same as before)
-function levenshtein(a, b) {
-    if (!a.length) return b.length;
-    if (!b.length) return a.length;
-    let matrix = Array(a.length + 1).fill(null).map(() => Array(b.length + 1).fill(null));
-    
-    for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
-    for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
-    
-    for (let i = 1; i <= a.length; i++) {
-        for (let j = 1; j <= b.length; j++) {
-            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-            matrix[i][j] = Math.min(
-                matrix[i - 1][j] + 1, 
-                matrix[i][j - 1] + 1, 
-                matrix[i - 1][j - 1] + cost
-            );
-        }
-    }
-    return matrix[a.length][b.length];
-}
-
-/* Object.entries(fileStructure).forEach(([category, items]) => {
-    const types = Object.keys(items);
-    const itemsArr = Object.values(items);
-
-    const randomType = types[[Math.floor(Math.random() * types.length)]];
-    const randomItem = items[randomType][Math.floor(Math.random() * items[randomType].length)];
-
-     console.log(`All the types : ${Object.keys(items)}`);
-    console.log(`Category : ${category}`);
-    console.log(`All the items : ${itemsArr}`);
-    console.log(`Random type : ${randomType}`);
-    console.log(`Random item : ${randomItem}`); 
-    return randomType, randomItem;
-  }); 
-  
-*/
-
- // Extract product ID from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get('category'); // Get category from the URL
-let productType = 'Category not found.';
-let randomType, randomItem, itemsArr;
-let colorsArr = [];
-
-Object.entries(fileStructure[category]).forEach(([category, items]) => {
-    itemsArr = Object.values(items);
-    return itemsArr;
-  });
-
-(()=> { 
-  itemsArr.forEach(filename => {
-    colorsArr.push(getClosestColor(filename));
-  });
-})();
-console.log(colorsArr);
-
-//ColorSelector:
-let defaultOriginalColor;
-
-function createColorSelector(colors) {
-    const container = document.getElementById("colorSelector");
-    container.innerHTML = ""; // Clear previous content
-
-    colors.forEach(color => {
-        const circle = document.createElement("span");
-        // Get the correct display color from your map
-        const cssColor = manualColorMap[color] || color;
-        
-        circle.className = "color-circle";
-        circle.dataset.color = color;
-        circle.style.backgroundColor = cssColor;
-
-        // Add click event
-        circle.addEventListener("mouseover", function () {
-            document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
-            this.classList.add("selected");
-            
-            currentColor = color;
-            currentSize = document.querySelector(".size-button.selected").textContent;
-            document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
-            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
-        });
-        container.appendChild(circle);
+    <script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true
     });
     
-    document.querySelector(".color-circle:first-of-type").classList.add("selected");
-    currentColor = document.querySelector(".color-circle.selected").getAttribute("data-color");
-}
-let availableColors = fileStructure[category][Object.keys(fileStructure[category])[0]].map(file => {
-            return file.replace("-large.webp", "").replace(/_/g, "_"); // Preserve spaces
-            }).filter(color => manualColorMap[color]); // Only include mapped colors
-console.log(availableColors);
-createColorSelector(availableColors);
-//createColorSelector(colorsArr);
-
-//const defaultFile = filesArr[0];
-//console.log(getClosestColor(defaultFile));
-
-/* function getRandoms() {
-    const types = Object.keys(fileStructure[category]);  // Get the types from the category's items
-//    console.log(`Types : ${types}`);
-
-    const randomTypeFromCategory = types[Math.floor(Math.random() * types.length)];
-    randomType = randomTypeFromCategory;  // Set the global variable
-//    console.log(`Random Type : ${randomType}`);
-
-    const itemKeys = Object.keys(fileStructure[category][randomType]);  // Get the valid keys of the chosen type
-//    console.log(`Valid Item Keys: ${itemKeys}`);
-
-    const randomItemFromType = itemKeys[Math.floor(Math.random() * itemKeys.length)];
-    randomItem = fileStructure[category][randomType][randomItemFromType];  // Set the global variable
-
-//    console.log(`Random Item : ${randomItem}`);
-    return { randomType, randomItem };  // Return both values as an object
-}
-
-const result = getRandoms(); */
-//console.log(`Random type : ${result.randomType}`);  // You can now access randomType
-//console.log(`Random item : ${result.randomItem}`);  // You can now access randomItem
-
-
-
-// Find products by category
-//const filteredProducts = products.filter(p => p.category == category);
-
-// If there are products in the selected category, display the first one (or modify as needed)
-//if (filteredProducts.length > 0) {
-//    const product = filteredProducts[0]; // Use the first product in the filtered list
-
-    // Display product details
-document.querySelector('#product-name').textContent = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
-document.querySelector('#product-description').innerHTML = 
-    `<hr>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th colspan="5" class="text-center h5">Physical Properties</th>
-            </tr>
-        </thead>
-        <thead>
-            <tr>
-                <th scope="col">Type</th>
-                <th scope="col">Base Area (mm²)</th>
-                <th scope="col">Height (mm)</th>
-                <th scope="col">Weight (g)</th>
-                <th scope="col">Burning Time (hour)</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-        </tbody>
-    </table>`;
-
-// Loop through the physical properties based on the product shape
-if (category != 'cube') {
-    for (let i = 0; i < physicalProps[category].length; i++) {
-        document.querySelector('#tableBody').innerHTML += 
-            `<tr>
-                <th scope="col">${physicalProps[category][i].type}</th>
-                <td>${physicalProps[category][i].baseAreaMm2}</td>
-                <td>${physicalProps[category][i].heightMm}</td>
-                <td>${physicalProps[category][i].weightG}</td>
-                <td>${physicalProps[category][i].burnTimeHours}</td>
-            </tr>`;
+    // Theme Toggle Functionality
+    const lightModeBtn = document.getElementById('light-mode-btn');
+    const darkModeBtn = document.getElementById('dark-mode-btn');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved user preference, if any
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        enableDarkMode();
     }
-} else {
-    document.querySelector('#tableBody').innerHTML += 
-        `<tr>
-            <th scope="col">${physicalProps['square_prism'][0].type}</th>
-            <td>${physicalProps['square_prism'][0].baseAreaMm2}</td>
-            <td>${physicalProps['square_prism'][0].heightMm}</td>
-            <td>${physicalProps['square_prism'][0].weightG}</td>
-            <td>${physicalProps['square_prism'][0].burnTimeHours}</td>
-        </tr>`;
-}
-
-// Render the default product image
-document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
-document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${Object.keys(fileStructure[category])[0]}/${Object.values(fileStructure[category])[0][0]}`;
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll("img.lazy");
-
-    images.forEach(img => {
-        const highRes = img.dataset.src;
-        if (!highRes) return;
-
-        img.src = highRes; // Start loading the image
-        img.onload = () => img.classList.add("loaded"); // Remove blur after loading
+    
+    function enableDarkMode() {
+        htmlElement.classList.add('dark-mode');
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        lightModeBtn.classList.remove('active');
+        darkModeBtn.classList.add('active');
+        localStorage.setItem('theme', 'dark');
+    }
+    
+    function enableLightMode() {
+        htmlElement.classList.remove('dark-mode');
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+        darkModeBtn.classList.remove('active');
+        lightModeBtn.classList.add('active');
+        localStorage.setItem('theme', 'light');
+    }
+    
+    lightModeBtn.addEventListener('click', enableLightMode);
+    darkModeBtn.addEventListener('click', enableDarkMode);
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
-});
-	
-// Image modal
-document.querySelector("#product-image").addEventListener("click", function() {
-    document.getElementById("image-viewer").style.display = "block";
-});
+    
+    // Product Data
+    const products = {
+        cylindrical:[
+          { id: 1, name: 'Cylindrical Burgundy Candle', shape: 'cylindrical', color: 'burgundy' },
+          { id: 2, name: 'Cylindrical Cognac Candle', shape: 'cylindrical', color: 'cognac' },
+          { id: 3, name: 'Cylindrical Creamy Peach Candle', shape: 'cylindrical', color: 'creamy_peach' },
+          { id: 4, name: 'Cylindrical Ice Blue Candle', shape: 'cylindrical', color: 'ice_blue' },
+          { id: 5, name: 'Cylindrical Light Blue Candle', shape: 'cylindrical', color: 'light_blue' },
+          { id: 6, name: 'Cylindrical Mint Candle', shape: 'cylindrical', color: 'mint' },
+          { id: 7, name: 'Cylindrical Orange Candle', shape: 'cylindrical', color: 'orange' },
+          { id: 8, name: 'Cylindrical Peach Candle', shape: 'cylindrical', color: 'peach' },
+          { id: 9, name: 'Cylindrical Pink Candle', shape: 'cylindrical', color: 'pink' },
+          { id: 10, name: 'Cylindrical Purple Candle', shape: 'cylindrical', color: 'purple' },
+          { id: 11, name: 'Cylindrical Red Special Candle', shape: 'cylindrical', color: 'red_special' },
+          { id: 12, name: 'Cylindrical Red Candle', shape: 'cylindrical', color: 'red' },
+          { id: 13, name: 'Cylindrical White Candle', shape: 'cylindrical', color: 'white' },
+          { id: 14, name: 'Cylindrical Wine Candle', shape: 'cylindrical', color: 'wine' },
+          { id: 15, name: 'Cylindrical Yellow Candle', shape: 'cylindrical', color: 'yellow' }
+        ],
 
-// Add click event to the close button
-document.querySelector("#image-viewer .close").addEventListener("click", function() {
-  // Hide the image viewer
-  document.getElementById("image-viewer").style.display = "none";
-});
+        pyramid:[
+          { id: 19, name: 'Pyramid Blue Candle', shape: 'pyramid', color: 'blue' },
+          { id: 20, name: 'Pyramid Burgundy Candle', shape: 'pyramid', color: 'burgundy' },
+          { id: 21, name: 'Pyramid Cognac Candle', shape: 'pyramid', color: 'cognac' },
+          { id: 22, name: 'Pyramid Dark Blue Candle', shape: 'pyramid', color: 'dark_blue' },
+          { id: 23, name: 'Pyramid Green Candle', shape: 'pyramid', color: 'green' },
+          { id: 24, name: 'Pyramid Orange Candle', shape: 'pyramid', color: 'orange' },
+          { id: 25, name: 'Pyramid Peach Candle', shape: 'pyramid', color: 'peach' },
+          { id: 26, name: 'Pyramid Pink Candle', shape: 'pyramid', color: 'pink' },
+          { id: 27, name: 'Pyramid Purple Candle', shape: 'pyramid', color: 'purple' },
+          { id: 28, name: 'Pyramid Red Candle', shape: 'pyramid', color: 'red' },
+          { id: 29, name: 'Pyramid Turquoise Candle', shape: 'pyramid', color: 'turquoise' },
+          { id: 30, name: 'Pyramid White Candle', shape: 'pyramid', color: 'white' },
+          { id: 31, name: 'Pyramid Wine Candle', shape: 'pyramid', color: 'wine' },
+          { id: 32, name: 'Pyramid Yellow Candle', shape: 'pyramid', color: 'yellow' }
+        ],
 
-//SizeSelector:
-//Default size: 
-const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/))); // Get sizes dynamically
-function createSizeSelector(sizes) {
-    const container = document.getElementById("sizeSelector");
-    container.innerHTML = "";
+        special:[
+          { id: 33, name: 'Special Apple Green Candle', shape: 'special', color: 'apple_green' },
+          { id: 34, name: 'Special Blue Candle', shape: 'special', color: 'blue' },
+          { id: 35, name: 'Special Burgundy Candle', shape: 'special', color: 'burgundy' },
+          { id: 36, name: 'Special Cognac Candle', shape: 'special', color: 'cognac' },
+          { id: 37, name: 'Special Dark Blue Candle', shape: 'special', color: 'dark_blue' },
+          { id: 38, name: 'Special Orange Candle', shape: 'special', color: 'orange' },
+          { id: 39, name: 'Special Peach Candle', shape: 'special', color: 'peach' },
+          { id: 40, name: 'Special Pink Candle', shape: 'special', color: 'pink' },
+          { id: 41, name: 'Special Purple Candle', shape: 'special', color: 'purple' },
+          { id: 42, name: 'Special Red Candle', shape: 'special', color: 'red' },
+          { id: 43, name: 'Special Turquoise Candle', shape: 'special', color: 'turquoise' },
+          { id: 44, name: 'Special White Candle', shape: 'special', color: 'white' }
+        ],
 
-    sizes.forEach(size => {
-        const button = document.createElement("button");
-        button.className = "size-button";
-        button.dataset.size = size;
-        button.textContent = size;
+        spherical:[
+          { id: 45, name: 'Spherical Burgundy Candle', shape: 'spherical', color: 'burgundy' },
+          { id: 46, name: 'Spherical Cognac Candle', shape: 'spherical', color: 'cognac' },
+          { id: 47, name: 'Spherical Dark Blue Candle', shape: 'spherical', color: 'dark_blue' },
+          { id: 48, name: 'Spherical Orange Candle', shape: 'spherical', color: 'orange' },
+          { id: 49, name: 'Spherical Pastel Blue Candle', shape: 'spherical', color: 'pastel_blue' },
+          { id: 50, name: 'Spherical Peach Candle', shape: 'spherical', color: 'peach' },
+          { id: 51, name: 'Spherical Purple Candle', shape: 'spherical', color: 'purple' },
+          { id: 52, name: 'Spherical White Candle', shape: 'spherical', color: 'white' },
+          { id: 53, name: 'Spherical Yellow Candle', shape: 'spherical', color: 'yellow' }
+        ],
 
-        // Add click event
-        button.addEventListener("click", function () {
-            document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
-            this.classList.add("selected");
+        square_prism:[
+          { id: 100, name: 'Cube Dark Blue Candle', shape: 'cube', color: 'dark_blue' },
+          { id: 101, name: 'Cube Peach Candle', shape: 'cube', color: 'peach' },
+          { id: 102, name: 'Cube Pink Candle', shape: 'cube', color: 'pink' },
+          { id: 54, name: 'Square Prism Blue Candle', shape: 'square_prism', color: 'blue' },
+          { id: 55, name: 'Square Prism Burgundy Candle', shape: 'square_prism', color: 'burgundy' },
+          { id: 56, name: 'Square Prism Cognac Candle', shape: 'square_prism', color: 'cognac' },
+          { id: 57, name: 'Square Prism Dark Blue Candle', shape: 'square_prism', color: 'dark_blue' },
+          { id: 58, name: 'Square Prism Green Candle', shape: 'square_prism', color: 'green' },
+          { id: 59, name: 'Square Prism Orange Candle', shape: 'square_prism', color: 'orange' },
+          { id: 60, name: 'Square Prism Peach Candle', shape: 'square_prism', color: 'peach' },
+          { id: 61, name: 'Square Prism Pink Candle', shape: 'square_prism', color: 'pink' },
+          { id: 62, name: 'Square Prism Purple Candle', shape: 'square_prism', color: 'purple' },
+          { id: 63, name: 'Square Prism Red Candle', shape: 'square_prism', color: 'red' },
+          { id: 64, name: 'Square Prism Turquoise Candle', shape: 'square_prism', color: 'turquoise' },
+          { id: 65, name: 'Square Prism White Candle', shape: 'square_prism', color: 'white' },
+          { id: 66, name: 'Square Prism Yellow Candle', shape: 'square_prism', color: 'yellow' }
+        ],
 
-            let currentColor = document.querySelector(".color-circle.selected")?.getAttribute("data-color");
-            document.getElementById("selectedSize").textContent = size;
+        triangular_prism:[
+          { id: 67, name: 'Triangular Prism Blue Candle', shape: 'triangular_prism', color: 'blue' },
+          { id: 68, name: 'Triangular Prism Burgundy Candle', shape: 'triangular_prism', color: 'burgundy' },
+          { id: 69, name: 'Triangular Prism Cognac Candle', shape: 'triangular_prism', color: 'cognac' },
+          { id: 70, name: 'Triangular Prism Green Candle', shape: 'triangular_prism', color: 'green' },
+          { id: 71, name: 'Triangular Prism Orange Candle', shape: 'triangular_prism', color: 'orange' },
+          { id: 72, name: 'Triangular Prism Peach Candle', shape: 'triangular_prism', color: 'peach' },
+          { id: 73, name: 'Triangular Prism Purple Candle', shape: 'triangular_prism', color: 'purple' },
+          { id: 74, name: 'Triangular Prism Red Candle', shape: 'triangular_prism', color: 'red' },
+          { id: 75, name: 'Triangular Prism Turquoise Candle', shape: 'triangular_prism', color: 'turquoise' },
+          { id: 76, name: 'Triangular Prism White Candle', shape: 'triangular_prism', color: 'white' },
+          { id: 77, name: 'Triangular Prism Yellow Candle', shape: 'triangular_prism', color: 'yellow' }
+        ]
+    };
+    
+    const physicalProps = {
+        // Cylindrical Candles
+        cylindrical: [
+            { type: 'C1', baseAreaMm2: 45, heightMm: 65, weightG: 95, burnTimeHours: '-' },
+            { type: 'C3', baseAreaMm2: 40, heightMm: 80, weightG: 85, burnTimeHours: '-' },
+            { type: 'C5', baseAreaMm2: 65, heightMm: 50, weightG: 150, burnTimeHours: 10 },
+            { type: 'C10', baseAreaMm2: 65, heightMm: 100, weightG: 300, burnTimeHours: 20 },
+            { type: 'C15', baseAreaMm2: 65, heightMm: 150, weightG: 450, burnTimeHours: 30 },
+            { type: 'C19', baseAreaMm2: 40, heightMm: 170, weightG: 170, burnTimeHours: '-' },
+            { type: 'C17', baseAreaMm2: 65, heightMm: 170, weightG: 510, burnTimeHours: 35 },
+            { type: 'C20', baseAreaMm2: 65, heightMm: 200, weightG: 600, burnTimeHours: 40 },
+            { type: 'C25', baseAreaMm2: 65, heightMm: 250, weightG: 750, burnTimeHours: 50 },
+            { type: 'C30', baseAreaMm2: 65, heightMm: 300, weightG: 900, burnTimeHours: 60 }
+        ], 
+
+        // Triangular Prism Candles
+        triangular_prism: [
+            { type: 'D10', baseAreaMm2: '∆ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
+            { type: 'D15', baseAreaMm2: '∆ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
+            { type: 'D20', baseAreaMm2: '∆ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
+            { type: 'D25', baseAreaMm2: '∆ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
+            { type: 'D35', baseAreaMm2: '∆ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
+        ],
+
+        // Pyramid Candles
+        pyramid: [
+            { type: 'P10', baseAreaMm2: '□ 70x70', heightMm: 100, weightG: 156, burnTimeHours: '-' },
+            { type: 'P15', baseAreaMm2: '□ 90x90', heightMm: 150, weightG: 340, burnTimeHours: '-' },
+            { type: 'P20', baseAreaMm2: '□ 100x100', heightMm: 200, weightG: 550, burnTimeHours: '-' }
+        ],
+
+        // Square Prism Candles
+        square_prism: [
+            { type: 'V5', baseAreaMm2: '□ 60x60', heightMm: 50, weightG: 140, burnTimeHours: 10 },
+            { type: 'V10', baseAreaMm2: '□ 60x60', heightMm: 100, weightG: 280, burnTimeHours: 20 },
+            { type: 'V15', baseAreaMm2: '□ 60x60', heightMm: 150, weightG: 420, burnTimeHours: 30 },
+            { type: 'V20', baseAreaMm2: '□ 60x60', heightMm: 200, weightG: 560, burnTimeHours: 40 },
+            { type: 'V25', baseAreaMm2: '□ 60x60', heightMm: 250, weightG: 700, burnTimeHours: 50 },
+            { type: 'V35', baseAreaMm2: '□ 60x60', heightMm: 350, weightG: 980, burnTimeHours: 70 }
+        ],
+
+        // Spherical Candles
+        spherical: [
+            { type: 'K6', baseAreaMm2: 60, heightMm: 60, weightG: 120, burnTimeHours: '-' },
+            { type: 'K8', baseAreaMm2: 80, heightMm: 80, weightG: 200, burnTimeHours: '-' },
+            { type: 'K10', baseAreaMm2: 100, heightMm: 100, weightG: 475, burnTimeHours: '-' },
+            { type: 'K15', baseAreaMm2: 150, heightMm: 150, weightG: 1340, burnTimeHours: '-' }
+        ],
+
+        // Special Candles
+        special: [
+            { type: 'X5', baseAreaMm2: 80, heightMm: 80, weightG: 335, burnTimeHours: 'R_20' },
+            { type: 'X10', baseAreaMm2: 100, heightMm: 100, weightG: 590, burnTimeHours: 'R_25' },
+            { type: '3B10', baseAreaMm2: 150, heightMm: 100, weightG: 1350, burnTimeHours: 30 }
+        ],
+
+        //Advent Candles
+        advent: [
+            { type: 'C-advent', baseAreaMm2: 40, heightMm: '50-64-77-90', weightG: 410, burnTimeHours: '-' }
+        ]
+    };
+    
+    const fileStructure = {
+      "triangular_prism": {
+        "D35":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D25":[
+            "red-large.webp",
+            "roze-large.webp",
+            "burgundy-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "peach-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+        ],
+        "D20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D15":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ],
+        "D10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "wine-large.webp",
+            "apricot-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "white-large.webp"
+          ]
+      },
+      "square_prism": {
+        "V5":[
+            "pink-large.webp",
+            "peach-large.webp",
+            "orange-large.webp",
+            "darkened_orange-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V35":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V25":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp"
+          ],
+        "V20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "V15":[
+            "red-large.webp",
+            "pink-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "turquoise-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ],
+        "V10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "turquoise-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+          ]
+      },
+      "spherical": {
+        "K6":[
+            "orange-large.webp",
+            "yellow-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "burgundy-large.webp",
+            "purple-large.webp",
+            "pastel_blue-large.webp",
+            "dark_blue-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "special": {
+        "3B10":[
+            "red-large.webp",
+            "burgundy-large.webp",
+            "orange-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "pink-large.webp",
+            "purple-large.webp",
+            "apple_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "pyramid": {
+        "P10":[
+            "red-large.webp",
+            "burgundy-large.webp",
+            "orange-large.webp",
+            "yellow-large.webp",
+            "peach-large.webp",
+            "cognac-large.webp",
+            "pink-large.webp",
+            "purple-large.webp",
+            "green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "cylindrical": {
+        "C5":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "mandarin-large.webp",
+            "orange-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C30":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C25":[
+            "dark_roze-large.webp",
+            "roze-large.webp",
+            "mandarin-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C20":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "caramel-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C17":[
+            "red-large.webp",
+            "roze-large.webp",
+            "dark_orange-large.webp",
+            "orange-large.webp",
+            "apricot-large.webp",
+            "cognac-large.webp",
+            "dark_green-large.webp",
+            "turquoise-large.webp",
+            "blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "wine-large.webp",
+            "white-large.webp"
+        ],
+        "C10":[
+            "red-large.webp",
+            "roze-large.webp",
+            "pink-large.webp",
+            "light_pink-large.webp",
+            "creamy_pink-large.webp",
+            "ice_pink-large.webp",
+            "dark_orange-large.webp",
+            "darkened_orange-large.webp",
+            "orange-large.webp",
+            "mandarin-large.webp",
+            "creamy_peach-large.webp",
+            "yellow-large.webp",
+            "cognac-large.webp",
+            "caramel-large.webp",
+            "mint-large.webp",
+            "dark_green-large.webp",
+            "blue-large.webp",
+            "light_blue-large.webp",
+            "ice_blue-large.webp",
+            "steel_blue-large.webp",
+            "dark_blue-large.webp",
+            "dark_purple-large.webp",
+            "purple-large.webp",
+            "wine-large.webp",
+            "snow-large.webp",
+            "white-large.webp"
+        ]
+      },
+      "advent": {
+        "CAdvent":[
+            "crimson-large.webp",
+            "firebrick-large.webp"
+        ]
+      }
+    };
+    
+    const manualColorMap = {
+        "apricot": "peachpuff",
+        "cognac": "saddlebrown",
+        "wine": "darkRed",
+        "roze": "deepPink",
+        "burgundy": "maroon",
+        "dark_blue": "darkBlue",
+        "orange": "orange",
+        "pastel_blue": "powderBlue",
+        "peach": "lightSalmon",
+        "purple": "purple",
+        "dark_purple": "indigo",
+        "white": "white",
+        "yellow": "yellow",
+        "caramel": "chocolate",
+        "turquoise": "turquoise",
+        "firebrick": "firebrick",
+        "crimson": "crimson",
+        "blue": "dodgerBlue",
+        "pink": "hotPink",
+        "cognac": "peru",
+        "blue": "blue",
+        "creamy_peach": "navajoWhite",
+        "creamy_pink": "hotPink",
+        "steel_blue": "steelBlue",
+        "dark_green": "darkGreen",
+        "dark_orange": "orangeRed",
+        "ice_blue": "lightCyan",
+        "ice_pink": "lightPink",
+        "light_blue": "lightBlue",
+        "light_pink": "lightPink",
+        "mandarin": "darkOrange",
+        "mint": "paleGreen",
+        "red": "red",
+        "darkened_orange": "gold",
+        "snow": "snow",
+        "dark_roze": "crimson",
+        "green": "green",
+        "apple_green": "greenYellow"
+    };
+    
+    let currentSize, currentColor;
+    
+    // Extract product ID from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category'); // Get category from the URL
+    
+    // Create color selector
+    function createColorSelector(colors) {
+        const container = document.getElementById("colorSelector");
+        container.innerHTML = ""; // Clear previous content
+    
+        colors.forEach(color => {
+            const circle = document.createElement("span");
+            const cssColor = manualColorMap[color] || (color.includes("light") ? "lightgray" : "gray");
             
-            // Update color selector based on selected size - FIXED: preserve underscores
-            const availableColors = fileStructure[category][size].map(file => {
-                return file.replace("-large.webp", "");
+            circle.className = "color-circle";
+            circle.dataset.color = color;
+            circle.style.backgroundColor = cssColor;
+            circle.title = color.replace(/_/g, " ");
+    
+            // Add hover and click events
+            circle.addEventListener("mouseover", function() {
+                // Preview the color on hover
+                document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
             });
             
-            if (availableColors.includes(currentColor)){
-                var colorToSet = currentColor;
-            } else {
-                var colorToSet = availableColors[0];
+            circle.addEventListener("click", function() {
+                document.querySelectorAll(".color-circle").forEach(c => c.classList.remove("selected"));
+                this.classList.add("selected");
+                
+                currentColor = color;
+                document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${currentSize}/${color}-large.webp`;
+            });
+            
+            container.appendChild(circle);
+        });
+        
+        // Select first color by default
+        document.querySelector(".color-circle:first-of-type").classList.add("selected");
+        currentColor = document.querySelector(".color-circle.selected").dataset.color;
+    }
+    
+    // Create size selector
+    function createSizeSelector(sizes) {
+        const container = document.getElementById("sizeSelector");
+        container.innerHTML = "";
+    
+        sizes.forEach(size => {
+            const button = document.createElement("button");
+            button.className = "size-button";
+            button.dataset.size = size;
+            button.textContent = size;
+    
+            // Add click event
+            button.addEventListener("click", function() {
+                document.querySelectorAll(".size-button").forEach(b => b.classList.remove("selected"));
+                this.classList.add("selected");
+    
+                let currentColor = document.querySelector(".color-circle.selected")?.getAttribute("data-color");
+                
+                // Update color selector based on selected size
+                const availableColors = fileStructure[category][size].map(file => {
+                    return file.replace("-large.webp", "");
+                });
+                
+                if (availableColors.includes(currentColor)) {
+                    var colorToSet = currentColor;
+                } else {
+                    var colorToSet = availableColors[0];
+                }
+    
+                currentSize = size;
+                document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${size}/${colorToSet}-large.webp`;
+                document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${size}/${colorToSet}-large.webp`;
+    
+                createColorSelector(availableColors);
+            });
+    
+            container.appendChild(button);
+        });
+    
+        // Select the first size by default
+        document.querySelector(".size-button:first-of-type").classList.add("selected");
+        
+        // Get colors for the first size
+        const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
+            return file.replace("-large.webp", "");
+        });
+    
+        currentSize = sizes[0];
+        createColorSelector(firstSizeColors);
+        return currentSize;
+    }
+    
+    // Initialize page
+    document.addEventListener("DOMContentLoaded", function() {
+        // Set product name
+        const formattedName = category.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+        document.getElementById("product-name").textContent = formattedName + " Candles";
+        document.getElementById("product-name-details").textContent = formattedName + " Candles";
+        
+        // Create product description table
+        document.getElementById("product-description").innerHTML = 
+            `<table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Base Area</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Burn Time</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>`;
+    
+        // Fill table data
+        if (category != 'cube') {
+            for (let i = 0; i < physicalProps[category].length; i++) {
+                document.getElementById('tableBody').innerHTML += 
+                    `<tr>
+                        <th>${physicalProps[category][i].type}</th>
+                        <td>${physicalProps[category][i].baseAreaMm2} mm²</td>
+                        <td>${physicalProps[category][i].heightMm} mm</td>
+                        <td>${physicalProps[category][i].weightG} g</td>
+                        <td>${physicalProps[category][i].burnTimeHours} h</td>
+                    </tr>`;
             }
-
-            document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
-            document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${this.innerText}/${colorToSet}-large.webp`;
-
-            createColorSelector(availableColors);
+        } else {
+            document.getElementById('tableBody').innerHTML += 
+                `<tr>
+                    <th>${physicalProps['square_prism'][0].type}</th>
+                    <td>${physicalProps['square_prism'][0].baseAreaMm2} mm²</td>
+                    <td>${physicalProps['square_prism'][0].heightMm} mm</td>
+                    <td>${physicalProps['square_prism'][0].weightG} g</td>
+                    <td>${physicalProps['square_prism'][0].burnTimeHours} h</td>
+                </tr>`;
+        }
+    
+        // Initialize size selector
+        const sizes = Object.keys(fileStructure[category]).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/)));
+        createSizeSelector(sizes);
+        
+        // Set initial product image
+        document.querySelector('#product-image').src = `../src/assets/images/products/candles/${category}/${sizes[0]}/${fileStructure[category][sizes[0]][0]}`;
+        document.getElementById("full-image").src = `../src/assets/images/products/candles/${category}/${sizes[0]}/${fileStructure[category][sizes[0]][0]}`;
+        
+        // Image modal with fixed display
+        document.querySelector("#product-image").addEventListener("click", function() {
+            const viewer = document.getElementById("image-viewer");
+            viewer.style.display = "block";
+            setTimeout(() => viewer.classList.add("visible"), 10);
+        });
+        
+        document.querySelector("#image-viewer .close").addEventListener("click", function() {
+            const viewer = document.getElementById("image-viewer");
+            viewer.classList.remove("visible");
+            setTimeout(() => viewer.style.display = "none", 300);
         });
 
-        container.appendChild(button);
+        // Close modal on background click
+        document.getElementById("image-viewer").addEventListener("click", function(e) {
+            if (e.target === this) {
+                this.classList.remove("visible");
+                setTimeout(() => this.style.display = "none", 300);
+            }
+        });
     });
-
-    // Select the first size by default
-    document.querySelector(".size-button:first-of-type").classList.add("selected");
-    document.getElementById("selectedSize").textContent = sizes[0];
-
-    // FIXED: Just get the color names without modifying underscores
-    const firstSizeColors = fileStructure[category][sizes[0]].map(file => {
-        return file.replace("-large.webp", "");
-    });
-
-    createColorSelector(firstSizeColors);
-    currentSize = sizes[0];
-    return currentSize;
-}
-createSizeSelector(sizes);
-
-
- </script>
-  <script src="../src/js/language.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    </script>
 </body>
 </html>
