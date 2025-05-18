@@ -1,422 +1,877 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" class="light-mode">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=chrome'>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
     <title>Candle Flames | Events & Locations</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
     <!-- AOS Animate on Scroll -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --primary: #D1A773;
-            --primary-dark: #B38B5B;
-            --secondary: #4A4A4A;
-            --dark: #2C2C2C;
-            --light: #F9F5F1;
-            --light-accent: #E9DFD4;
-            --card-bg: #ffffff;
-            --text-color: #2C2C2C;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      /* Theme Variables */
+      :root {
+        /* Light Theme */
+        --primary: #d1a773;
+        --primary-dark: #b38b5b;
+        --secondary: #4a4a4a;
+        --dark: #2c2c2c;
+        --light: #f9f5f1;
+        --light-accent: #e9dfd4;
+        --card-bg: #ffffff;
+        --text-color: #2c2c2c;
+        --table-header: #e9dfd4;
+        --table-border: #e9ecef;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      /* Dark Theme */
+      html.dark-mode {
+        --primary: #e0b984;
+        --primary-dark: #c9a36f;
+        --secondary: #bbbbbb;
+        --dark: #eeeeee;
+        --light: #1a1a1a;
+        --light-accent: #2a2a2a;
+        --card-bg: #292929;
+        --text-color: #e0e0e0;
+        --table-header: #2a2a2a;
+        --table-border: #3a3a3a;
+      }
+
+      /* Base Styles */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--light);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        color: var(--text-color);
+        transition: color 0.5s ease;
+      }
+
+      .section-title {
+        position: relative;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: background-color 0.5s ease;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 110px;
+        right: 20px;
+        z-index: 1000;
+        background-color: var(--card-bg);
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 5px;
+        transition: box-shadow 0.3s ease, background-color 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .theme-toggle:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+      }
+
+      .theme-toggle button {
+        background: none;
+        border: none;
+        padding: 8px;
+        border-radius: 50%;
+        margin: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 40px;
+        height: 40px;
+      }
+
+      .theme-toggle button:hover {
+        transform: translateY(-2px);
+      }
+
+      .theme-toggle button.active {
+        background-color: var(--primary);
+      }
+
+      .theme-toggle i {
+        font-size: 1.25rem;
+        color: var(--text-color);
+      }
+
+      .theme-toggle button.active i {
+        color: white;
+      }
+
+      /* Events */
+      .event-section {
+        padding: 4rem 0 2rem;
+      }
+      .event-panel {
+        background: var(--card-bg);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+        transition: box-shadow 0.3s, background 0.5s;
+      }
+      .event-panel h2 {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .event-panel p {
+        color: var(--secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Navbar */
+      .navbar {
+        transition: background-color 0.5s ease, padding 0.4s ease;
+        padding: 1rem 0;
+        background-color: var(--light);
+      }
+
+      .navbar.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+      }
+
+      html.dark-mode .navbar {
+        background-color: var(--light);
+      }
+
+      html.dark-mode .navbar.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-brand img {
+        transition: var(--transition);
+        width: 60px;
+        height: auto;
+      }
+
+      .navbar.scrolled .navbar-brand img {
+        transform: scale(0.85);
+      }
+
+      .nav-link {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 0 0.5rem;
+        color: var(--text-color) !important;
+        transition: color 0.5s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.4s ease, background-color 0.5s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Mobile Navigation */
+      .navbar-collapse {
+        transition: var(--transition);
+      }
+
+      @media (max-width: 992px) {
+        .navbar-collapse {
+          background-color: var(--card-bg);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          border-radius: 0 0 10px 10px;
+          margin-top: 10px;
+          z-index: 1000;
         }
 
-        html.dark-mode {
-            --primary: #E0B984;
-            --primary-dark: #C9A36F;
-            --secondary: #BBBBBB;
-            --dark: #EEEEEE;
-            --light: #1A1A1A;
-            --light-accent: #2A2A2A;
-            --card-bg: #292929;
-            --text-color: #E0E0E0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--light);
-            color: var(--text-color);
-            line-height: 1.6;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            color: var(--text-color);
-            transition: color 0.5s ease;
-        }
-
-        .section-title {
-            position: relative;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
-            transition: background-color 0.5s ease;
-        }
-
-        /* Theme Toggle */
         .theme-toggle {
-            position: fixed;
-            top: 110px;
-            right: 20px;
-            z-index: 1000;
-            background-color: var(--card-bg);
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          top: auto;
+          bottom: 20px;
+          right: 20px;
         }
-        .theme-toggle button {
-            background: none;
-            border: none;
-            padding: 8px;
-            border-radius: 50%;
-            margin: 0 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .theme-toggle button:hover {
-            transform: translateY(-2px);
-        }
-        .theme-toggle button.active {
-            background-color: var(--primary);
-        }
-        .theme-toggle i {
-            font-size: 1.25rem;
-            color: var(--text-color);
-        }
-        .theme-toggle button.active i {
-            color: white;
+
+        .navbar-nav {
+          margin-bottom: 15px;
         }
 
         .navbar {
-            transition: background-color 0.5s ease, padding 0.4s ease;
-            padding: 1rem 0;
-            background-color: var(--light);
+          padding: 0.5rem 0;
         }
-        .navbar.scrolled {
-            background-color: var(--light);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 0.5rem 0;
+
+        #languageSelector {
+          justify-content: center;
+          margin-top: 10px;
         }
-        html.dark-mode .navbar {
-            background-color: var(--light);
+      }
+
+      /* Language Selector */
+      .lang-btn {
+        transition: var(--transition);
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        padding: 0.25rem;
+        margin: 0 0.25rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lang-btn:hover,
+      .lang-btn.active {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .lang-btn.active {
+        border-color: var(--primary);
+      }
+
+      .lang-btn svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: var(--transition);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: black;
+        padding-top: 60px;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../src/assets/images/candles2.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 2rem;
+        max-width: 800px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-btn {
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        margin: 0.5rem;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-btn-primary {
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+        color: white;
+      }
+
+      .hero-btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        color: white;
+      }
+
+      .hero-btn-secondary {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .hero-btn-secondary:hover {
+        background-color: white;
+        color: var(--dark);
+      }
+
+      /* About Section */
+      .about-section {
+        padding: 6rem 0;
+        background-color: var(--light);
+        transition: background-color 0.5s ease;
+      }
+
+      .about-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        position: relative;
+      }
+
+      html.dark-mode .about-image {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .about-image:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      html.dark-mode .about-image:hover {
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.03);
+      }
+
+      .about-image::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 70px;
+        height: 70px;
+        border-top: 3px solid var(--primary);
+        border-left: 3px solid var(--primary);
+        transition: all 0.5s ease;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        width: 70px;
+        height: 70px;
+        border-bottom: 3px solid var(--primary);
+        border-right: 3px solid var(--primary);
+        transition: all 0.5s ease;
+      }
+
+      .about-content {
+        padding: 2rem;
+      }
+
+      .about-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: background-color 0.5s ease;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+
+      .about-signature {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 1.5rem;
+        transition: color 0.5s ease;
+      }
+
+      /* Footer Section */
+      .footer-main {
+        background-color: var(--light-accent);
+        padding: 4rem 0;
+        position: relative;
+        transition: background-color 0.5s ease;
+      }
+
+      .footer-main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--primary),
+          transparent
+        );
+        transition: background 0.5s ease;
+      }
+
+      .footer-heading {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        transition: color 0.5s ease;
+      }
+
+      .footer-content {
+        font-size: 1rem;
+        color: var(--secondary);
+        transition: color 0.5s ease;
+      }
+
+      .contact-info {
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        transition: transform 0.4s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateX(5px);
+      }
+
+      .contact-item i {
+        margin-right: 1rem;
+        color: var(--primary);
+        font-size: 1.2rem;
+        transition: color 0.5s ease;
+      }
+
+      .contact-item a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.5s ease;
+        word-break: break-word;
+      }
+
+      .contact-item a:hover {
+        color: var(--primary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--card-bg);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: var(--transition), background-color 0.5s ease;
+      }
+
+      html.dark-mode .social-link {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        background-color: var(--primary);
+      }
+
+      html.dark-mode .social-link:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-link img {
+        width: 22px;
+        height: 22px;
+        transition: var(--transition);
+      }
+
+      .social-link:hover img {
+        filter: brightness(10);
+      }
+
+      .footer-bottom {
+        background-color: var(--dark);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 1rem 0;
+        font-size: 0.9rem;
+        transition: background-color 0.5s ease;
+      }
+
+      html.dark-mode .footer-bottom {
+        background-color: #111;
+      }
+
+      .footer-bottom .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.4s ease;
+      }
+
+      .footer-bottom a:hover {
+        color: white;
+      }
+
+      /* Highlighted footer animation */
+      #footer-section {
+        transition: all 0.5s ease-out;
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+
+      #footer-section.highlighted {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      html.dark-mode #footer-section.highlighted {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.5rem;
         }
-        html.dark-mode .navbar.scrolled {
-            background-color: var(--light);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+
+        .hero-subtitle {
+          font-size: 1.2rem;
         }
-        .navbar-brand img {
-            transition: var(--transition);
-        }
-        .navbar.scrolled .navbar-brand img {
-            transform: scale(0.85);
-        }
-        .nav-link {
-            position: relative;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            margin: 0 0.5rem;
-            color: var(--text-color) !important;
-            transition: color 0.5s ease;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary) !important;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.4s ease, background-color 0.5s ease;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
+
+        .about-image {
+          margin-bottom: 2rem;
         }
 
         .hero-section {
-            position: relative;
-            height: 60vh;
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: black;
-            margin-bottom: 3rem;
+          padding-top: 80px;
         }
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../src/assets/images/candles2.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.65;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 2rem;
-        }
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: white;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
         }
 
-        .event-section {
-            padding: 4rem 0 2rem;
-        }
-        .event-panel {
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.09);
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            text-align: center;
-            transition: box-shadow 0.3s, background 0.5s;
-        }
-        .event-panel h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .event-panel p {
-            color: var(--secondary);
-            font-size: 1.1rem;
-        }
-        /* Footer is same as previous files */
         .footer-main {
-            background-color: var(--light-accent);
-            padding: 4rem 0;
-            position: relative;
-            transition: background-color 0.5s ease;
-        }
-        .footer-main::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
-            transition: background 0.5s ease;
-        }
-        .footer-heading {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            transition: color 0.5s ease;
-        }
-        .footer-content {
-            font-size: 1rem;
-            color: var(--secondary);
-            transition: color 0.5s ease;
-        }
-        .contact-info {
-            margin-top: 2rem;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            transition: transform 0.4s ease;
-        }
-        .contact-item:hover {
-            transform: translateX(5px);
-        }
-        .contact-item i {
-            margin-right: 1rem;
-            color: var(--primary);
-            font-size: 1.2rem;
-            transition: color 0.5s ease;
-        }
-        .contact-item a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.5s ease;
-        }
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--card-bg);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            transition: var(--transition), background-color 0.5s ease;
-        }
-        
-        html.dark-mode .social-link {
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-            background-color: var(--primary);
-        }
-        
-        html.dark-mode .social-link:hover {
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .social-link img {
-            width: 22px;
-            height: 22px;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover img {
-            filter: brightness(10);
-        }
-        .footer-bottom {
-            background-color: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 1rem 0;
-            font-size: 0.9rem;
-            transition: background-color 0.5s ease;
-        }
-        html.dark-mode .footer-bottom {
-            background-color: #111;
-        }
-        .footer-bottom .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .footer-bottom a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.4s ease;
-        }
-        .footer-bottom a:hover {
-            color: white;
+          text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .footer-main { text-align: center; }
-            .section-title { font-size: 2rem; }
-            .event-panel { padding: 1.2rem; }
+        .contact-item {
+          justify-content: center;
         }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .hero-section {
+          height: 70vh;
+          padding-top: 60px;
+        }
+
+        .theme-toggle button {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+          margin-top: 1rem;
+        }
+
+        .hero-btn {
+          padding: 0.75rem 1.5rem;
+          margin: 0.25rem;
+        }
+
+        .hero-section {
+          min-height: 500px;
+          height: auto;
+          padding-top: 80px;
+          padding-bottom: 30px;
+        }
+
+        .theme-toggle {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .theme-toggle button {
+          width: 32px;
+          height: 32px;
+          padding: 6px;
+        }
+
+        .footer-bottom .container {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .about-title {
+          font-size: 2rem;
+        }
+
+        .about-text {
+          font-size: 1rem;
+        }
+
+        .navbar-brand img {
+          width: 50px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="../src/assets/images/logo.png" alt="Candle Flames Logo" width="80" height="80">
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="../src/assets/images/logo.png"
+            alt="Candle Flames Logo"
+            width="80"
+            height="80"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./events.html"
+                >Events & Locations</a
+              >
+            </li>
+          </ul>
+
+          <div class="d-flex" id="languageSelector">
+            <button
+              class="lang-btn active"
+              onclick="changeLanguage('en', event)"
+            >
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="256" cy="256" fill="#f0f0f0" r="256" />
+                <g fill="#d80027">
+                  <path
+                    d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"
+                  />
+                  <path
+                    d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"
+                  />
+                  <path
+                    d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"
+                  />
+                  <path
+                    d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"
+                  />
+                </g>
+                <path
+                  d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z"
+                  fill="#0052b4"
+                />
+              </svg>
             </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./products.html">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="./events.html">Events & Locations</a>
-                    </li>
-                </ul>
-                
-                <div class="d-flex" id="languageSelector">
-                    <button class="lang-btn active" onclick="changeLanguage('en', event)">
-                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/></svg>
-                    </button>
-                    <button class="lang-btn" onclick="changeLanguage('hu', event)">
-                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/></svg>
-                    </button>
-                    <button class="lang-btn" onclick="changeLanguage('de', event)">
-                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/></svg>
-                    </button>
-                </div>
-            </div>
+            <button class="lang-btn" onclick="changeLanguage('hu', event)">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z"
+                  fill="#f0f0f0"
+                />
+                <path
+                  d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z"
+                  fill="#d80027"
+                />
+                <path
+                  d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z"
+                  fill="#6da544"
+                />
+              </svg>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('de', event)">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z"
+                  fill="#ffda44"
+                />
+                <path
+                  d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"
+                />
+                <path
+                  d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z"
+                  fill="#d80027"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Theme Toggle -->
     <div class="theme-toggle">
-        <button id="light-mode-btn" class="active">
-            <i class="bi bi-sun-fill"></i>
-        </button>
-        <button id="dark-mode-btn">
-            <i class="bi bi-moon-fill"></i>
-        </button>
+      <button id="light-mode-btn" class="active">
+        <i class="bi bi-sun-fill"></i>
+      </button>
+      <button id="dark-mode-btn">
+        <i class="bi bi-moon-fill"></i>
+      </button>
     </div>
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-down">Events & Locations</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                Ongoing or upcoming events where you can find me and/or my products.
-            </p>
-        </div>
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title" data-aos="fade-down">Events & Locations</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          Ongoing or upcoming events where you can find me and/or my products.
+        </p>
+      </div>
     </section>
 
     <!-- Events Panels -->
@@ -424,22 +879,22 @@
       <div class="container">
         <div class="row g-4 justify-content-center">
           <div class="col-md-8" data-aos="fade-up">
-              <div class="event-panel">
-                  <h2>CURRENTLY ONGOING</h2>
-                  <p><i>Under development and uploading.</i></p>
-              </div>
+            <div class="event-panel">
+              <h2>CURRENTLY ONGOING</h2>
+              <p><i>Under development and uploading.</i></p>
+            </div>
           </div>
           <div class="col-md-8" data-aos="fade-up" data-aos-delay="100">
-              <div class="event-panel">
-                  <h2>UPCOMING EVENTS</h2>
-                  <p><i>Under development and uploading.</i></p>
-              </div>
+            <div class="event-panel">
+              <h2>UPCOMING EVENTS</h2>
+              <p><i>Under development and uploading.</i></p>
+            </div>
           </div>
           <div class="col-md-8" data-aos="fade-up" data-aos-delay="200">
-              <div class="event-panel">
-                  <h2>OTHER LOCATIONS</h2>
-                  <p><i>Under development and uploading.</i></p>
-              </div>
+            <div class="event-panel">
+              <h2>OTHER LOCATIONS</h2>
+              <p><i>Under development and uploading.</i></p>
+            </div>
           </div>
         </div>
       </div>
@@ -447,69 +902,103 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-main" id="footer-section">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <h3 class="footer-heading">Our Presence</h3>
-                        <p class="footer-content">
-                            Our company and products are available not only on our website, but also on the following social media platforms! Find us through our other contact details as well!
-                        </p>
-                        <div class="social-links">
-                            <a href="https://www.tiktok.com/" target="_blank" class="social-link">
-                                <img src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg" alt="TikTok">
-                            </a>
-                            <a href="https://www.instagram.com/" target="_blank" class="social-link">
-                                <img src="https://static.cdnlogo.com/logos/i/4/instagram.svg" alt="Instagram">
-                            </a>
-                            <a href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank" class="social-link">
-                                <img src="https://www.cdnlogo.com/logos/f/84/facebook.svg" alt="Facebook">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <h3 class="footer-heading">Contact Information</h3>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="bi bi-person"></i>
-                                <div>
-                                    <strong>Imre Buglyó</strong>
-                                    <p class="mb-0">Sole Proprietor</p>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <i class="bi bi-geo-alt"></i>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g" target="_blank">
-                                    Nagyhegyes, Tulipán utca 22. Magyarország
-                                </a>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <i class="bi bi-telephone"></i>
-                                <a href="tel:+36303258956">+36-30/325-89-56</a>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <i class="bi bi-envelope"></i>
-                                <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="footer-main" id="footer-section">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right">
+              <h3 class="footer-heading">Our Presence</h3>
+              <p class="footer-content">
+                Our company and products are available not only on our website,
+                but also on the following social media platforms! Find us
+                through our other contact details as well!
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://www.tiktok.com/"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"
+                    alt="TikTok"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://static.cdnlogo.com/logos/i/4/instagram.svg"
+                    alt="Instagram"
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61552556406961"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://www.cdnlogo.com/logos/f/84/facebook.svg"
+                    alt="Facebook"
+                  />
+                </a>
+              </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="d-flex align-items-center">
-                    <img class="rounded-circle" width="30" height="30" src="../src/assets/images/developer/faulogo-cropped.png" alt="Developer logo">
-                    <span class="ms-2">© 2024 Fox All Up</span>
+
+            <div class="col-lg-6" data-aos="fade-left">
+              <h3 class="footer-heading">Contact Information</h3>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="bi bi-person"></i>
+                  <div>
+                    <strong>Imre Buglyó</strong>
+                    <p class="mb-0">Sole Proprietor</p>
+                  </div>
                 </div>
-                <a href="#" class="back-to-top">Back to Top <i class="bi bi-arrow-up"></i></a>
+
+                <div class="contact-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g"
+                    target="_blank"
+                  >
+                    Nagyhegyes, Tulipán utca 22. Magyarország
+                  </a>
+                </div>
+
+                <div class="contact-item">
+                  <i class="bi bi-telephone"></i>
+                  <a href="tel:+36303258956">+36-30/325-89-56</a>
+                </div>
+
+                <div class="contact-item">
+                  <i class="bi bi-envelope"></i>
+                  <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              width="30"
+              height="30"
+              src="../src/assets/images/developer/faulogo-cropped.png"
+              alt="Developer logo"
+            />
+            <span class="ms-2">© 2024 Fox All Up</span>
+          </div>
+          <a href="#" class="back-to-top"
+            >Back to Top <i class="bi bi-arrow-up"></i
+          ></a>
+        </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
@@ -518,47 +1007,73 @@
     <script src="../src/js/language.js"></script>
 
     <script>
-    // Initialize AOS
-    AOS.init({
+      // Initialize AOS
+      AOS.init({
         duration: 800,
-        once: true
-    });
+        once: true,
+      });
 
-    // Theme Toggle Functionality
-    const lightModeBtn = document.getElementById('light-mode-btn');
-    const darkModeBtn = document.getElementById('dark-mode-btn');
-    const htmlElement = document.documentElement;
-    // Check for saved user preference, if any
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+      // Theme Toggle Functionality
+      const lightModeBtn = document.getElementById("light-mode-btn");
+      const darkModeBtn = document.getElementById("dark-mode-btn");
+      const htmlElement = document.documentElement;
+
+      // Check for saved user preference, if any
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
         enableDarkMode();
-    }
-    function enableDarkMode() {
-        htmlElement.classList.add('dark-mode');
-        document.documentElement.setAttribute('data-bs-theme', 'dark');
-        lightModeBtn.classList.remove('active');
-        darkModeBtn.classList.add('active');
-        localStorage.setItem('theme', 'dark');
-    }
-    function enableLightMode() {
-        htmlElement.classList.remove('dark-mode');
-        document.documentElement.setAttribute('data-bs-theme', 'light');
-        darkModeBtn.classList.remove('active');
-        lightModeBtn.classList.add('active');
-        localStorage.setItem('theme', 'light');
-    }
-    lightModeBtn.addEventListener('click', enableLightMode);
-    darkModeBtn.addEventListener('click', enableDarkMode);
+      }
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+      function enableDarkMode() {
+        htmlElement.classList.add("dark-mode");
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+        lightModeBtn.classList.remove("active");
+        darkModeBtn.classList.add("active");
+        localStorage.setItem("theme", "dark");
+      }
+
+      function enableLightMode() {
+        htmlElement.classList.remove("dark-mode");
+        document.documentElement.setAttribute("data-bs-theme", "light");
+        darkModeBtn.classList.remove("active");
+        lightModeBtn.classList.add("active");
+        localStorage.setItem("theme", "light");
+      }
+
+      lightModeBtn.addEventListener("click", enableLightMode);
+      darkModeBtn.addEventListener("click", enableDarkMode);
+
+      // Navbar scroll effect with debounce for better performance
+      let scrollTimer;
+      window.addEventListener("scroll", function () {
+        if (scrollTimer) {
+          clearTimeout(scrollTimer);
         }
-    });
+
+        scrollTimer = setTimeout(function () {
+          const navbar = document.querySelector(".navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        }, 10);
+      });
+
+      // Fix for mobile viewport issues
+      function setMobileViewportProperties() {
+        // Ensure proper viewport width
+        const viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute(
+          "content",
+          "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        );
+      }
+
+      // Call on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        setMobileViewportProperties();
+      });
     </script>
-</body>
+  </body>
 </html>

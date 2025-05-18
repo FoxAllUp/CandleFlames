@@ -1,313 +1,1069 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+<html data-bs-theme="light" class="light-mode">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
+    <title>Candle Flames | Premium Handcrafted Candles</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=chrome'>
-    <title>Candle Flames</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animate on Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        html {
-  scroll-behavior: smooth;
-}
+      /* Theme Variables */
+      :root {
+        /* Light Theme */
+        --primary: #d1a773;
+        --primary-dark: #b38b5b;
+        --secondary: #4a4a4a;
+        --dark: #2c2c2c;
+        --light: #f9f5f1;
+        --light-accent: #e9dfd4;
+        --card-bg: #ffffff;
+        --text-color: #2c2c2c;
+        --table-header: #e9dfd4;
+        --table-border: #e9ecef;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
 
-footer {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+      /* Dark Theme */
+      html.dark-mode {
+        --primary: #e0b984;
+        --primary-dark: #c9a36f;
+        --secondary: #bbbbbb;
+        --dark: #eeeeee;
+        --light: #1a1a1a;
+        --light-accent: #2a2a2a;
+        --card-bg: #292929;
+        --text-color: #e0e0e0;
+        --table-header: #2a2a2a;
+        --table-border: #3a3a3a;
+      }
 
-body {
-    font-family: "Inknut Antiqua", Tofu;
-}
+      /* Base Styles */
+      html {
+        scroll-behavior: smooth;
+      }
 
-        #candleIllustration {
-            opacity: 0.5;
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--light);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        color: var(--text-color);
+        transition: color 0.5s ease;
+      }
+
+      .section-title {
+        position: relative;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: background-color 0.5s ease;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        position: fixed;
+        top: 110px;
+        right: 20px;
+        z-index: 1000;
+        background-color: var(--card-bg);
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 5px;
+        transition: box-shadow 0.3s ease, background-color 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .theme-toggle:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+      }
+
+      .theme-toggle button {
+        background: none;
+        border: none;
+        padding: 8px;
+        border-radius: 50%;
+        margin: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 40px;
+        height: 40px;
+      }
+
+      .theme-toggle button:hover {
+        transform: translateY(-2px);
+      }
+
+      .theme-toggle button.active {
+        background-color: var(--primary);
+      }
+
+      .theme-toggle i {
+        font-size: 1.25rem;
+        color: var(--text-color);
+      }
+
+      .theme-toggle button.active i {
+        color: white;
+      }
+
+      /* Navbar */
+      .navbar {
+        transition: background-color 0.5s ease, padding 0.4s ease;
+        padding: 1rem 0;
+        background-color: var(--light);
+      }
+
+      .navbar.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+      }
+
+      html.dark-mode .navbar {
+        background-color: var(--light);
+      }
+
+      html.dark-mode .navbar.scrolled {
+        background-color: var(--light);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-brand img {
+        transition: var(--transition);
+        width: 60px;
+        height: auto;
+      }
+
+      .navbar.scrolled .navbar-brand img {
+        transform: scale(0.85);
+      }
+
+      .nav-link {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 0 0.5rem;
+        color: var(--text-color) !important;
+        transition: color 0.5s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.4s ease, background-color 0.5s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Mobile Navigation */
+      .navbar-collapse {
+        transition: var(--transition);
+      }
+
+      @media (max-width: 992px) {
+        .navbar-collapse {
+          background-color: var(--card-bg);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          border-radius: 0 0 10px 10px;
+          margin-top: 10px;
+          z-index: 1000;
         }
 
-        #jumbotron-bg {
-            background: url("../src/assets/images/candles2.jpg") no-repeat center center;
-            position: fixed;
-            width: 100%;
-            height: 550px;
-            /*same height as jumbotron */
-            top: 0;
-            left: 0;
-            z-index: +99;
+        .theme-toggle {
+          top: auto;
+          bottom: 20px;
+          right: 20px;
         }
 
-        #jumbotron {
-            height: 550px;
-            color: white;
-            text-shadow: #444 0 1px 1px;
-            background: transparent;
+        .navbar-nav {
+          margin-bottom: 15px;
         }
 
-        .parallax-bg {
-    background-image: url('../src/assets/images/candles2.jpg');
-    background-attachment: fixed;
-    background-position: top;
-    position: relative;
-    z-index: 0; /* Ensure it's behind the content */
-}
+        .navbar {
+          padding: 0.5rem 0;
+        }
 
-.parallax-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75); /* Dark overlay */
-    z-index: -1; /* Ensure it's behind the content */
-}
+        #languageSelector {
+          justify-content: center;
+          margin-top: 10px;
+        }
+      }
 
+      /* Language Selector */
+      .lang-btn {
+        transition: var(--transition);
+        background: none;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        padding: 0.25rem;
+        margin: 0 0.25rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-/* Default footer styles */
-#footer-section {
-  transition: all 0.5s ease-out; /* Smooth transition */
-  transform: scale(1); /* Default size */
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0); /* No shadow */
-  filter: brightness(1); /* Normal brightness */
-}
+      .lang-btn:hover,
+      .lang-btn.active {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-/* Highlighted state */
-#footer-section.highlighted {
-  transform: scale(1.1); /* Slightly enlarge */
-  filter: brightness(1.3); /* Increase brightness */
-}
+      .lang-btn.active {
+        border-color: var(--primary);
+      }
 
-#artistPhoto {
-    object-fit: cover; /* Keeps the aspect ratio */
-    width: 100%;
-    max-height: 100%; /* Makes sure the image height doesn't exceed the height of the text */
-}
-.rowka {
-    display: flex;
-    align-items: flex-start;
-}
+      .lang-btn svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: var(--transition);
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: black;
+        padding-top: 60px;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../src/assets/images/candles2.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 2rem;
+        max-width: 800px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-btn {
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        margin: 0.5rem;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-btn-primary {
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+        color: white;
+      }
+
+      .hero-btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        color: white;
+      }
+
+      .hero-btn-secondary {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .hero-btn-secondary:hover {
+        background-color: white;
+        color: var(--dark);
+      }
+
+      /* About Section */
+      .about-section {
+        padding: 6rem 0;
+        background-color: var(--light);
+        transition: background-color 0.5s ease;
+      }
+
+      .about-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        position: relative;
+      }
+
+      html.dark-mode .about-image {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .about-image:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      html.dark-mode .about-image:hover {
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.03);
+      }
+
+      .about-image::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 70px;
+        height: 70px;
+        border-top: 3px solid var(--primary);
+        border-left: 3px solid var(--primary);
+        transition: all 0.5s ease;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        width: 70px;
+        height: 70px;
+        border-bottom: 3px solid var(--primary);
+        border-right: 3px solid var(--primary);
+        transition: all 0.5s ease;
+      }
+
+      .about-content {
+        padding: 2rem;
+      }
+
+      .about-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary);
+        transition: background-color 0.5s ease;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+
+      .about-signature {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-top: 1.5rem;
+        transition: color 0.5s ease;
+      }
+
+      /* Footer Section */
+      .footer-main {
+        background-color: var(--light-accent);
+        padding: 4rem 0;
+        position: relative;
+        transition: background-color 0.5s ease;
+      }
+
+      .footer-main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--primary),
+          transparent
+        );
+        transition: background 0.5s ease;
+      }
+
+      .footer-heading {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        transition: color 0.5s ease;
+      }
+
+      .footer-content {
+        font-size: 1rem;
+        color: var(--secondary);
+        transition: color 0.5s ease;
+      }
+
+      .contact-info {
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        transition: transform 0.4s ease;
+      }
+
+      .contact-item:hover {
+        transform: translateX(5px);
+      }
+
+      .contact-item i {
+        margin-right: 1rem;
+        color: var(--primary);
+        font-size: 1.2rem;
+        transition: color 0.5s ease;
+      }
+
+      .contact-item a {
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.5s ease;
+        word-break: break-word;
+      }
+
+      .contact-item a:hover {
+        color: var(--primary);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--card-bg);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: var(--transition), background-color 0.5s ease;
+      }
+
+      html.dark-mode .social-link {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        background-color: var(--primary);
+      }
+
+      html.dark-mode .social-link:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .social-link img {
+        width: 22px;
+        height: 22px;
+        transition: var(--transition);
+      }
+
+      .social-link:hover img {
+        filter: brightness(10);
+      }
+
+      .footer-bottom {
+        background-color: var(--dark);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 1rem 0;
+        font-size: 0.9rem;
+        transition: background-color 0.5s ease;
+      }
+
+      html.dark-mode .footer-bottom {
+        background-color: #111;
+      }
+
+      .footer-bottom .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.4s ease;
+      }
+
+      .footer-bottom a:hover {
+        color: white;
+      }
+
+      /* Highlighted footer animation */
+      #footer-section {
+        transition: all 0.5s ease-out;
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+
+      #footer-section.highlighted {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      html.dark-mode #footer-section.highlighted {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .about-image {
+          margin-bottom: 2rem;
+        }
+
+        .hero-section {
+          padding-top: 80px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .footer-main {
+          text-align: center;
+        }
+
+        .contact-item {
+          justify-content: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .hero-section {
+          height: 70vh;
+          padding-top: 60px;
+        }
+
+        .theme-toggle button {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+          margin-top: 1rem;
+        }
+
+        .hero-btn {
+          padding: 0.75rem 1.5rem;
+          margin: 0.25rem;
+        }
+
+        .hero-section {
+          min-height: 500px;
+          height: auto;
+          padding-top: 80px;
+          padding-bottom: 30px;
+        }
+
+        .theme-toggle {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .theme-toggle button {
+          width: 32px;
+          height: 32px;
+          padding: 6px;
+        }
+
+        .footer-bottom .container {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .about-title {
+          font-size: 2rem;
+        }
+
+        .about-text {
+          font-size: 1rem;
+        }
+
+        .navbar-brand img {
+          width: 50px;
+        }
+      }
     </style>
-    <script src='main.js'></script>
-</head>
+  </head>
 
-<body>
-    <section>
-        <nav class="navbar fixed-top navbar-expand-lg bg-black">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="../src/assets/images/logo.png" alt="" width="75px"
-                        height="75px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="../src/assets/images/logo.png" alt="Candle Flames Logo" />
+        </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <h3><a class="nav-link active" aria-current="page" href="./index.html">Bemutatkozás</a></h3>
-                        </li>
-                        <li class="nav-item">
-                            <h3><a class="nav-link" href="./products.html">Termékeim</a></h3>
-                        </li>
-                        <li class="nav-item">
-                            <h3><a class="nav-link" href="./events.html">Aktuális</a></h3>
-                        </li>
-                    </ul>
-                    <div class="d-flex" id="languageSelector">
-                        <button class="btn btn-dark" onclick="changeLanguage('en', event)">
-                            EN<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#f0f0f0" r="256"/><g fill="#d80027"><path d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"/><path d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"/><path d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"/><path d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"/></g><path d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z" fill="#0052b4"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                        </button>
-                        <button class="btn btn-dark active" onclick="changeLanguage('hu', event)">
-                            HU<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z" fill="#f0f0f0"/><path d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z" fill="#d80027"/><path d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z" fill="#6da544"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                        </button>
-                        <button class="btn btn-dark" onclick="changeLanguage('de', event)">
-                            DE<svg class="w-12 h-12" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z" fill="#ffda44"/><path d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"/><path d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z" fill="#d80027"/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Bemutatkozás</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./products.html">Termékeim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./events.html">Aktuális</a>
+            </li>
+          </ul>
+
+          <div class="d-flex" id="languageSelector">
+            <button
+              class="lang-btn active"
+              onclick="changeLanguage('en', event)"
+            >
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="256" cy="256" fill="#f0f0f0" r="256" />
+                <g fill="#d80027">
+                  <path
+                    d="m244.87 256h267.13c0-23.106-3.08-45.49-8.819-66.783h-258.311z"
+                  />
+                  <path
+                    d="m244.87 122.435h229.556c-15.671-25.572-35.708-48.175-59.07-66.783h-170.486z"
+                  />
+                  <path
+                    d="m256 512c60.249 0 115.626-20.824 159.356-55.652h-318.712c43.73 34.828 99.107 55.652 159.356 55.652z"
+                  />
+                  <path
+                    d="m37.574 389.565h436.852c12.581-20.529 22.338-42.969 28.755-66.783h-494.362c6.417 23.814 16.174 46.254 28.755 66.783z"
+                  />
+                </g>
+                <path
+                  d="m118.584 39.978h23.329l-21.7 15.765 8.289 25.509-21.699-15.765-21.699 15.765 7.16-22.037c-19.106 15.915-35.852 34.561-49.652 55.337h7.475l-13.813 10.035c-2.152 3.59-4.216 7.237-6.194 10.938l6.596 20.301-12.306-8.941c-3.059 6.481-5.857 13.108-8.372 19.873l7.267 22.368h26.822l-21.7 15.765 8.289 25.509-21.699-15.765-12.998 9.444c-1.301 10.458-1.979 21.11-1.979 31.921h256c0-141.384 0-158.052 0-256-50.572 0-97.715 14.67-137.416 39.978zm9.918 190.422-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm100.115 100.083-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822l-21.7 15.765zm-8.289-100.083 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822zm0-74.574 8.289 25.509-21.699-15.765-21.699 15.765 8.289-25.509-21.7-15.765h26.822l8.288-25.509 8.288 25.509h26.822z"
+                  fill="#0052b4"
+                />
+              </svg>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('hu', event)">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m15.923 166.957c-10.29 27.734-15.923 57.729-15.923 89.043s5.633 61.311 15.923 89.043l240.077 22.261 240.077-22.261c10.29-27.732 15.923-57.729 15.923-89.043s-5.633-61.309-15.923-89.043l-240.077-22.261z"
+                  fill="#f0f0f0"
+                />
+                <path
+                  d="m256 0c-110.07 0-203.906 69.472-240.076 166.957h480.155c-36.173-97.485-130.007-166.957-240.079-166.957z"
+                  fill="#d80027"
+                />
+                <path
+                  d="m256 512c110.072 0 203.906-69.472 240.078-166.957h-480.154c36.17 97.485 130.006 166.957 240.076 166.957z"
+                  fill="#6da544"
+                />
+              </svg>
+            </button>
+            <button class="lang-btn" onclick="changeLanguage('de', event)">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="m15.923 345.043c36.171 97.484 130.006 166.957 240.077 166.957s203.906-69.473 240.077-166.957l-240.077-22.26z"
+                  fill="#ffda44"
+                />
+                <path
+                  d="m256 0c-110.071 0-203.906 69.472-240.077 166.957l240.077 22.26 240.077-22.261c-36.171-97.484-130.006-166.956-240.077-166.956z"
+                />
+                <path
+                  d="m15.923 166.957c-10.29 27.733-15.923 57.729-15.923 89.043s5.633 61.31 15.923 89.043h480.155c10.29-27.733 15.922-57.729 15.922-89.043s-5.632-61.31-15.923-89.043z"
+                  fill="#d80027"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <button id="light-mode-btn" class="active">
+        <i class="bi bi-sun-fill"></i>
+      </button>
+      <button id="dark-mode-btn">
+        <i class="bi bi-moon-fill"></i>
+      </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title" data-aos="fade-down">Candle Flames</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          Kézműves gyertyák, amelyek nemcsak fényt adnak, hanem melegséget és harmóniát varázsolnak minden pillanatra. Fedezd fel a természetes illatokat, a minőségi anyagokat és a tökéletesen megkomponált fényt, hogy otthonodban a legszebb pillanatokat éld át!
+        </p>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <a href="./products.html" class="btn hero-btn hero-btn-primary"
+            >Termékeim</a
+          >
+          <a
+            href="#footer-section"
+            class="btn hero-btn hero-btn-secondary"
+            id="contactButton"
+            >Kapcsolat</a
+          >
+        </div>
+      </div>
     </section>
-    <section id="mainContent" class="bg-dark bg-gradient">
-        <div class="parallax-bg bg-dark text-secondary px-4 py-5 text-center border-bottom border-black">
-            <div class="py-5">
-              <h1 class="display-5 fw-bold text-warning">Candle Flames</h1>
-              <div class="col-lg-6 mx-auto">
-                <p class="fs-5 mb-4 text-white"><i>Kézműves gyertyák, amelyek nemcsak fényt adnak, hanem melegséget és harmóniát varázsolnak minden pillanatra. Fedezd fel a természetes illatokat, a minőségi anyagokat és a tökéletesen megkomponált fényt, hogy otthonodban a legszebb pillanatokat éld át!</i></p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <a href="./products.html" type="button" class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Termékeink</a>
-                  <a href="#footer-section" class="btn btn-outline-light btn-lg px-4" id="contactButton">Kapcsolat</a>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">Bemutatkozás</h2>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-image">
+              <img
+                src="../src/assets/images/artist_photo.jpg"
+                alt="Artist Photo"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-content">
+              <h3 class="about-title">Kézművességünk</h3>
+              <p class="about-text">
+                Cégünk gyertyakészítéssel foglalkozik, melyek díszítőelemként és hagyományos értelemben is használhatók. Bármilyen célra is legyen szükség, a szivárvány minden színében és különféle formákban megtalálhatóak nálunk.
+              </p>
+              <p class="about-text">
+                Egyedi rendelések illatos változatban is elérhetők. Minden termékünk kézzel készül, így garantáltan nem talál két teljesen egyformát. Sokéves szakmai tapasztalattal igyekszünk maradéktalanul kielégíteni vásárlóink igényeit. Forduljon hozzánk bizalommal!
+              </p>
+              <div class="about-signature">Buglyó Imre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-main" id="footer-section">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right">
+              <h3 class="footer-heading">Jelenlétünk
+                <p class="footer-content">
+                  Cégünk és termékeink nemcsak weboldalunkon érhetők el, hanem az alábbi közösségi média platformokon is! Keressen minket egyéb elérhetőségeinken is!
+                </p>
+              <div class="social-links">
+                <a
+                  href="https://www.tiktok.com/"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"
+                    alt="TikTok"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://static.cdnlogo.com/logos/i/4/instagram.svg"
+                    alt="Instagram"
+                  />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61552556406961"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <img
+                    src="https://www.cdnlogo.com/logos/f/84/facebook.svg"
+                    alt="Facebook"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+              <h3 class="footer-heading">Kapcsolat</h3>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="bi bi-person"></i>
+                  <div>
+                    <strong>Buglyó Imre</strong>
+                    <p class="mb-0">Egyéni vállalkozó</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g"
+                    target="_blank"
+                  >
+                    Nagyhegyes, Tulipán utca 22. Magyarország
+                  </a>
+                </div>
+
+                <div class="contact-item">
+                  <i class="bi bi-telephone"></i>
+                  <a href="tel:+36303258956">+36-30/325-89-56</a>
+                </div>
+
+                <div class="contact-item">
+                  <i class="bi bi-envelope"></i>
+                  <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
                 </div>
               </div>
             </div>
           </div>
-<br>
-<br>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
         <div class="container">
-            <div class="page-header d-flex justify-content-around">
-                <span class="h1 align-middle">
-                    <strong>BEMUTATKOZÁS</strong>
-                </span>
-            </div>
-            <br>
-
-            <!--                     <img id="candleIllustration" class="col-6" src="../src/assets/images/DSC7218.jpg" alt="candleIllustration">
- -->
-            <!--                        
- <div class="h5 text-stroked">
-<p>
-                            Engedje meg, hogy bemutassam Önnek a CandleFlames világát – ahol a gyertya nem csupán egy fényforrás, hanem egy valódi műalkotás, amely megformálja és varázslatossá teszi az Ön környezetét. Buglyó Imre, a CandleFlames alapítója és vezetője, és örömmel osztom meg Önnel szenvedélyünket a gyertyakészítés művészetében.
-                        </p>
-                        <p>
-            A CandleFlames-nél minden egyes gyertya a kreativitás és a precizitás találkozása. Cégünk küldetése, hogy a gyertyákat ne csak egyszerű díszként, hanem az Ön életének elengedhetetlen részévé tegyük. Mi hiszünk abban, hogy a gyertya lehet egy szimbolikus ajándék, egy otthonos hangulatot teremtő elem, vagy éppen egy különleges alkalom megkoronázó részlete – a lehetőségek határtalanok, és mi mindegyiket kiaknázzuk, hogy az Ön elképzeléseit a legmagasabb színvonalon valósítsuk meg.
-                        </p>
-                        <p>
-            Széles választékunkban megtalálhatók a klasszikus, időtlen gyertyák, melyek a hagyományos eleganciát képviselik, valamint a legmodernebb, trendi formák és színek, amelyek frissességet és dinamizmust hoznak az Ön térbe. A CandleFlames gyertyáit a szivárvány minden színében kínáljuk, lehetővé téve, hogy bármely térben vagy alkalomban tökéletes harmóniát teremtsen.
-                        </p>
-                        <p>
-            Mi, a CandleFlames-nél, különös figyelmet fordítunk arra, hogy minden egyes termékünket kézzel készítsük, ami garantálja a teljes egyediséget és a prémium minőséget. Minden gyertya egy-egy mestermű, amely a szakértelem és a szeretet kombinációjából születik. A kézműves technikánk lehetővé teszi, hogy minden darab különböző legyen, így Ön biztos lehet benne, hogy az, amit kap, valóban egyedi és megismételhetetlen.
-                        </p>
-                        <p>
-            Ha Ön különleges igényekkel rendelkezik, örömmel kínálunk illatosított gyertyákat is, amelyek nemcsak látványban, hanem illatukkal is gazdagítják a teret. Legyen szó egy romantikus vacsoráról, egy ünnepi eseményről vagy egyszerűen a mindennapi élet szebbé tételéről, nálunk minden alkalomra megtalálja az ideális választást.
-                        </p>
-                        <p>
-            Több éves szakmai tapasztalattal és elkötelezett csapattal állunk rendelkezésére, hogy minden igényt teljesítsünk és minden elképzelést valóra váltsunk. A CandleFlames nem csupán gyertya, hanem egy élmény, egy hangulat, és egy művészi kifejezés.
-                        </p>
-                        <p>
-            Ne habozzon kapcsolatba lépni velünk, hiszen mi itt vagyunk, hogy az Ön egyedi elképzeléseit a legmagasabb szinten valósítsuk meg. Várjuk szeretettel a megkeresését, és bízunk benne, hogy a CandleFlames gyertyái hozzájárulnak majd az Ön életének minden fontos pillanatához!
-                        </p>
-                        </div>
- -->
-            <div class="container">
-                <div class="rowka row d-flex justify-content-between">
-                    <div class="h4 col-12 col-md-6 order-2 order-md-2">
-                        <figure>
-                            <blockquote class="blockquote">
-                              <p class="h4">Cégem gyertyakészítéssel foglalkozik, amelyek egyaránt alkalmazhatóak
-                                dekorációs elemként vagy hagyományos értelmükben. Bármilyen célból is szeretné használni, nálunk
-                                a szivárvány minden színében, és különbféle formákban megtalálhatja, amire szüksége van. Egyedi
-                                rendelés esetén illatosított formában is elérhetőek. Minden termékünk egyedileg kézzel készül,
-                                ami által biztosra veheti, hogy nem talál két teljesen egyforma terméket. Több éves szakmai
-                                tapasztalatunkkal arra törekszünk, hogy vásárlóink igényeit maximálisan kielégítsük. Forduljon
-                                hozzánk bizalommal!</p>
-                            </blockquote>
-                            <br>
-                            <figcaption class="blockquote-footer">
-                              <i> Buglyó Imre</i>
-                            </figcaption>
-                          </figure>
-                    </div>
-                    <div class="col-12 col-md-6 order-1 order-md-1 d-flex">
-                        <img id="artistPhoto" class="img-fluid shadow-lg bg-body rounded-3 border border-white border-2" src="../src/assets/images/artist_photo.jpg"
-                            alt="Artist photo">
-                    </div>
-                </div>
-            </div>
-            <br>
+          <div class="d-flex align-items-center">
+            <img
+              class="rounded-circle"
+              width="30"
+              height="30"
+              src="../src/assets/images/developer/faulogo-cropped.png"
+              alt="Developer logo"
+            />
+            <span class="ms-2">© 2024 Fox All Up</span>
+          </div>
+          <a href="#" class="back-to-top"
+            >Vissza az oldal tetejére <i class="bi bi-arrow-up"></i
+          ></a>
         </div>
-    </section>
-    <br>
-    <br>
-    <section>
-        <div
-        id="footer-section" class="d-flex border-top border-black flex-wrap justify-content-around align-items-center py-3 bg-warning-subtle bg-gradient text-warning-emphasis bottom">
-            <div class="col-md-4 d-flex align-items-center order-1">
-                <span class="mb-3 mb-md-0">
-                    <div class="container">
-                        <p class="h3">
-                        Cégünket és termékeinket nem csak weboldalunkon, hanem az alábbi „social media” felületeken is
-                        elérheti!
-                        Keressen bennünket egyéb elérhetőségeinken is!
-                    </p>
-                    </div>
-                </span>
-            </div>
-            <div class="nav col-md-4 justify-content-end d-flex order-2">
-                <div>
-                    <p class="h3">
-                        Buglyó Imre
-                    </p>
-                    <p>
-                        Egyéni vállalkozó
-                    </p>
-                    <hr>
-                    <p>
-                        <i class="bi bi-geo-alt-fill"></i> <a href="https://www.google.com/maps/search/?api=1&query=Nagyhegyes,+Tulip%C3%A1n+utca+22,+Magyarorsz%C3%A1g" target="_blank">
-                            Nagyhegyes, Tulipán utca 22. Magyarország
-                          </a>
-                    </p>
-                    <p>
-                        <i class="bi bi-telephone-fill"></i> <a href="tel:+36303258956">+36-30/325-89-56</a>
-                    </p>
-                    <p>
-                        <i class="bi bi-envelope-fill"></i> <a href="mailto:bugimi83@gmail.com">bugimi83@gmail.com</a>
-                    </p>
-                    <p>
+      </div>
+    </footer>
 
-                        
-                            <a class="text-body-secondary" href="https://www.tiktok.com/" target="_blank"><img
-                                        class="bi" width="50" height="50"
-                                        src="https://www.cdnlogo.com/logos/t/6/tiktok-app-icon.svg"></a>
-                            <a class="text-body-secondary" href="https://www.instagram.com/" target="_blank"><img
-                                        class="bi" width="50" height="50"
-                                        src="https://static.cdnlogo.com/logos/i/4/instagram.svg"></a>
-                            <a class="text-body-secondary"
-                                    href="https://www.facebook.com/profile.php?id=61552556406961" target="_blank"><img class="bi"
-                                        width="50" height="50" src="https://www.cdnlogo.com/logos/f/84/facebook.svg"></a>
-                        
-
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <footer class="d-flex flex-wrap py-3 border-top border-black bg-black bottom bg-gradient container-fluid">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="#" class="mb-3 me-2 mb-md-0 text-decoration-none lh-1">
-                    <img class="rounded-circle" width="37.5" height="37.5" src="../src/assets/images/developer/faulogo-cropped.png" />
-                </a>
-                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Fox All Up</span>
-            </div>
-        </footer>
-    </section>
-    <script>
-        // Get the button and the footer section elements
-  const contactButton = document.getElementById('contactButton');
-  const footer = document.getElementById('footer-section');
-
-  // Add a click event listener to the button
-  contactButton.addEventListener('click', function () {
-    // Add the 'highlighted' class to the footer when the button is clicked
-    footer.classList.add('highlighted');
-    
-    // Optional: Scroll the page to the footer section after the button is clicked
-    footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // Optionally, remove the highlight after a few seconds (so it doesn't stay highlighted forever)
-    setTimeout(() => {
-      footer.classList.remove('highlighted');
-    }, 750); // Removes the highlight after 2 seconds
-  });  
-    </script>
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../src/js/language.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</body>
 
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Theme Toggle Functionality
+      const lightModeBtn = document.getElementById("light-mode-btn");
+      const darkModeBtn = document.getElementById("dark-mode-btn");
+      const htmlElement = document.documentElement;
+
+      // Check for saved user preference, if any
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        enableDarkMode();
+      }
+
+      function enableDarkMode() {
+        htmlElement.classList.add("dark-mode");
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+        lightModeBtn.classList.remove("active");
+        darkModeBtn.classList.add("active");
+        localStorage.setItem("theme", "dark");
+      }
+
+      function enableLightMode() {
+        htmlElement.classList.remove("dark-mode");
+        document.documentElement.setAttribute("data-bs-theme", "light");
+        darkModeBtn.classList.remove("active");
+        lightModeBtn.classList.add("active");
+        localStorage.setItem("theme", "light");
+      }
+
+      lightModeBtn.addEventListener("click", enableLightMode);
+      darkModeBtn.addEventListener("click", enableDarkMode);
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Contact button highlight effect
+      const contactButton = document.getElementById("contactButton");
+      const footer = document.getElementById("footer-section");
+
+      contactButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        footer.classList.add("highlighted");
+
+        footer.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        setTimeout(() => {
+          footer.classList.remove("highlighted");
+        }, 1000);
+      });
+    </script>
+  </body>
 </html>
